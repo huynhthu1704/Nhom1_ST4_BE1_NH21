@@ -274,7 +274,7 @@
 				<!-- section title -->
 				<div class="col-md-12">
 					<div class="section-title">
-						<h3 class="title">LAPTOPS</h3>
+						<h3 class="title">Top selling</h3>
 						<div class="section-nav">
 							<ul class="section-tab-nav tab-nav">
 								<li class="active"><a data-toggle="tab" href="#tab2">Smartphones</a></li>
@@ -298,8 +298,8 @@
 							<div id="tab2" class="tab-pane fade in active">
 								<div class="products-slick" data-nav="#slick-nav-2">
 									<?php 
-									$laptops = $product->getLaptops();
-										foreach ($laptops as $value) {
+									$laptop = $product->getLaptops();
+										foreach ($laptop as $value) {
 									?>
 									<!-- product -->
 									<div class="product">
