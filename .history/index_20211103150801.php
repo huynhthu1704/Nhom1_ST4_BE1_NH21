@@ -23,7 +23,7 @@
 				<div class="col-md-4 col-xs-6">
 					<div class="shop">
 						<div class="shop-img">
-							<img src="./img/lg-gram-17-i7-17z90pgah78a5-3-600x600.jpg" alt="">
+							<img src="./img/acer-swift-3-sf313-53-518y-i5-nxa4jsv003-1-org.jpg" alt="">
 						</div>
 						<div class="shop-body">
 							<h3>Laptop<br>Collection</h3>
@@ -66,12 +66,10 @@
 						<h3 class="title">New Products</h3>
 						<div class="section-nav">
 							<ul class="section-tab-nav tab-nav">
-								<li class="active"><a data-toggle="tab" href="#tab1">Smartphones</a></li>
-								<li><a data-toggle="tab" href="#tab1">Laptops</a></li>
-								<li><a data-toggle="tab" href="#tab1">Smart Watches</a></li>
-								<li><a data-toggle="tab" href="#tab1">TV</a></li>
-								<li><a data-toggle="tab" href="#tab1">Tablets</a></li>
-								<li><a data-toggle="tab" href="#tab1">Printers</a></li>
+								<li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>
+								<li><a data-toggle="tab" href="#tab1">Smartphones</a></li>
+								<li><a data-toggle="tab" href="#tab1">Cameras</a></li>
+								<li><a data-toggle="tab" href="#tab1">Accessories</a></li>
 							</ul>
 						</div>
 					</div>
@@ -93,6 +91,7 @@
 									<div class="product">
 										<div class="product-img">
 											<img src="./img/<?php echo $value['pro_image']?>" alt="">
+											
 										</div>
 										<div class="product-body">
 											<p class="product-category">Category</p>
@@ -191,12 +190,10 @@
 						<h3 class="title">Top selling</h3>
 						<div class="section-nav">
 							<ul class="section-tab-nav tab-nav">
-								<li class="active"><a data-toggle="tab" href="#tab2">Smartphones</a></li>
-								<li><a data-toggle="tab" href="#tab2">Laptops</a></li>
-								<li><a data-toggle="tab" href="#tab2">Smart Watches</a></li>
-								<li><a data-toggle="tab" href="#tab2">TV</a></li>
-								<li><a data-toggle="tab" href="#tab2">Tablets</a></li>
-								<li><a data-toggle="tab" href="#tab2">Printers</a></li>
+								<li class="active"><a data-toggle="tab" href="#tab2">Laptops</a></li>
+								<li><a data-toggle="tab" href="#tab2">Smartphones</a></li>
+								<li><a data-toggle="tab" href="#tab2">Cameras</a></li>
+								<li><a data-toggle="tab" href="#tab2">Accessories</a></li>
 							</ul>
 						</div>
 					</div>

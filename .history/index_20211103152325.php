@@ -194,6 +194,7 @@
 								<li class="active"><a data-toggle="tab" href="#tab2">Smartphones</a></li>
 								<li><a data-toggle="tab" href="#tab2">Laptops</a></li>
 								<li><a data-toggle="tab" href="#tab2">Smart Watches</a></li>
+								<li><a data-toggle="tab" href="#tab2">Smart Watches</a></li>
 								<li><a data-toggle="tab" href="#tab2">TV</a></li>
 								<li><a data-toggle="tab" href="#tab2">Tablets</a></li>
 								<li><a data-toggle="tab" href="#tab2">Printers</a></li>

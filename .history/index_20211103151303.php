@@ -69,6 +69,7 @@
 								<li class="active"><a data-toggle="tab" href="#tab1">Smartphones</a></li>
 								<li><a data-toggle="tab" href="#tab1">Laptops</a></li>
 								<li><a data-toggle="tab" href="#tab1">Smart Watches</a></li>
+								<li><a data-toggle="tab" href="#tab1">Smart Watches</a></li>
 								<li><a data-toggle="tab" href="#tab1">TV</a></li>
 								<li><a data-toggle="tab" href="#tab1">Tablets</a></li>
 								<li><a data-toggle="tab" href="#tab1">Printers</a></li>
@@ -93,6 +94,7 @@
 									<div class="product">
 										<div class="product-img">
 											<img src="./img/<?php echo $value['pro_image']?>" alt="">
+											
 										</div>
 										<div class="product-body">
 											<p class="product-category">Category</p>
@@ -191,12 +193,13 @@
 						<h3 class="title">Top selling</h3>
 						<div class="section-nav">
 							<ul class="section-tab-nav tab-nav">
-								<li class="active"><a data-toggle="tab" href="#tab2">Smartphones</a></li>
-								<li><a data-toggle="tab" href="#tab2">Laptops</a></li>
-								<li><a data-toggle="tab" href="#tab2">Smart Watches</a></li>
-								<li><a data-toggle="tab" href="#tab2">TV</a></li>
-								<li><a data-toggle="tab" href="#tab2">Tablets</a></li>
-								<li><a data-toggle="tab" href="#tab2">Printers</a></li>
+								<li class="active"><a data-toggle="tab" href="#tab1">Smartphones</a></li>
+								<li><a data-toggle="tab" href="#tab1">Laptops</a></li>
+								<li><a data-toggle="tab" href="#tab1">Smart Watches</a></li>
+								<li><a data-toggle="tab" href="#tab1">Smart Watches</a></li>
+								<li><a data-toggle="tab" href="#tab1">TV</a></li>
+								<li><a data-toggle="tab" href="#tab1">Tablets</a></li>
+								<li><a data-toggle="tab" href="#tab1">Printers</a></li>
 							</ul>
 						</div>
 					</div>
