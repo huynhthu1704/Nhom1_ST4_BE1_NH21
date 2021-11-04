@@ -70,7 +70,7 @@ $product = new Product();
 						<div class="col-md-3">
 							<div class="header-logo">
 								<a href="#" class="logo">
-									<img src="./img/logo1.png" alt="">
+									<img src="./img/logo.png" alt="">
 								</a>
 							</div>
 						</div>
@@ -180,14 +180,14 @@ $product = new Product();
 				<div id="responsive-nav">
 					<!-- NAV -->
 					<ul class="main-nav nav navbar-nav">
-						<li class="active"><a href="#">Home</a></li>
-						<li><a href="#">Hot Deals</a></li>
-						<li><a href="#">Smartphones</a></li>
-						<li><a href="#">Laptops</a></li>
-						<li><a href="#">Smart Watches</a></li>
-						<li><a href="#">TV</a></li>
-						<li><a href="#">Tablets</a></li>
-						<li><a href="#">Printers</a></li>
+						<li class="active"><a href="index.php">Home</a></li>
+						<li><a href="">Hot Deals</a></li>
+						<li><a href="cate_product?type_id=1" >Smartphones</a></li>
+						<li><a href="cate_product?type_id=2">Laptops</a></li>
+						<li><a href="cate_product?type_id=3">Smart Watches</a></li>
+						<li><a href="cate_product?type_id=4">TV</a></li>
+						<li><a href="cate_product?type_id=5">Tablets</a></li>
+						<li><a href="cate_product?type_id=6">Printers</a></li>
 					</ul>
 					<!-- /NAV -->
 				</div>
