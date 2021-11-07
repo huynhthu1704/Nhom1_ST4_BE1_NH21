@@ -40,7 +40,7 @@
 							<img src="./img/Xiaomi Mi Watch Lite.jpg" alt="">
 						</div>
 						<div class="shop-body">
-							<h3>Smart Watch<br>Collection</h3>
+							<h3>Smartwatches<br>Collection</h3>
 							<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
 						</div>
 					</div>
@@ -66,13 +66,12 @@
 						<h3 class="title">New Products</h3>
 						<div class="section-nav">
 							<ul class="section-tab-nav tab-nav">
-								<li class="active"><a data-toggle="tab" href="#tab1">Smartphones</a></li>
-								<li><a data-toggle="tab" href="#tab1">Laptops</a></li>
-								<li><a data-toggle="tab" href="#tab1">Smart Watches</a></li>
-								<li><a data-toggle="tab" href="#tab1">Smart Watches</a></li>
-								<li><a data-toggle="tab" href="#tab1">TV</a></li>
-								<li><a data-toggle="tab" href="#tab1">Tablets</a></li>
-								<li><a data-toggle="tab" href="#tab1">Printers</a></li>
+								<li class="active"><a data-toggle="tab" href="cate_product.php?type_id=1">Smartphones</a></li>
+								<li><a data-toggle="tab" href="">Laptops</a></li>
+								<li><a data-toggle="tab" href="">Smartwatches</a></li>
+								<li><a data-toggle="tab" href="">TV</a></li>
+								<li><a data-toggle="tab" href="">Tablets</a></li>
+								<li><a data-toggle="tab" href="">Printers</a></li>
 							</ul>
 						</div>
 					</div>
@@ -195,8 +194,7 @@
 							<ul class="section-tab-nav tab-nav">
 								<li class="active"><a data-toggle="tab" href="#tab2">Smartphones</a></li>
 								<li><a data-toggle="tab" href="#tab2">Laptops</a></li>
-								<li><a data-toggle="tab" href="#tab2">Smart Watches</a></li>
-								<li><a data-toggle="tab" href="#tab2">Smart Watches</a></li>
+								<li><a data-toggle="tab" href="#tab2">Smartwatches</a></li>
 								<li><a data-toggle="tab" href="#tab2">TV</a></li>
 								<li><a data-toggle="tab" href="#tab2">Tablets</a></li>
 								<li><a data-toggle="tab" href="#tab2">Printers</a></li>
@@ -279,8 +277,7 @@
 							<ul class="section-tab-nav tab-nav">
 								<li class="active"><a data-toggle="tab" href="#tab2">Smartphones</a></li>
 								<li><a data-toggle="tab" href="#tab2">Laptops</a></li>
-								<li><a data-toggle="tab" href="#tab2">Smart Watches</a></li>
-								<li><a data-toggle="tab" href="#tab2">Smart Watches</a></li>
+								<li><a data-toggle="tab" href="#tab2">Smartwatches</a></li>
 								<li><a data-toggle="tab" href="#tab2">TV</a></li>
 								<li><a data-toggle="tab" href="#tab2">Tablets</a></li>
 								<li><a data-toggle="tab" href="#tab2">Printers</a></li>

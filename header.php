@@ -84,7 +84,6 @@ $product = new Product();
 										<option value="0">All Categories</option>
 										<option value="1">Smartphone</option>
 										<option value="2">Laptop</option>
-										<option value="3">Smart Watch</option>
 										<option value="4">TV</option>
 										<option value="5">Tablet</option>
 										<option value="6">Printer</option>
@@ -184,7 +183,7 @@ $product = new Product();
 						<li><a href="">Hot Deals</a></li>
 						<li><a href="cate_product?type_id=1" >Smartphones</a></li>
 						<li><a href="cate_product?type_id=2">Laptops</a></li>
-						<li><a href="cate_product?type_id=3">Smart Watches</a></li>
+						<li><a href="cate_product?type_id=3">Smartwatches</a></li>
 						<li><a href="cate_product?type_id=4">TV</a></li>
 						<li><a href="cate_product?type_id=5">Tablets</a></li>
 						<li><a href="cate_product?type_id=6">Printers</a></li>
