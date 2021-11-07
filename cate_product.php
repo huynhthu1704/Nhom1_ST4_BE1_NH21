@@ -39,9 +39,8 @@
                         $dem=0;
 						foreach($name as $value){
 					?>
-                        <div class="input-checkbox">
-                            <input type="checkbox"id="<?php echo $value['manu_id'] ?>">
-                            <label for="<?php echo $value['manu_id'] ?>">
+                        <div class="list-item checkbox">
+                        <label><input type="checkbox" value="<?php echo $value['manu_id']; ?>" id="<?php echo $value['manu_id']; ?>">
                                 <span></span>
                                 <?php echo $value['manu_name'];?>
                                 <small> <?php echo "(".$count[$dem]['dem'].")"; $dem=$dem+1;?> </small>

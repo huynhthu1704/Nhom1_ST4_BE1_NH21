@@ -45,9 +45,19 @@ class Product extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
-    public function search($keyword)
+    public function searchAll($keyword)
     {
         $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `name` LIKE ?");
+        $keyword = "%$keyword%";
+        $sql->bind_param("s",$keyword);
+        $sql->execute();
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items;
+    }
+    public function searchNameAndID($keyword, $type_id)
+    {
+        $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `name` LIKE ? AND `type_id` LIKE $type_id");
         $keyword = "%$keyword%";
         $sql->bind_param("s",$keyword);
         $sql->execute();

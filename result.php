@@ -1,4 +1,4 @@
-<?php include "header.php";?>
+<?php include "header.php"; ?>
 
 <!-- BREADCRUMB -->
 <div id="breadcrumb" class="section">
@@ -29,25 +29,26 @@
         <div class="row">
             <!-- ASIDE -->
             <div id="aside" class="col-md-3">
-                 <!-- aside Widget -->
-				 <div class="aside">
+                <!-- aside Widget -->
+                <div class="aside">
                     <h3 class="aside-title">Brand</h3>
                     <div class="checkbox-filter">
-					<?php 
-						$name= $product->getManufacturesName();
+                        <?php
+                        $name = $product->getManufacturesName();
                         $count = $product->getCountProduct();
-                        $dem=0;
-						foreach($name as $value){
-					?>
-                        <div class="input-checkbox">
-                            <input type="checkbox"id="<?php echo $value['manu_id'] ?>" action="result.php" value="<?php  echo $dem+1 ?>">
-                            <label for="<?php echo $value['manu_id'] ?>">
-                                <span></span>
-                                <?php echo $value['manu_name']; ?>
-                                <small> <?php echo "(".$count[$dem]['dem'].")"; $dem=$dem+1;?> </small>
-                            </label>
-                        </div>
-						<?php }?>
+                        $dem = 0;
+                        foreach ($name as $value) {
+                        ?>
+                            <div class="input-checkbox">
+                                <input type="checkbox" id="<?php echo $value['manu_id'] ?>" action="result.php" value="<?php echo $dem + 1 ?>">
+                                <label for="<?php echo $value['manu_id'] ?>">
+                                    <span></span>
+                                    <?php echo $value['manu_name']; ?>
+                                    <small> <?php echo "(" . $count[$dem]['dem'] . ")";
+                                            $dem = $dem + 1; ?> </small>
+                                </label>
+                            </div>
+                        <?php } ?>
                     </div>
                 </div>
                 <!-- /aside Widget -->
@@ -141,46 +142,89 @@
 
                 <!-- store products -->
                 <div class="row">
-                    <?php 
-                    if (isset($_GET['keyword'])) {
-                        $search = $product->search($_GET['keyword']);
-                        foreach ($search as $value) {
+                    <?php
+                    if (isset($_GET['submit'])) {
+                        $id = $_GET['id'];
+                        if ($id == 0) {
+                            $search = $product->searchAll($_GET['keyword']);
+                            foreach ($search as $value) {
                     ?>
-                    <!-- product -->
-                    <div class="col-md-4 col-xs-6">
-                        <div class="product">
-                            <div class="product-img">
-                                <img src="./img/<?php echo $value['pro_image'];?>" alt="">
-                                <div class="product-label">
-                                    <span class="sale">-30%</span>
-                                    <span class="new">NEW</span>
+                                <!-- product -->
+                                <div class="col-md-4 col-xs-6">
+                                    <div class="product">
+                                        <div class="product-img">
+                                            <img src="./img/<?php echo $value['pro_image']; ?>" alt="">
+                                            <div class="product-label">
+                                                <span class="sale">-30%</span>
+                                                <span class="new">NEW</span>
+                                            </div>
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">Category</p>
+                                            <h3 class="product-name"><a href="#"><?php echo $value['name']; ?></a></h3>
+                                            <h4 class="product-price"><?php echo number_format($value['price']); ?> <del class="product-old-price">$990.00</del></h4>
+                                            <div class="product-rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                            <div class="product-btns">
+                                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+                                                <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                            </div>
+                                        </div>
+                                        <div class="add-to-cart">
+                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /product -->
+                                <div class="clearfix visible-sm visible-xs"></div>
+                        <?php }
+                        } ?>
+                        <?php 
+                        $search = $product->searchNameAndID($_GET['keyword'],$_GET['id']);
+                        foreach ($search as $value) {
+                ?>
+                            <!-- product -->
+                            <div class="col-md-4 col-xs-6">
+                                <div class="product">
+                                    <div class="product-img">
+                                        <img src="./img/<?php echo $value['pro_image']; ?>" alt="">
+                                        <div class="product-label">
+                                            <span class="sale">-30%</span>
+                                            <span class="new">NEW</span>
+                                        </div>
+                                    </div>
+                                    <div class="product-body">
+                                        <p class="product-category">Category</p>
+                                        <h3 class="product-name"><a href="#"><?php echo $value['name']; ?></a></h3>
+                                        <h4 class="product-price"><?php echo number_format($value['price']); ?> <del class="product-old-price">$990.00</del></h4>
+                                        <div class="product-rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <div class="product-btns">
+                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+                                            <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+                                            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                        </div>
+                                    </div>
+                                    <div class="add-to-cart">
+                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="product-body">
-                                <p class="product-category">Category</p>
-                                <h3 class="product-name"><a href="#"><?php echo $value['name'];?></a></h3>
-                                <h4 class="product-price"><?php echo number_format($value['price']);?> <del class="product-old-price">$990.00</del></h4>
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <div class="product-btns">
-                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                </div>
-                            </div>
-                            <div class="add-to-cart">
-                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /product -->
-                    <div class="clearfix visible-sm visible-xs"></div>
-                    <?php } ?>
+                            <!-- /product -->
+                            <div class="clearfix visible-sm visible-xs"></div>
+                    <?php }
+                     ?>
                     <?php } ?>
                 </div>
                 <!-- /store products -->
@@ -206,4 +250,4 @@
 </div>
 <!-- /SECTION -->
 
-<?php include "footer.php";?>
+<?php include "footer.php"; ?>
