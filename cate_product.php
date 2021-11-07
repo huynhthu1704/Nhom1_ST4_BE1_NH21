@@ -158,7 +158,7 @@
                                 </div>
                             </div>
                             <div class="product-body">
-                                <p class="product-category">Category</p>
+                                <p class="product-category"><?php echo $product->getTypeName($value['type_id']) ?></p>
                                 <h3 class="product-name"><a href="#"><?php echo $value['name'];?></a></h3>
                                 <h4 class="product-price"><?php echo number_format($value['price']);?> <del class="product-old-price">$990.00</del></h4>
                                 <div class="product-rating">

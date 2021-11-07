@@ -185,7 +185,7 @@ $product = new Product();
 						<li><a href="">Hot Deals</a></li>
 						<li><a href="cate_product.php?type_id=1" >Smartphones</a></li>
 						<li><a href="cate_product.php?type_id=2">Laptops</a></li>
-						<li><a href="cate_product.php?type_id=3">Smart Watches</a></li>
+						<li><a href="cate_product.php?type_id=3">Smartwatches</a></li>
 						<li><a href="cate_product.php?type_id=4">TV</a></li>
 						<li><a href="cate_product.php?type_id=5">Tablets</a></li>
 						<li><a href="cate_product.php?type_id=6">Printers</a></li>
