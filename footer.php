@@ -61,7 +61,7 @@
 									<li><a href="#">Hot deals</a></li>
 									<li><a href="#">Smartphones</a></li>
 									<li><a href="#">Laptops</a></li>
-									<li><a href="#">Smart Watches</a></li>
+									<li><a href="#">Smartwatches</a></li>
 									<li><a href="#">TV</a></li>
 									<li><a href="#">Tablets</a></li>
 									<li><a href="#">Printers</a></li>
