@@ -89,13 +89,18 @@
 									<?php 
 									$getNewProducts = $product->getNewProducts();
 									foreach ($getNewProducts as $value) {
+										//echo $value['type_id']."<br>";
+										//echo var_dump($product->getTypeName($value['type_id']))."<br>";
+
 									?>
+
 									<div class="product">
 										<div class="product-img">
-											<img src="./img/<?php echo $value['pro_image']?>" alt="">		
+											<img src="./img/<?php echo $value['pro_image']?>" alt="">
+											
 										</div>
 										<div class="product-body">
-											<p class="product-category"></p>
+											<p class="product-category"><?php echo $product->getTypeName($value['type_id'])?></p>
 											<h3 class="product-name"><a href="#"><?php echo $value['name'];?></a></h3>
 											<h4 class="product-price"><?php echo $value['price'];?></h4>
 											<div class="product-rating">

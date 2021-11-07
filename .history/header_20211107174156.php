@@ -48,10 +48,8 @@ $product = new Product();
 			<div id="top-header">
 				<div class="container">
 					<ul class="header-links pull-left">
-					<li>
-						<a href="https://www.facebook.com/3TMobile.TDC"><i class="fa fa-facebook"></i>3TMobile</a>
-					</li>
-						<li><a href="mailto:3tmobile.tdc@gmail.com"><i class="fa fa-envelope-o"></i> 3tmobile.tdc@gmail.com</a></li>
+						<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
+						<li><a href="mailto:3tmobile.tdc@gmail.com"><i class="fa fa-envelope-o"></i> TTTMobile@gmail.com</a></li>
 						<li><a href="ggmap.html"><i class="fa fa-map-marker"></i> 53 Vo Van Ngan Str, Linh Chieu Ward</a></li>
 					</ul>
 					<ul class="header-links pull-right">
@@ -183,7 +181,7 @@ $product = new Product();
 					<ul class="main-nav nav navbar-nav">
 						<li class="active"><a href="index.php">Home</a></li>
 						<li><a href="">Hot Deals</a></li>
-						<li><a href="cate_product.php?type_id=1" >Smartphones</a></li>
+						<li><a href="https://www.google.com/search?rlz=1C1VDKB_enVN978VN978&sxsrf=AOaemvJgIWE1y5Uq7x7Xj5FD938N4ZkMlw:1636280813401&q=B%E1%BB%99+nh%E1%BB%9B+%C4%91%E1%BB%87m+Laptop+l%C3%A0+g%C3%AC&sa=X&ved=2ahUKEwiEqIqFhYb0AhWUc30KHQX3DWUQ1QJ6BAgSEAE&biw=1366&bih=617&dpr=1" >Smartphones</a></li>
 						<li><a href="cate_product.php?type_id=2">Laptops</a></li>
 						<li><a href="cate_product.php?type_id=3">Smart Watches</a></li>
 						<li><a href="cate_product.php?type_id=4">TV</a></li>

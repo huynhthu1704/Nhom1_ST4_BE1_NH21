@@ -11,6 +11,20 @@
 								<input class="input" type="email" placeholder="Enter Your Email">
 								<button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
 							</form>
+							<ul class="newsletter-follow">
+								<li>
+									<a href="https://www.facebook.com/3TMobile.TDC"><i class="fa fa-facebook"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-instagram"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-pinterest"></i></a>
+								</li>
+							</ul>
 						</div>
 					</div>
 				</div>
@@ -35,7 +49,7 @@
 								<ul class="footer-links">
 									<li><a href="#"><i class="fa fa-map-marker"></i>53 Vo Van Ngan Str, Linh Chieu Ward</a></li>
 									<li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
-									<li><a href="#"><i class="fa fa-envelope-o"></i> 3tmobile.tdc@gmail.com</a></li>
+									<li><a href="#"><i class="fa fa-envelope-o"></i>TTTMobile@gmail.com</a></li>
 								</ul>
 							</div>
 						</div>
@@ -45,12 +59,12 @@
 								<h3 class="footer-title">Categories</h3>
 								<ul class="footer-links">
 									<li><a href="#">Hot deals</a></li>
-									<li><a href="cate_product.php?type_id=1">Smartphones</a></li>
-									<li><a href="cate_product.php?type_id=2">Laptops</a></li>
-									<li><a href="cate_product.php?type_id=3">Smartwatches</a></li>
-									<li><a href="cate_product.php?type_id=4">TV</a></li>
-									<li><a href="cate_product.php?type_id=5">Tablets</a></li>
-									<li><a href="cate_product.php?type_id=6">Printers</a></li>
+									<li><a href="#">Smartphones</a></li>
+									<li><a href="#">Laptops</a></li>
+									<li><a href="#">Smartwatches</a></li>
+									<li><a href="#">TV</a></li>
+									<li><a href="#">Tablets</a></li>
+									<li><a href="#">Printers</a></li>
 								</ul>
 							</div>
 						</div>

@@ -92,10 +92,11 @@
 									?>
 									<div class="product">
 										<div class="product-img">
-											<img src="./img/<?php echo $value['pro_image']?>" alt="">		
+											<img src="./img/<?php echo $value['pro_image']?>" alt="">
+											
 										</div>
 										<div class="product-body">
-											<p class="product-category"></p>
+											<p class="product-category">Category</p>
 											<h3 class="product-name"><a href="#"><?php echo $value['name'];?></a></h3>
 											<h4 class="product-price"><?php echo $value['price'];?></h4>
 											<div class="product-rating">

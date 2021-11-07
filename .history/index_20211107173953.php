@@ -66,12 +66,12 @@
 						<h3 class="title">New Products</h3>
 						<div class="section-nav">
 							<ul class="section-tab-nav tab-nav">
-								<li class="active"><a href="cate_product.php?type_id=1">Smartphones</a></li>
-								<li><a href="cate_product.php?type_id=2">Laptops</a></li>
-								<li><a href="cate_product.php?type_id=3">Smartwatches</a></li>
-								<li><a href="cate_product.php?type_id=4">TV</a></li>
-								<li><a href="cate_product.php?type_id=5">Tablets</a></li>
-								<li><a href="cate_product.php?type_id=6">Printers</a></li>
+								<li class="active"><a data-toggle="tab" href="cate_product.php?type_id=1">Smartphones</a></li>
+								<li><a data-toggle="tab" href="cate_product.php?type_id=2">Laptops</a></li>
+								<li><a data-toggle="tab" href="cate_product.php?type_id=3">Smartwatches</a></li>
+								<li><a data-toggle="tab" href="cate_product.php?type_id=4">TV</a></li>
+								<li><a data-toggle="tab" href="cate_product.php?type_id=5">Tablets</a></li>
+								<li><a data-toggle="tab" href="cate_product.php?type_id=6">Printers</a></li>
 							</ul>
 						</div>
 					</div>
@@ -92,10 +92,11 @@
 									?>
 									<div class="product">
 										<div class="product-img">
-											<img src="./img/<?php echo $value['pro_image']?>" alt="">		
+											<img src="./img/<?php echo $value['pro_image']?>" alt="">
+											
 										</div>
 										<div class="product-body">
-											<p class="product-category"></p>
+											<p class="product-category">Category</p>
 											<h3 class="product-name"><a href="#"><?php echo $value['name'];?></a></h3>
 											<h4 class="product-price"><?php echo $value['price'];?></h4>
 											<div class="product-rating">
@@ -191,12 +192,12 @@
 						<h3 class="title">SMARTPHONES</h3>
 						<div class="section-nav">
 							<ul class="section-tab-nav tab-nav">
-								<li class="active"><a href="cate_product.php?type_id=1">Smartphones</a></li>
-								<li><a href="cate_product.php?type_id=2">Laptops</a></li>
-								<li><a href="cate_product.php?type_id=3">Smartwatches</a></li>
-								<li><a href="cate_product.php?type_id=4">TV</a></li>
-								<li><a href="cate_product.php?type_id=5">Tablets</a></li>
-								<li><a href="cate_product.php?type_id=6">Printers</a></li>
+								<li class="active"><a data-toggle="tab" href="#tab2">Smartphones</a></li>
+								<li><a data-toggle="tab" href="#tab2">Laptops</a></li>
+								<li><a data-toggle="tab" href="#tab2">Smartwatches</a></li>
+								<li><a data-toggle="tab" href="#tab2">TV</a></li>
+								<li><a data-toggle="tab" href="#tab2">Tablets</a></li>
+								<li><a data-toggle="tab" href="#tab2">Printers</a></li>
 							</ul>
 						</div>
 					</div>
@@ -274,12 +275,12 @@
 						<h3 class="title">LAPTOPS</h3>
 						<div class="section-nav">
 							<ul class="section-tab-nav tab-nav">
-								<li class="active"><a href="cate_product.php?type_id=1">Smartphones</a></li>
-								<li><a href="cate_product.php?type_id=2">Laptops</a></li>
-								<li><a href="cate_product.php?type_id=3">Smartwatches</a></li>
-								<li><a href="cate_product.php?type_id=4">TV</a></li>
-								<li><a href="cate_product.php?type_id=5">Tablets</a></li>
-								<li><a href="cate_product.php?type_id=6">Printers</a></li>
+								<li class="active"><a data-toggle="tab" href="#tab2">Smartphones</a></li>
+								<li><a data-toggle="tab" href="#tab2">Laptops</a></li>
+								<li><a data-toggle="tab" href="#tab2">Smartwatches</a></li>
+								<li><a data-toggle="tab" href="#tab2">TV</a></li>
+								<li><a data-toggle="tab" href="#tab2">Tablets</a></li>
+								<li><a data-toggle="tab" href="#tab2">Printers</a></li>
 							</ul>
 						</div>
 					</div>

@@ -49,7 +49,7 @@ $product = new Product();
 				<div class="container">
 					<ul class="header-links pull-left">
 					<li>
-						<a href="https://www.facebook.com/3TMobile.TDC"><i class="fa fa-facebook"></i>3TMobile</a>
+						<a href="https://www.facebook.com/3TMobile.TDC"><i class="fa fa-facebook"></i></a>
 					</li>
 						<li><a href="mailto:3tmobile.tdc@gmail.com"><i class="fa fa-envelope-o"></i> 3tmobile.tdc@gmail.com</a></li>
 						<li><a href="ggmap.html"><i class="fa fa-map-marker"></i> 53 Vo Van Ngan Str, Linh Chieu Ward</a></li>
