@@ -29,64 +29,25 @@
         <div class="row">
             <!-- ASIDE -->
             <div id="aside" class="col-md-3">
-                <!-- aside Widget -->
-                <div class="aside">
-                    <h3 class="aside-title">Categories</h3>
+                 <!-- aside Widget -->
+				 <div class="aside">
+                    <h3 class="aside-title">Brand</h3>
                     <div class="checkbox-filter">
-
+					<?php 
+						$name= $product->getManufacturesName();
+                        $count = $product->getCountProduct();
+                        $dem=0;
+						foreach($name as $value){
+					?>
                         <div class="input-checkbox">
-                            <input type="checkbox" id="category-1">
-                            <label for="category-1">
+                            <input type="checkbox"id="<?php echo $value['manu_id'] ?>" action="result.php" value="<?php  echo $dem+1 ?>">
+                            <label for="<?php echo $value['manu_id'] ?>">
                                 <span></span>
-                                Smartphones
-                                <small>(120)</small>
+                                <?php echo $value['manu_name']; ?>
+                                <small> <?php echo "(".$count[$dem]['dem'].")"; $dem=$dem+1;?> </small>
                             </label>
                         </div>
-
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="category-2">
-                            <label for="category-2">
-                                <span></span>
-                                Laptops
-                                <small>(740)</small>
-                            </label>
-                        </div>
-
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="category-3">
-                            <label for="category-3">
-                                <span></span>
-                                Smart Watches
-                                <small>(1450)</small>
-                            </label>
-                        </div>
-
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="category-4">
-                            <label for="category-4">
-                                <span></span>
-                                TV
-                                <small>(578)</small>
-                            </label>
-                        </div>
-
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="category-5">
-                            <label for="category-5">
-                                <span></span>
-                                Tablets
-                                <small>(120)</small>
-                            </label>
-                        </div>
-
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="category-6">
-                            <label for="category-6">
-                                <span></span>
-                                Printers
-                                <small>(740)</small>
-                            </label>
-                        </div>
+						<?php }?>
                     </div>
                 </div>
                 <!-- /aside Widget -->
@@ -110,63 +71,6 @@
                     </div>
                 </div>
                 <!-- /aside Widget -->
-
-                <!-- aside Widget -->
-                <div class="aside">
-                    <h3 class="aside-title">Brand</h3>
-                    <div class="checkbox-filter">
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="brand-1">
-                            <label for="brand-1">
-                                <span></span>
-                                Xiaomi
-                                <small>(578)</small>
-                            </label>
-                        </div>
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="brand-2">
-                            <label for="brand-2">
-                                <span></span>
-                                Apple
-                                <small>(125)</small>
-                            </label>
-                        </div>
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="brand-3">
-                            <label for="brand-3">
-                                <span></span>
-                                SamSung
-                                <small>(755)</small>
-                            </label>
-                        </div>
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="brand-4">
-                            <label for="brand-4">
-                                <span></span>
-                                Acer
-                                <small>(578)</small>
-                            </label>
-                        </div>
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="brand-5">
-                            <label for="brand-5">
-                                <span></span>
-                                LG
-                                <small>(125)</small>
-                            </label>
-                        </div>
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="brand-6">
-                            <label for="brand-6">
-                                <span></span>
-                                HP
-                                <small>(755)</small>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <!-- /aside Widget -->
-
                 <!-- aside Widget -->
                 <div class="aside">
                     <h3 class="aside-title">Top selling</h3>
