@@ -82,7 +82,7 @@ $product = new Product();
 						<div class="col-md-6">
 							<div class="header-search">
 								<form method="get" action="result.php">
-									<select class="input-select">
+									<select type="id" name="id" class="input-select">
 										<option value="0">All Categories</option>
 										<option value="1">Smartphone</option>
 										<option value="2">Laptop</option>
@@ -91,7 +91,7 @@ $product = new Product();
 										<option value="6">Printer</option>
 									</select>
 									<input class="input" placeholder="Search here" name="keyword">
-									<button type="submit" class="search-btn">Search</button>
+									<button type="submit" name="submit" class="search-btn">Search</button>
 								</form>
 							</div>
 						</div>
@@ -146,8 +146,8 @@ $product = new Product();
 											<h5>SUBTOTAL: $2940.00</h5>
 										</div>
 										<div class="cart-btns">
-											<a href="#">View Cart</a>
-											<a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
+										<a href="cart.php">View Cart</a>
+											<a href="checkout.php">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
 										</div>
 									</div>
 								</div>
