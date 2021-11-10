@@ -34,22 +34,25 @@
                     <h3 class="aside-title">Brand</h3>
                     <div class="checkbox-filter">
                         <?php
-                        if (isset($_GET['type_id'])) {
-                        $type_id = $_GET['type_id'];
-                        $name = $product->getManufacturesName($type_id);
-                        $count = $product->getCountProduct($type_id);
+                        if (isset($_GET['submit'])) {
+                        $type_id = $_GET['id'];
+                        if($type_id==0){
+                            $name= $product->getAllManufacturesName();
+                            $count = $product->getAllCountProduct();
+                        }else{
+                            $name= $product->getManufacturesName($type_id);
+                            $count = $product->getCountProduct($type_id);
+                        }
                         $dem = 0;
                         foreach ($name as $value) {
                         ?>
-                            <div class="input-checkbox">
-                                <input type="checkbox" id="<?php echo $value['manu_id'] ?>" action="result.php" value="<?php echo $dem + 1 ?>">
-                                <label for="<?php echo $value['manu_id'] ?>">
-                                    <span></span>
-                                    <?php echo $value['manu_name']; ?>
-                                    <small> <?php echo "(" . $count[$dem]['dem'] . ")";
-                                            $dem = $dem + 1; ?> </small>
-                                </label>
-                            </div>
+                            <div class="list-item checkbox">
+                        <label><input type="checkbox" value="<?php echo $value['manu_name']; ?>" id="<?php echo $value['manu_name'];?>">
+                                <span></span>
+                                <?php echo $value['manu_name'];?>
+                                <small> <?php echo "(".$count[$dem]['dem'].")"; $dem=$dem+1;?> </small>
+                            </label>
+                        </div>
                         <?php } ?>
                         <?php  } ?>
                     </div>
@@ -156,7 +159,6 @@
                         } else {
                             $search =  $product->searchNameByTypeID($type_id);
                         }
-                       
                         foreach ($search as $value) {
                         ?>
                                     <!-- product -->

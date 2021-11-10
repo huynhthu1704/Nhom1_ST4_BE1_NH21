@@ -40,7 +40,7 @@
 							<img src="./img/Xiaomi Mi Watch Lite.jpg" alt="">
 						</div>
 						<div class="shop-body">
-							<h3>Smartwatches<br>Collection</h3>
+							<h3>SmartWatches<br>Collection</h3>
 							<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
 						</div>
 					</div>
@@ -191,11 +191,9 @@
 						<h3 class="title">SMARTPHONES</h3>
 						<div class="section-nav">
 							<ul class="section-tab-nav tab-nav">
-
 							<?php foreach ($getAllProtype as $value) {?>
 							<li><a href="products.php?type_id=<?php echo $value['type_id'];?>" ><?php echo $value['type_name']?></a></li>
 							<?php } ?>
-
 							</ul>
 						</div>
 					</div>
@@ -274,7 +272,6 @@
 						<h3 class="title">LAPTOPS</h3>
 						<div class="section-nav">
 							<ul class="section-tab-nav tab-nav">
-
 							<?php foreach ($getAllProtype as $value) {?>
 							<li><a href="products.php?type_id=<?php echo $value['type_id'];?>" ><?php echo $value['type_name']?></a></li>
 							<?php } ?>
