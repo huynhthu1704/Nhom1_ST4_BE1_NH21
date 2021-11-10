@@ -68,9 +68,9 @@
 							<ul class="section-tab-nav tab-nav">
 
 							<?php foreach ($getAllProtype as $value) {?>
-							<li><a href="products.php?type_id=<?php echo $value['type_id'];?>" ><?php echo $value['type_name']?></a></li>
+							<li><a href="cate_product.php?type_id=<?php echo $value['type_id'];?>" ><?php echo $value['type_name']?></a></li>
 							<?php } ?>
-
+							
 							</ul>
 						</div>
 					</div>
@@ -193,7 +193,7 @@
 							<ul class="section-tab-nav tab-nav">
 
 							<?php foreach ($getAllProtype as $value) {?>
-							<li><a href="products.php?type_id=<?php echo $value['type_id'];?>" ><?php echo $value['type_name']?></a></li>
+							<li><a href="cate_product.php?type_id=<?php echo $value['type_id'];?>" ><?php echo $value['type_name']?></a></li>
 							<?php } ?>
 
 							</ul>
@@ -276,7 +276,7 @@
 							<ul class="section-tab-nav tab-nav">
 
 							<?php foreach ($getAllProtype as $value) {?>
-							<li><a href="products.php?type_id=<?php echo $value['type_id'];?>" ><?php echo $value['type_name']?></a></li>
+							<li><a href="cate_product.php?type_id=<?php echo $value['type_id'];?>" ><?php echo $value['type_name']?></a></li>
 							<?php } ?>
 
 							</ul>

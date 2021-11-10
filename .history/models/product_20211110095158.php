@@ -58,7 +58,7 @@ class Product extends Db
     }
     public function searchAll($keyword)
     {
-        $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `name` LIKE ?");
+        $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `name` = ?");
         $keyword = "%$keyword%";
         $sql->bind_param("s",$keyword);
         $sql->execute();
@@ -66,12 +66,23 @@ class Product extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
+
+    // public function searchAll($keyword)
+    // {
+    //     $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `name` = ?");
+    //     $keyword = "%$keyword%";
+    //     $sql->bind_param("s",$keyword);
+    //     $sql->execute();
+    //     $items = array();
+    //     $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+    //     return $items;
+    // }
     
-    public function searchNameByTypeID($keyword, $type_id)
+    public function searchNameAndID($keyword, $type_id)
     {
-        $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `name` LIKE ? AND `type_id` = ?");
+        $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `name` = ? AND `type_id` = $type_id");
         $keyword = "%$keyword%";
-        $sql->bind_param("si",$keyword, $type_id);
+        $sql->bind_param("s",$keyword);
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -130,7 +141,7 @@ class Product extends Db
         $link ="";
         for($j=1; $j <= $totalLinks ; $j++)
         {
-            $link = $link."<li><a href='$url&page=$j'> $j </a></li>";
+            $link = $link."<li><a href='$url?page=$j'> $j </a></li>";
         }
         return $link;
     }

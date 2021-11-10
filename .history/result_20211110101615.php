@@ -148,9 +148,8 @@
                     <?php
                     if (isset($_GET['submit'])) {
                         if (isset($_GET['keyword'])) {
-                            $keyword = $_GET['keyword'];
                             $type_id = $_GET['id'];
-                            $search = $type_id==0? $product->searchAll($keyword): $product->searchNameByTypeID($keyword, $type_id);
+                            $search = $type_id==0? $product->searchAll($_GET['keyword']): $product->searchNameByTypeID($keyword, $type_id);
                             foreach ($search as $value) {
                         ?>
                                     <!-- product -->

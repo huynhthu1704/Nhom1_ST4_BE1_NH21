@@ -89,7 +89,7 @@ $getAllProtype = $protype->getAllProtype();
 										<option value="0">All Categories</option>
 										<option value="1">Smartphone</option>
 										<option value="2">Laptop</option>
-										<option value="3">Smartwatch</option>
+										<option value="3">Smartwatches</option>
 										<option value="4">TV</option>
 										<option value="5">Tablet</option>
 										<option value="6">Printer</option>
@@ -186,7 +186,7 @@ $getAllProtype = $protype->getAllProtype();
 					<!-- NAV -->
 					<ul class="main-nav nav navbar-nav">
 						<li class="active"><a href="index.php">Home</a></li>
-						<li><a href="#">Hot Deals</a></li>
+						<li><a href="">Hot Deals</a></li>
 						<?php foreach ($getAllProtype as $value) {?>
 						<li><a href="products.php?type_id=<?php echo $value['type_id'];?>" ><?php echo $value['type_name']?></a></li>
 						<?php } ?>

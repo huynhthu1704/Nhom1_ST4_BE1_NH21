@@ -10,16 +10,6 @@ class Product extends Db
         return $items;
     }
 
-    // public function getAllProducts($page, $perPage)
-    // {
-    //     $sql = self::$connection->prepare("SELECT * FROM `products` LIMIT ?,?");
-    //     $sql->bind_param("ii", $page, $perPage);
-    //     $sql->execute();
-    //     $items = array();
-    //     $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-    //     return $items;
-    // }
-
     public function getNewProducts()
     {
         $sql = self::$connection->prepare("SELECT * FROM `products` ORDER BY `created_at` DESC LIMIT 10");
@@ -58,7 +48,7 @@ class Product extends Db
     }
     public function searchAll($keyword)
     {
-        $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `name` LIKE ?");
+        $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `name` = ?");
         $keyword = "%$keyword%";
         $sql->bind_param("s",$keyword);
         $sql->execute();
@@ -66,12 +56,23 @@ class Product extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
+
+    // public function searchAll($keyword)
+    // {
+    //     $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `name` = ?");
+    //     $keyword = "%$keyword%";
+    //     $sql->bind_param("s",$keyword);
+    //     $sql->execute();
+    //     $items = array();
+    //     $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+    //     return $items;
+    // }
     
-    public function searchNameByTypeID($keyword, $type_id)
+    public function searchNameAndID($keyword, $type_id)
     {
-        $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `name` LIKE ? AND `type_id` = ?");
+        $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `name` = ? AND `type_id` = $type_id");
         $keyword = "%$keyword%";
-        $sql->bind_param("si",$keyword, $type_id);
+        $sql->bind_param("s",$keyword);
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -105,16 +106,6 @@ class Product extends Db
         return $items;
     }
 
-    public function get6ProductByTypeId($type_id, $page, $perPage)
-    {
-        $firstLink = ($page - 1) * $perPage;
-        $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `type_id` = ? LIMIT ?, ?");
-        $sql->bind_param("iii",$type_id, $firstLink, $perPage);
-        $sql->execute();
-        $items = array();
-        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $items;
-    }
     public function getTypeName($type_id)
     {
         $sql = self::$connection->prepare("SELECT `protypes`.`type_name` FROM `products`,`protypes` WHERE `products`.`type_id` = `protypes`.`type_id` AND `products`.`type_id` = ?");
@@ -126,12 +117,6 @@ class Product extends Db
     }
 
     public function paginate($url, $total, $page, $perPage) {
-        $totalLinks = ceil($total/$perPage);
-        $link ="";
-        for($j=1; $j <= $totalLinks ; $j++)
-        {
-            $link = $link."<li><a href='$url&page=$j'> $j </a></li>";
-        }
-        return $link;
+
     }
 }
