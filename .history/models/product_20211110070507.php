@@ -37,7 +37,6 @@ class Product extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
-    
     public function getCountProduct()
     {
         $sql = self::$connection->prepare("SELECT manu_id ,count(manu_id) AS dem FROM `products` GROUP BY manu_id");

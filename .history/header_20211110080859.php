@@ -2,10 +2,9 @@
 require "config.php";
 require "models/db.php";
 require "models/product.php";
-require "models/protype.php";
 $product = new Product();
-$protype = new Protype();
-$getAllProtype = $protype->getAllProtype();
+$protype = new Product();
+$getAllProtype = $product->getAllProtype();
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -67,8 +67,8 @@
 						<div class="section-nav">
 							<ul class="section-tab-nav tab-nav">
 							<?php foreach ($getAllProtype as $value) {?>
-							<li><a href="cate_product.php?type_id=<?php echo $value['type_id'];?>" ><?php echo $value['type_name']?></a></li>
-							<?php } ?>
+						<li><a href="cate_product.php?type_id=<?php echo $value['type_id'];?>" ><?php echo $value['type_name']?></a></li>
+						<?php } ?>
 								
 							</ul>
 						</div>
@@ -190,9 +190,12 @@
 						<h3 class="title">SMARTPHONES</h3>
 						<div class="section-nav">
 							<ul class="section-tab-nav tab-nav">
-							<?php foreach ($getAllProtype as $value) {?>
-							<li><a href="cate_product.php?type_id=<?php echo $value['type_id'];?>" ><?php echo $value['type_name']?></a></li>
-							<?php } ?>
+								<li class="active"><a href="cate_product.php?type_id=1">Smartphones</a></li>
+								<li><a href="cate_product.php?type_id=2">Laptops</a></li>
+								<li><a href="cate_product.php?type_id=3">Smartwatches</a></li>
+								<li><a href="cate_product.php?type_id=4">TV</a></li>
+								<li><a href="cate_product.php?type_id=5">Tablets</a></li>
+								<li><a href="cate_product.php?type_id=6">Printers</a></li>
 							</ul>
 						</div>
 					</div>
@@ -271,9 +274,12 @@
 						<h3 class="title">LAPTOPS</h3>
 						<div class="section-nav">
 							<ul class="section-tab-nav tab-nav">
-							<?php foreach ($getAllProtype as $value) {?>
-							<li><a href="cate_product.php?type_id=<?php echo $value['type_id'];?>" ><?php echo $value['type_name']?></a></li>
-							<?php } ?>
+								<li class="active"><a href="cate_product.php?type_id=1">Smartphones</a></li>
+								<li><a href="cate_product.php?type_id=2">Laptops</a></li>
+								<li><a href="cate_product.php?type_id=3">Smartwatches</a></li>
+								<li><a href="cate_product.php?type_id=4">TV</a></li>
+								<li><a href="cate_product.php?type_id=5">Tablets</a></li>
+								<li><a href="cate_product.php?type_id=6">Printers</a></li>
 							</ul>
 						</div>
 					</div>
