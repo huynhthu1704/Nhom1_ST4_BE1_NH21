@@ -35,7 +35,7 @@
                     <div class="checkbox-filter">
                         <?php
                         $name = $product->getManufacturesName();
-                        $count = $product->getCountProduct();
+                        $count = $product->getCountProduct($_GET['type_id']);
                         $dem = 0;
                         foreach ($name as $value) {
                         ?>

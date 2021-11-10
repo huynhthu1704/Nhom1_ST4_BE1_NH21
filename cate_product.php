@@ -34,13 +34,13 @@
                     <h3 class="aside-title">Brand</h3>
                     <div class="checkbox-filter">
 					<?php 
-						$name= $product->getManufacturesName();
-                        $count = $product->getCountProduct();
+						$name= $product->getManufacturesName($_GET['type_id']);
+                        $count = $product->getCountProduct($_GET['type_id']);
                         $dem=0;
 						foreach($name as $value){
 					?>
                         <div class="list-item checkbox">
-                        <label><input type="checkbox" value="<?php echo $value['manu_id']; ?>" id="<?php echo $value['manu_id']; ?>">
+                        <label><input type="checkbox" value="<?php echo $value['manu_name']; ?>" id="<?php echo $value['manu_name'];?>">
                                 <span></span>
                                 <?php echo $value['manu_name'];?>
                                 <small> <?php echo "(".$count[$dem]['dem'].")"; $dem=$dem+1;?> </small>

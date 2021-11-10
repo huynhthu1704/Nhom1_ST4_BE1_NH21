@@ -28,18 +28,28 @@ class Product extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
-    
-    public function getManufacturesName()
+       
+    public function getManufacturesName($type_id)
     {
-        $sql = self::$connection->prepare("SELECT * FROM `manufactures`");
+        $sql = self::$connection->prepare("SELECT `manufactures`.`manu_name` FROM `products` INNER JOIN `manufactures` ON `products`.`manu_id` = `manufactures`.`manu_id` AND `type_id`=$type_id GROUP BY `products`.manu_id ");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
-    public function getCountProduct()
+
+    // public function getManufacturesNameType_ID($type_id)
+    // {
+    //     $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `type_id` = $type_id");
+    //     $sql->execute();
+    //     $items = array();
+    //     $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+    //     return $items;
+    // }
+
+    public function getCountProduct($type_id)
     {
-        $sql = self::$connection->prepare("SELECT manu_id ,count(manu_id) AS dem FROM `products` GROUP BY manu_id");
+        $sql = self::$connection->prepare("SELECT count(manu_id) AS dem FROM `products` WHERE `type_id` = $type_id GROUP BY manu_id");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -47,7 +57,7 @@ class Product extends Db
     }
     public function searchAll($keyword)
     {
-        $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `name` LIKE ?");
+        $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `name` = ?");
         $keyword = "%$keyword%";
         $sql->bind_param("s",$keyword);
         $sql->execute();
@@ -57,7 +67,7 @@ class Product extends Db
     }
     public function searchNameAndID($keyword, $type_id)
     {
-        $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `name` LIKE ? AND `type_id` LIKE $type_id");
+        $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `name` = ? AND `type_id` = $type_id");
         $keyword = "%$keyword%";
         $sql->bind_param("s",$keyword);
         $sql->execute();
@@ -92,6 +102,7 @@ class Product extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
+
     public function getTypeName($type_id)
     {
         $sql = self::$connection->prepare("SELECT `protypes`.`type_name` FROM `products`,`protypes` WHERE `products`.`type_id` = `protypes`.`type_id` AND `products`.`type_id` = ?");
