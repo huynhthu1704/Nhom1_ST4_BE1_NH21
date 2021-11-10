@@ -147,17 +147,11 @@
                 <div class="row">
                     <?php
                     if (isset($_GET['submit'])) {
-                        $type_id = $_GET['id'];
-                        $keyword = $_GET['keyword'];
-                        if ($keyword !="") {
-                            $search = $type_id == 0? $product->searchAll($keyword): $product->searchNameByTypeIDAndName($keyword, $type_id);
-                            echo "hello";
-                            echo empty($keyword);
-                        } else {
-                            $search =  $product->searchNameByTypeID($type_id);
-                        }
-                       
-                        foreach ($search as $value) {
+                        if (isset($_GET['keyword'])) {
+                            $keyword = $_GET['keyword'];
+                            $type_id = $_GET['id'];
+                            $search = $type_id == 0? $product->searchAll($keyword): $product->searchNameByTypeID($keyword, $type_id);
+                            foreach ($search as $value) {
                         ?>
                                     <!-- product -->
                                     <div class="col-md-4 col-xs-6">
@@ -194,7 +188,8 @@
                                     <!-- /product -->
                                     <div class="clearfix visible-sm visible-xs"></div>
                         <?php }
-                    } ?>
+                            } 
+                        } ?>
                 </div>
                 <!-- /store products -->
 

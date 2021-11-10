@@ -155,6 +155,7 @@
                             echo empty($keyword);
                         } else {
                             $search =  $product->searchNameByTypeID($type_id);
+                            var_dump($search);
                         }
                        
                         foreach ($search as $value) {

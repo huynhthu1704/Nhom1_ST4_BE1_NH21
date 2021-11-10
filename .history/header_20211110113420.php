@@ -88,10 +88,11 @@ $getAllProtype = $protype->getAllProtype();
 									<select type="id" name="id" class="input-select">
 										<option value="0">All Categories</option>
 										<?php 
-											$getAllProtype = $protype->getAllProtype();
+											$getAllProtype = $product->getAllProtype();
 											foreach ($getAllProtype as $value) { ?>
 												<option value="<?php echo $value['type_id'] ?>"> <?php echo $value['type_name'] ?> </option>
-										<?php } ?>
+											<php } ?>
+
 									</select>
 									<input class="input" placeholder="Search here" name="keyword">
 									<button type="submit" name="submit" class="search-btn">Search</button>
