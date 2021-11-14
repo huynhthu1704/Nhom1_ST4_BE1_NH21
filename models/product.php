@@ -47,10 +47,24 @@ class Product extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
-    
+    public function GetAllManufacturesName(){
+        $sql = self::$connection->prepare("SELECT `manufactures`.`manu_name` FROM `products` INNER JOIN `manufactures` ON `products`.`manu_id` = `manufactures`.`manu_id` GROUP BY `products`.manu_id ");
+        $sql->execute();
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items;
+    }
     public function getCountProduct($type_id)
     {
         $sql = self::$connection->prepare("SELECT count(manu_id) AS dem FROM `products` WHERE `type_id` = $type_id GROUP BY manu_id");
+        $sql->execute();
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items;
+    }
+    public function getAllCountProduct()
+    {
+        $sql = self::$connection->prepare("SELECT count(manu_id) AS dem FROM `products` GROUP BY manu_id");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
