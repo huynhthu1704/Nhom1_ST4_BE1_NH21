@@ -143,25 +143,25 @@
 						<ul class="hot-deal-countdown">
 							<li>
 								<div>
-									<h3>02</h3>
+									<h3 id="D"></h3>
 									<span>Days</span>
 								</div>
 							</li>
 							<li>
 								<div>
-									<h3>10</h3>
+									<h3 id="H"></h3>
 									<span>Hours</span>
 								</div>
 							</li>
 							<li>
 								<div>
-									<h3>34</h3>
+									<h3 id="M"></h3>
 									<span>Mins</span>
 								</div>
 							</li>
 							<li>
 								<div>
-									<h3>60</h3>
+									<h3 id="S"></h3>
 									<span>Secs</span>
 								</div>
 							</li>

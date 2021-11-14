@@ -2257,3 +2257,12 @@ textarea.input {
   color: white;
   opacity: 1;
 }
+.info-header {
+  display: flex;
+  flex-direction: column;
+  background-color: #15161D;
+  padding: 20px;
+}
+.info, .logo {
+  text-align: center;
+}
