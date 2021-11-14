@@ -2201,7 +2201,16 @@ textarea.input {
   justify-content: space-between; 
   align-items: baseline;
 }
-
+.header-row {
+  display: flex;
+  justify-content: space-between !important;
+}
+.col-logout {
+  align-items: center !important;
+}
+.logout {
+  align-self: flex-end !important;
+}
 .sidebar{
   background-color: #D10024;
 }

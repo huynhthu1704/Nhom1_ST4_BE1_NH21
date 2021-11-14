@@ -2193,15 +2193,13 @@ textarea.input {
 /*=========================================================
 	13 -> ADMIN
 ===========================================================*/
-.admin-header{
-  padding: 0 20px;
-  background-color: #15161D;
+.header-row {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between; 
-  align-items: baseline;
+  justify-content: space-between !important;
 }
-
+.logout {
+  align-items: flex-end;
+}
 .sidebar{
   background-color: #D10024;
 }

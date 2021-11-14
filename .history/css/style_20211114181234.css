@@ -2193,18 +2193,9 @@ textarea.input {
 /*=========================================================
 	13 -> ADMIN
 ===========================================================*/
-.admin-header{
-  padding: 0 20px;
-  background-color: #15161D;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between; 
-  align-items: baseline;
-}
-
-.sidebar{
+/* .sidebar{
   background-color: #D10024;
-}
+} */
 /* .content {
   background-color: #15161D;
 } */
@@ -2218,18 +2209,18 @@ textarea.input {
 }
 .sidebar-item{
   display: block;
-  padding:8px 10px;
+  padding:5px 10px;
   margin: 2px;
   position: relative;
 }
 
-.sidebar-item::after{
+.sidebar-item::before{
   content: "";
-  bottom: -2px;
-  left: 2px;
-  height: 2px;
-  width: 95%;
-  background-color: white;
+  top: -10px;
+  left: -10px;
+  height: 5px;
+  width: 100px;
+  color: black;
   position: absolute;
   transform: .2;
   z-index: 9;

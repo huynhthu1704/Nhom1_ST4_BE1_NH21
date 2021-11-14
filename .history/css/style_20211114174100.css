@@ -2189,19 +2189,6 @@ textarea.input {
   }
 }
 
-
-/*=========================================================
-	13 -> ADMIN
-===========================================================*/
-.admin-header{
-  padding: 0 20px;
-  background-color: #15161D;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between; 
-  align-items: baseline;
-}
-
 .sidebar{
   background-color: #D10024;
 }
@@ -2211,28 +2198,11 @@ textarea.input {
 .sidebar {
   margin: 0;
   padding: 0;
-  display: table-cell;
-}
-.content {
-  display: table-cell;
 }
 .sidebar-item{
   display: block;
-  padding:8px 10px;
+  padding:5px 10px;
   margin: 2px;
-  position: relative;
-}
-
-.sidebar-item::after{
-  content: "";
-  bottom: -2px;
-  left: 2px;
-  height: 2px;
-  width: 95%;
-  background-color: white;
-  position: absolute;
-  transform: .2;
-  z-index: 9;
 }
 .sidebar-list {
   display: flex;
@@ -2248,12 +2218,11 @@ textarea.input {
   margin-right: 10px;
   color: white;
 }
-.title a{
+.title {
   color: white;
-  /* opacity: 0.9; */
+  opacity: 0.5;
 }
-
 .title :hover {
   color: white;
-  opacity: 1;
+  background-color: green;
 }
