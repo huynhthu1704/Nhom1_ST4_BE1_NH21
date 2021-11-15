@@ -146,8 +146,8 @@
                         $getSaleProduct = $product->getSaleProduct();
                         $page = isset($_GET['page'])? $_GET['page']:1; 			
                         $perPage = 6; 	
-                        $total = count($getSaleProduct); 					
-                        $url = $_SERVER['PHP_SELF'];	
+                     $total = count($getSaleProduct); 					
+$url = $_SERVER['PHP_SELF'];	
                         $get6ProductSale = $product->get6ProductSale($page, $perPage);
                         foreach ($get6ProductSale as $value) {
                     ?>

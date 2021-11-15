@@ -189,10 +189,10 @@ $getAllProtype = $protype->getAllProtype();
 				<!-- NAV -->
 				<ul class="main-nav nav navbar-nav">
 					<li class="active"><a href="index.php">Home</a></li>
-					<li><a href="hotdeal.php">Hot Deals</a></li>
-					<?php foreach ($getAllProtype as $value) : ?>
+					<li><a href="#">Hot Deals</a></li>
+					<?php foreach ($getAllProtype as $value) { ?>
 						<li><a href="products.php?type_id=<?php echo $value['type_id']; ?>"><?php echo $value['type_name'] ?></a></li>
-					<?php endforeach; ?>
+					<?php } ?>
 				</ul>
 				<!-- /NAV -->
 			</div>
