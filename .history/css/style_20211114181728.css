@@ -2193,15 +2193,6 @@ textarea.input {
 /*=========================================================
 	13 -> ADMIN
 ===========================================================*/
-.admin-header{
-  padding: 0 20px;
-  background-color: #15161D;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between; 
-  align-items: baseline;
-}
-
 .sidebar{
   background-color: #D10024;
 }
@@ -2256,14 +2247,4 @@ textarea.input {
 .title :hover {
   color: white;
   opacity: 1;
-}
-.info-header {
-  display: flex;
-  flex-direction: column;
-  background-color: #15161D;
-  padding: 20px;
-}
-.info, .logo {
-  text-align: center;
-
 }
