@@ -86,7 +86,7 @@
 					<div class="footer">
 						<h3 class="footer-title">Information</h3>
 						<ul class="footer-links">
-							<li><a href="#">About Us</a></li>
+							<li><a href="header_2.php">About Us</a></li>
 							<li><a href="#">Contact Us</a></li>
 							<li><a href="#">Privacy Policy</a></li>
 							<li><a href="#">Orders and Returns</a></li>

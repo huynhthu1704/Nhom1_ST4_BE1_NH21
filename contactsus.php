@@ -3,7 +3,7 @@
 <!--Giao diện chỉnh sửa bên phải-->
 <div class="col-9 content">
   <br>
-  <div class="about" style="background-color: pink;">
+  <div class="about">
     <br>
     <H2>CONTACT US</H2>
     <br>
