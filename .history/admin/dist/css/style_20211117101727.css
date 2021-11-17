@@ -1,0 +1,5 @@
+.description {
+    white-space: wrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}

@@ -1,5 +1,5 @@
 <?php
-class Manufacture extends Db
+class Product extends Db
 {
     public function getManufacturesName()
     {

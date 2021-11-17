@@ -1,11 +1,3 @@
-<?php 
-include "config.php";
-include "models/product.php";
-include "models/manufacture.php";
-include "models/protype.php";
-$product = new Product();
-//$products = $product->getAllProducts();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,8 +19,6 @@ $product = new Product();
   <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/style.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Daterange picker -->
@@ -222,38 +212,40 @@ $product = new Product();
           <li class="nav-item menu-open">
             <a href="index.php" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p> Dashboard </p>
+              <p>
+                Dashboard
+              </p>
             </a>
+          
           </li>
-
           <li class="nav-item">
                 <a href="pages/examples/project-add.html" class="nav-link">
-                <i class="nav-icon fas fa-list-alt"></i>
-                  <p> Category</p>
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Category</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="pages/examples/project-edit.html" class="nav-link">
-                <i class="nav-icon fas fa-truck"></i>
-                  <p> Manufacture</p>
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Manufacture</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="product.php" class="nav-link">
-                <i class="nav-icon fab fa-product-hunt"></i>
-                  <p> Product</p>
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Product</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="pages/examples/project-detail.html" class="nav-link">
-                <i class="nav-icon fab fa-adversal"></i>
-                  <p> Promotion</p>
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Promotion</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="pages/examples/project-detail.html" class="nav-link">
-                <i class="nav-icon fas fa-users"></i>
-                  <p> Member</p>
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Member</p>
                 </a>
               </li>
       
