@@ -27,7 +27,7 @@
                                     </div>
                               </td>
                               <td data-th="Price"><?php echo number_format($value['price']); ?> </td>
-                              <td data-th="Quantity"><input class="form-control text-center" value="1" type="number" min="0">
+                              <td data-th="Quantity"><input class="form-control text-center" value="1" type="number">
                               </td>
                               <td data-th="Subtotal" class="text-center"><?php $value['price'] ?> </td>
                               <td class="actions" data-th="">
