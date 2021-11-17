@@ -1,4 +1,17 @@
-<?php include "header.php"?>
+<?php 
+// include "header.php";
+include "config.php";
+include "models/product.php";
+include "models/manufacture.php";
+include "models/protype.php";
+$product = new Product();
+echo '<script>
+      let result = confirm("Do you want to delete this product?");
+      if (result == true) {'
+        .$product->deleteProduct($_GET['id']).'
+      }</script>';
+    
+?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -61,14 +74,14 @@
                       <td><?php echo number_format($value['price']) ?></td>
                       <td><?php echo $value['manu_name'] ?></td>
                       <td><?php echo $value['type_name'] ?></td>
-                      <td ><p  class="description"><?php echo ($value['description']) ?></p></td>
+                      <td style="width: 12%"><p  class="description"><?php echo ($value['description']) ?></p></td>
                       <td class="project-actions text-right">
                           <a class="btn btn-info btn-sm modify-icon" href="product-edit.php">
                               <i class="fas fa-pencil-alt ">
                               </i>
                               Edit
                           </a> <br>
-                          <a class="btn btn-danger btn-sm modify-icon" href="product-delete.php?id=<?php echo $value['id'] ?>">
+                          <a class="btn btn-danger btn-sm modify-icon" onclick="" href="product-delete.php?id=<?php echo $value['id'] ?>">
                               <i class="fas fa-trash ">
                               </i>
                               Delete
@@ -88,5 +101,5 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  <?php  header("Location: product.php");?>
   <?php include "footer.php";?>
-

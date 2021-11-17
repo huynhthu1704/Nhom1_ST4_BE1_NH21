@@ -6,10 +6,6 @@
     text-overflow: ellipsis;
 }
 .modify-icon {
-    width: 80px;
+    width: 100px;
     margin:2px;
-}
-
-.modify-table {
-    width: 50% !important;
 }

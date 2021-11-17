@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Product</h1>
+            <h1>Projects</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -46,8 +46,8 @@
                       <th style="width: 15%">Price</th>
                       <th style="width: 10%">Manufacture</th>
                       <th style="width: 10%">Type</th>
-                      <th style="width: 20%">Description</th>
-                      <th style="width: 10%">Action</th>
+                      <th style="width: 14%">Description</th>
+                      <th style="width: 20%">Action</th>
                   </tr>
               </thead>
               <tbody>
@@ -57,19 +57,24 @@
                   <tr>
                       <td><?php echo $value['id'] ?></td>
                       <td><?php echo $value['name'] ?></td>
-                      <td><img src="../img/<?php echo $value['pro_image'] ?>" style="background-color:inherit" width="80px" alt=""></td>
+                      <td><img src="../img/<?php echo $value['pro_image'] ?>" width="80px" alt=""></td>
                       <td><?php echo number_format($value['price']) ?></td>
                       <td><?php echo $value['manu_name'] ?></td>
                       <td><?php echo $value['type_name'] ?></td>
-                      <td ><p  class="description"><?php echo ($value['description']) ?></p></td>
+                      <td style="width: 14%"><p class="description"><?php echo ($value['description']) ?></p></td>
                       <td class="project-actions text-right">
-                          <a class="btn btn-info btn-sm modify-icon" href="product-edit.php">
-                              <i class="fas fa-pencil-alt ">
+                          <a class="btn btn-primary btn-sm" href="#">
+                              <i class="fas fa-folder">
+                              </i>
+                              View
+                          </a>
+                          <a class="btn btn-info btn-sm" href="#">
+                              <i class="fas fa-pencil-alt">
                               </i>
                               Edit
-                          </a> <br>
-                          <a class="btn btn-danger btn-sm modify-icon" href="product-delete.php?id=<?php echo $value['id'] ?>">
-                              <i class="fas fa-trash ">
+                          </a>
+                          <a class="btn btn-danger btn-sm" href="#">
+                              <i class="fas fa-trash">
                               </i>
                               Delete
                           </a>
@@ -88,5 +93,5 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <?php include "footer.php";?>
 
+  <?php include "footer.php";?>

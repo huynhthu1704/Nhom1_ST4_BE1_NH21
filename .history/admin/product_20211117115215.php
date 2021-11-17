@@ -61,7 +61,7 @@
                       <td><?php echo number_format($value['price']) ?></td>
                       <td><?php echo $value['manu_name'] ?></td>
                       <td><?php echo $value['type_name'] ?></td>
-                      <td ><p  class="description"><?php echo ($value['description']) ?></p></td>
+                      <td style="width: 12%"><p  class="description"><?php echo ($value['description']) ?></p></td>
                       <td class="project-actions text-right">
                           <a class="btn btn-info btn-sm modify-icon" href="product-edit.php">
                               <i class="fas fa-pencil-alt ">
@@ -89,4 +89,3 @@
   </div>
   <!-- /.content-wrapper -->
   <?php include "footer.php";?>
-

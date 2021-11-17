@@ -1,0 +1,7 @@
+.description {
+    white-space: wrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: 200px;
+    text-overflow: ellipsis;
+}

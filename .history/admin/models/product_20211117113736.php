@@ -16,8 +16,11 @@ class Product extends Db
 
     public function deleteProduct($id)
     {
-        $sql = self::$connection->prepare("DELETE FROM products WHERE id = ?");
+        $sql = self::$connection->prepare("DELETE * FROM products WHERE id = ?");
         $sql->bind_param("i", $id);
         $sql->execute();
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items;
     }
 }

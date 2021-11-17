@@ -97,8 +97,9 @@ $promotion = new Promotion();
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="index.php" class="brand-link" style="text-align: center;">
-        <img src="../img/logo1.png" alt="">
+      <a href="index.php" class="brand-link">
+        <img src="../img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">AdminLTE 3</span>
       </a>
 
       <!-- Sidebar -->
@@ -162,7 +163,7 @@ $promotion = new Promotion();
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="pages/examples/project-detail.html" class="nav-link">
                 <i class="nav-icon fas fa-users"></i>
                 <p> Member</p>
               </a>
@@ -180,25 +181,25 @@ $promotion = new Promotion();
                 <li class="nav-item">
                   <a href="pages/examples/login.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Login</p>
+                    <p>Login v1</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="pages/examples/register.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Register</p>
+                    <p>Register v1</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="pages/examples/forgot-password.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Forgot Password</p>
+                    <p>Forgot Password v1</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="pages/examples/recover-password.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Recover Password</p>
+                    <p>Recover Password v1</p>
                   </a>
                 </li>
               </ul>

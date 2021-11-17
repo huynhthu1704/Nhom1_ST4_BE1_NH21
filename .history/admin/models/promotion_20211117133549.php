@@ -1,9 +1,9 @@
 <?php
-class Manufacture extends Db
+class Promotion extends Db
 {
-    public function getAllManufactures()
+    public function getAllPromotions()
     {
-        $sql = self::$connection->prepare("SELECT * FROM `manufactures`");
+        $sql = self::$connection->prepare("SELECT * FROM `promotions`");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);

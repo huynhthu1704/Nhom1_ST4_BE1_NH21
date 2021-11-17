@@ -2,14 +2,10 @@
     white-space: wrap;
     /* overflow-x: scroll; */
     overflow-y: scroll;
-    height: 100px;
+    height: 200px;
     text-overflow: ellipsis;
 }
 .modify-icon {
-    width: 80px;
+    width: 70px;
     margin:2px;
-}
-
-.modify-table {
-    width: 50% !important;
 }
