@@ -258,6 +258,15 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    Login & Register v1
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="pages/examples/login.html" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
@@ -283,6 +292,9 @@
                     </a>
                   </li>
                 </ul>
+              </li>
+      
+            </ul>
           </li>
         
         </ul>

@@ -221,31 +221,19 @@
           <li class="nav-item">
                 <a href="pages/examples/project-add.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Category</p>
+                  <p>Project Add</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="pages/examples/project-edit.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Manufacture</p>
+                  <p>Project Edit</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="pages/examples/project-detail.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Product</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/project-detail.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Promotion</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/project-detail.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Member</p>
+                  <p>Project Detail</p>
                 </a>
               </li>
       
@@ -253,11 +241,20 @@
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-plus-square"></i>
               <p>
-                Account
+                Extras
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    Login & Register v1
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="pages/examples/login.html" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
@@ -283,6 +280,9 @@
                     </a>
                   </li>
                 </ul>
+              </li>
+      
+            </ul>
           </li>
         
         </ul>
