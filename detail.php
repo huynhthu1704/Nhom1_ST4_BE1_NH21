@@ -263,7 +263,7 @@ if (isset($_GET['id'])) {
 													</div>
 												</div>
 												<div class="review-body">
-													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+													<p>Lorem </p>
 												</div>
 											</li>
 											<li>
@@ -279,7 +279,7 @@ if (isset($_GET['id'])) {
 													</div>
 												</div>
 												<div class="review-body">
-													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+													<p>Lorem </p>
 												</div>
 											</li>
 											<li>
@@ -295,7 +295,7 @@ if (isset($_GET['id'])) {
 													</div>
 												</div>
 												<div class="review-body">
-													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+													<p>Lorem</p>
 												</div>
 											</li>
 										</ul>
@@ -320,14 +320,14 @@ if (isset($_GET['id'])) {
 											<div class="input-rating">
 												<span>Your Rating: </span>
 												<div class="stars">
-													<input id="star5" name="rating" value="5" type="radio"><label for="star5"></label>
+													<input id="star5" name="rating" value="0" type="radio"><label for="star5"></label>
 													<input id="star4" name="rating" value="4" type="radio"><label for="star4"></label>
 													<input id="star3" name="rating" value="3" type="radio"><label for="star3"></label>
 													<input id="star2" name="rating" value="2" type="radio"><label for="star2"></label>
 													<input id="star1" name="rating" value="1" type="radio"><label for="star1"></label>
 												</div>
 											</div>
-											<button class="primary-btn">Submit</button>
+											<button name="add-review" id="add-review" class="primary-btn">Submit</button>
 										</form>
 									</div>
 								</div>
@@ -359,45 +359,60 @@ if (isset($_GET['id'])) {
 							<h3 class="title">Related Products</h3>
 						</div>
 					</div>
-					<?php
-					$id = $_GET['id'];
-					$getProductByID = $product->getProductById($id);
-					$typeId = "";
-					foreach ($getProductByID as $value) {
-						$typeId = $value['type_id'];
-					}
-					$getProductByTypeID = $product->searchNameByTypeID($typeId);
-					foreach ($getProductByTypeID as $value) :
-					?>
-						<!-- product -->
-						<div class="col-md-3 col-xs-6">
-							<div class="product">
-								<div class="product-img">
-									<img src="./img/<?php echo $value['pro_image'] ?>" alt="">
-									<div class="product-label">
-										<span class="sale">-30%</span>
-									</div>
-								</div>
-								<div class="product-body">
-									<p class="product-category"><?php echo $product->getTypeName($value['type_id']) ?></p>
-									<h3 class="product-name"><a href="#"><?php echo $value['name'] ?></a></h3>
-									<h4 class="product-price"><?php echo number_format($value['price'] ) ?> <del class="product-old-price">$990.00</del></h4>
-									<div class="product-rating">
-									</div>
-									<div class="product-btns">
-										<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-										<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-										<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-									</div>
-								</div>
-								<div class="add-to-cart">
-									<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-								</div>
-							</div>
-						</div>
-						<!-- /product -->
-					<?php endforeach; ?>
 
+					<div class="col-md-12">
+				<div class="row">
+					<div class="products-tabs">
+						<!-- tab -->
+						<div id="tab1" class="tab-pane active">
+							<div class="products-slick" data-nav="#slick-nav-1">
+								<!-- product -->
+								<?php
+								$id = $_GET['id'];
+								$getProductByID = $product->getProductById($id);
+								$type_id = "";
+								foreach ($getProductByID as $value)
+								{
+									$type_id = $value['type_id'];
+								}
+								$getNewProducts = $product->searchNameByTypeID($type_id);
+								foreach ($getNewProducts as $value) {
+								?>
+									<div class="product">
+										<div class="product-img">
+											<img src="./img/<?php echo $value['pro_image'] ?>" alt="">
+										</div>
+										<div class="product-body">
+
+											<p class="product-category"><?php echo $product->getTypeName($value['type_id']) ?></p>
+											<h3 class="product-name"><a href="detail.php?id=<?php echo $value['id']  ?>"><?php echo $value['name']; ?></a></h3>
+											<h4 class="product-price"><?php echo number_format($value['price']); ?></h4>
+											<div class="product-rating">
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+											</div>
+											<div class="product-btns">
+												<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+												<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+												<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+											</div>
+										</div>
+										<div class="add-to-cart">
+											<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+										</div>
+									</div>
+								<?php } ?>
+								<!-- /product -->
+							</div>
+							<div id="slick-nav-1" class="products-slick-nav"></div>
+						</div>
+						<!-- /tab -->
+					</div>
+				</div>
+			</div>
 					<div class="clearfix visible-sm visible-xs"></div>
 
 
