@@ -2275,7 +2275,7 @@ header.admin{
 .sidebar {
   margin: 0;
   padding: 0;
-  min-height: 90vh;
+  min-height: 95vh;
   display: table-cell;
 }
 .content {
