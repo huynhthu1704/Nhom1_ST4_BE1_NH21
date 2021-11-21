@@ -1,14 +1,14 @@
 <?php include "header.php"; ?>
 <div class="container">
-      <table id="cart" class="table table-hover table-borderless">
+      <table id="cart" class="table table-hover table-borderless table-modify">
             <thead>
                   <tr>
-                        <th style="width:4%"></th>
+                        <th style="width:2%"></th>
                         <th style="width:10%">Image</th>
                         <th style="width:40%">Name</th>
                         <th style="width:10%">Price</th>
                         <th style="width:8%">Quantity</th>
-                        <th style="width:22%" class="text-center">Subtotal</th>
+                        <th style="width:22%" class="text-center">Thành tiền</th>
                         <th style="width:5%">Delete </th>
                   </tr>
             </thead>
@@ -20,11 +20,24 @@
                         <tr>
                               <td><input type="checkbox" name="buy" id="buy"></td>
                               <td><img src="./img/<?php echo $value['pro_image']; ?>" alt="" width="100"></td>
-                              <td><h4><a href="#"><?php echo $value['name']; ?></a></h4></td>
-                              <td><?php echo number_format($value['price']); ?> </td>
-                              <td><input class="form-control text-center" value="1" type="number" min="0"></td>
-                              <td class="text-center"><?php $value['price'] ?> </td>
-                              <td ><button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button></td>
+                              <td data-th="Product">
+                                    <div class="row">
+                                          <div class="col-sm-2 hidden-xs">
+                                          </div>
+                                          <div class="col-sm-10">
+                                                <h4 class="nomargin"><a href="#"><?php echo $value['name']; ?></a></h4>
+                                                <p>Mô tả của sản phẩm 1</p>
+                                          </div>
+                                    </div>
+                              </td>
+                              <td data-th="Price"><?php echo number_format($value['price']); ?> </td>
+                              <td data-th="Quantity"><input class="form-control text-center" value="1" type="number" min="0">
+                              </td>
+                              <td data-th="Subtotal" class="text-center"><?php $value['price'] ?> </td>
+                              <td class="actions" data-th="">
+                                    <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i>
+                                    </button>
+                              </td>
                         </tr>
                   </tbody>
             <?php } ?>

@@ -2373,5 +2373,5 @@ td a:hover {
 .table-modify td,
 .table-modify thead th,
 .table-modify tbody + tbody {
-  border: 0 !important;
+  border: 0;
 }

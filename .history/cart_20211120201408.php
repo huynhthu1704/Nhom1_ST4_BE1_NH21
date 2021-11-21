@@ -3,12 +3,12 @@
       <table id="cart" class="table table-hover table-borderless">
             <thead>
                   <tr>
-                        <th style="width:4%"></th>
+                        <th style="width:2%"></th>
                         <th style="width:10%">Image</th>
                         <th style="width:40%">Name</th>
                         <th style="width:10%">Price</th>
                         <th style="width:8%">Quantity</th>
-                        <th style="width:22%" class="text-center">Subtotal</th>
+                        <th style="width:22%" class="text-center">Thành tiền</th>
                         <th style="width:5%">Delete </th>
                   </tr>
             </thead>

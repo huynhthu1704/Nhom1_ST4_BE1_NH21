@@ -1,14 +1,14 @@
 <?php include "header.php"; ?>
 <div class="container">
-      <table id="cart" class="table table-hover table-borderless">
+      <table id="cart" class="table table-hover table-borderless table-modify">
             <thead>
                   <tr>
-                        <th style="width:4%"></th>
+                        <th style="width:2%"></th>
                         <th style="width:10%">Image</th>
                         <th style="width:40%">Name</th>
                         <th style="width:10%">Price</th>
                         <th style="width:8%">Quantity</th>
-                        <th style="width:22%" class="text-center">Subtotal</th>
+                        <th style="width:22%" class="text-center">Thành tiền</th>
                         <th style="width:5%">Delete </th>
                   </tr>
             </thead>
@@ -18,7 +18,7 @@
             ?>
                   <tbody>
                         <tr>
-                              <td><input type="checkbox" name="buy" id="buy"></td>
+                              <td><input style="font-size: 20px;" type="checkbox" name="buy" id="buy"></td>
                               <td><img src="./img/<?php echo $value['pro_image']; ?>" alt="" width="100"></td>
                               <td><h4><a href="#"><?php echo $value['name']; ?></a></h4></td>
                               <td><?php echo number_format($value['price']); ?> </td>
