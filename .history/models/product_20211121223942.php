@@ -10,10 +10,9 @@ class Product extends Db
         return $items;
     }
 
-    public function getAllProductsWithProtype($id)
+    public function getAllProductsWithManu()
     {
-        $sql = self::$connection->prepare("SELECT * FROM `products`, `protypes` WHERE products.type_id = protypes.type_id and products.id = ?");
-        $sql->bind_param("i", $id);
+        $sql = self::$connection->prepare("SELECT * FROM `products`, `manufactures` WHERE products.manu_id = manufactures.manu_id");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
