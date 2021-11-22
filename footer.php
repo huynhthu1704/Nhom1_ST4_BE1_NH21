@@ -86,11 +86,11 @@
 					<div class="footer">
 						<h3 class="footer-title">Information</h3>
 						<ul class="footer-links">
-							<li><a href="header_2.php">About Us</a></li>
-							<li><a href="#">Contact Us</a></li>
-							<li><a href="#">Privacy Policy</a></li>
-							<li><a href="#">Orders and Returns</a></li>
-							<li><a href="#">Terms & Conditions</a></li>
+							<li><a href="ab_AboutUs.php">About Us</a></li>
+							<li><a href="ab_ContactUs.php">Contact Us</a></li>
+							<li><a href="ab_PrivacyPolicy.php">Privacy Policy</a></li>
+							<li><a href="ab_OrdersAndReturns.php">Orders and Returns</a></li>
+							<li><a href="ab_Terms&Conditions.php">Terms & Conditions</a></li>
 						</ul>
 					</div>
 				</div>
