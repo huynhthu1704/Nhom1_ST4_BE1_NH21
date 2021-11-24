@@ -297,7 +297,6 @@ if (isset($_GET['id'])) {
 										let content = document.getElementById('content').value;
 										let product_id = <?php echo $_GET['id']?>
 										xmlhttp = new XMLHttpRequest();
-										xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 										xmlhttp.open("POST", "review-handle.php", true);
 										xmlhttp.onreadystatechange = function() {
 											if (this.readyState == 4 && this.status == 200) {

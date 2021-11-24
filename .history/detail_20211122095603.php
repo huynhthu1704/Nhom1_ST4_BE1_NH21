@@ -297,16 +297,11 @@ if (isset($_GET['id'])) {
 										let content = document.getElementById('content').value;
 										let product_id = <?php echo $_GET['id']?>
 										xmlhttp = new XMLHttpRequest();
-										xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-										xmlhttp.open("POST", "review-handle.php", true);
 										xmlhttp.onreadystatechange = function() {
 											if (this.readyState == 4 && this.status == 200) {
-												// document.getElementsByClassName('reviews').
-												document.getElementById('noti').innerHTML = this.responseText;
+												document.getElementsByClassName('reviews').
 											}
-											
 										}
-										xmlhttp.send("name="+review_name+"&email="+review_email+"&rv_content="+content+"&rating=0&product_id="+product_id);
 									}
 									
 								</script>

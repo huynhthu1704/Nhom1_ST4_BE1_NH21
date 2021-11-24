@@ -106,7 +106,7 @@
 												<i class="fa fa-star"></i>
 											</div>
 											<div class="product-btns">
-												<button class="add-to-wishlist" onclick="addCart(<?php echo $value['id']?>)"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+												<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 											</div>
 										</div>
 										<div class="add-to-cart">

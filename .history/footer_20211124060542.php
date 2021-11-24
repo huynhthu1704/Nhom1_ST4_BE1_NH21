@@ -155,7 +155,7 @@
 <script src="js/scripts.js"></script>
 <script>
 	function addCart(id) {
-		alert(id);	
+		alert(id);
 	}
 </script>
 </html>

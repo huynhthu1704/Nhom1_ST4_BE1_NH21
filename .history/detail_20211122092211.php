@@ -269,7 +269,7 @@ if (isset($_GET['id'])) {
 								<!-- Review Form -->
 								<div class="col-md-3">
 									<div id="review-form">
-										<form class="review-form">
+										<form class="review-form" action="" method="POST">
 											<input class="input" type="text" name="review_name" id="review_name" placeholder="Your Name">
 											<input class="input" type="email" name="review_email" id="review_email" placeholder="Your Email">
 											<textarea class="input" name="content" id="content" placeholder="Your Review"></textarea>
@@ -291,22 +291,14 @@ if (isset($_GET['id'])) {
 								<!-- /Review Form -->
 								<script>
 									function addReview() {
-										//alert("hi");
-										let review_name = document.getElementById('review_name').value;
-										let review_email = document.getElementById('review_name').value;
-										let content = document.getElementById('content').value;
-										let product_id = <?php echo $_GET['id']?>
-										xmlhttp = new XMLHttpRequest();
-										xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-										xmlhttp.open("POST", "review-handle.php", true);
-										xmlhttp.onreadystatechange = function() {
-											if (this.readyState == 4 && this.status == 200) {
-												// document.getElementsByClassName('reviews').
-												document.getElementById('noti').innerHTML = this.responseText;
-											}
-											
+										alert("hi");
+										let review_name = document.getElementById('review_name').value();
+										let review_email = document.getElementById('review_name').value();
+										let content = document.getElementById('content').value();
+										if (review_name == "" || review_email == "" || content == "") {
+											document.getElementById('noti').classList.add('text-waring');
+											document.getElementById('noti').innerHTML = "* Please fill complete review information"
 										}
-										xmlhttp.send("name="+review_name+"&email="+review_email+"&rv_content="+content+"&rating=0&product_id="+product_id);
 									}
 									
 								</script>

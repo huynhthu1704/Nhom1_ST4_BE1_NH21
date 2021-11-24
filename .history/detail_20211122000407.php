@@ -283,30 +283,21 @@ if (isset($_GET['id'])) {
 													<input id="star1" name="rating" value="1" type="radio"><label for="star1"></label>
 												</div>
 											</div>
-											<div id="noti"></div>
-											<button name="add-review" id="add-review" class="primary-btn" onclick="addReview()">Submit</button>
+											<button name="add-review" id="add-review" class="primary-btn" onclick="addReview">Submit</button>
 										</form>
 									</div>
 								</div>
 								<!-- /Review Form -->
 								<script>
 									function addReview() {
-										//alert("hi");
-										let review_name = document.getElementById('review_name').value;
-										let review_email = document.getElementById('review_name').value;
-										let content = document.getElementById('content').value;
-										let product_id = <?php echo $_GET['id']?>
-										xmlhttp = new XMLHttpRequest();
-										xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-										xmlhttp.open("POST", "review-handle.php", true);
-										xmlhttp.onreadystatechange = function() {
-											if (this.readyState == 4 && this.status == 200) {
-												// document.getElementsByClassName('reviews').
-												document.getElementById('noti').innerHTML = this.responseText;
-											}
-											
+										$('#add-review').click(function() {
+										let review_name = $('#review_name').val();
+										let review_email = $('#review_email').val();
+										let content = $('#content').val();
+										if (review_name == "" || review_email == "" || content == "") {
+											alert("Please check your review");
 										}
-										xmlhttp.send("name="+review_name+"&email="+review_email+"&rv_content="+content+"&rating=0&product_id="+product_id);
+									})
 									}
 									
 								</script>
