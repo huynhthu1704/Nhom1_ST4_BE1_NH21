@@ -13,10 +13,11 @@ if (isset($_POST['submit'])) {
     $image = $_FILES['image']['name'];
     $feature = $_POST['feature'];
     $discount = $_POST['discount'];
-    if ($product->addProducts($name, $manu_id, $type_id, $price, $quantity, $image, $desc, $feature, $discount) == true) {
+    $id = $_GET['id'];
+    if ($product->editProducts($id,$name, $manu_id, $type_id, $price, $quantity, $image, $desc, $feature, $discount) == true) {
         header("location:product.php");
     } else {
-        header("location:addproduct.php");
+        header("location:edit_product1.php?id=$id");
     }
     //upload hinh
     $target_dir = "../img/";

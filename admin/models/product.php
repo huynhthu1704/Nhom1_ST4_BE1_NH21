@@ -20,12 +20,6 @@ class Product extends Db
         $sql->bind_param("i", $id);
         $sql->execute();
     }
-    public function deleteDiscount($id)
-    {
-        $sql = self::$connection->prepare("DELETE FROM discount WHERE id = ?");
-        $sql->bind_param("i", $id);
-        $sql->execute();
-    }
     public function addProducts($name,$manu_id,$type_id,$price,$quantity,$image,$desc,$feature,$discount_id)
     {
         $sql = self::$connection->prepare("INSERT 
@@ -33,5 +27,21 @@ class Product extends Db
         VALUES (?,?,?,?,?,?,?,?,?)");
         $sql->bind_param("siiiissii", $name,$manu_id,$type_id,$price,$quantity,$image,$desc,$feature,$discount_id);
         return $sql->execute(); //return an object
+    }
+    public function editProducts($id,$name,$manu_id,$type_id,$price,$quantity,$image,$desc,$feature,$discount_id)
+    {
+        $sql = self::$connection->prepare("UPDATE `products` 
+        SET `name` = ?, `manu_id` = ?,`type_id` = ?, `price`=?, `quantity`=?, `pro_image`=?, `description`=?, `feature`=?, `discount_id`=?
+        WHERE `id` = ? ;");
+        $sql->bind_param("siiiissiii", $name,$manu_id,$type_id,$price,$quantity,$image,$desc,$feature,$discount_id,$id);
+        return $sql->execute(); //return an object
+    }
+    public function getProductId($id){
+        $sql = self::$connection->prepare("SELECT * FROM products WHERE id =?");
+        $sql->bind_param("i", $id);
+        $items = array();
+        $sql->execute();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items;
     }
 }
