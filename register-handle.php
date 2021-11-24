@@ -1,5 +1,3 @@
-
-
 <?php
 require "config.php";
 require "models/db.php";
@@ -22,6 +20,7 @@ require "models/customer.php"; ?>
            header("Location: register.php");
         }else{
             $customer =  new Customer();
+            
             $addNewCustomer = $customer->addNewCustomer($first,$last,$phone,$address,$email,$gender,$birtday);
         }
       }
