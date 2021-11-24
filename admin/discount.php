@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Product Type</h1>
+            <h1>Discount</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -42,21 +42,21 @@
                   <tr>
                       <th style="width: 5%">ID</th>
                       <th style="width: 25%">Name</th>
-                      <th style="width: 20%">Price</th>
-                      <th style="width: 10%">Type</th>
+                      <th style="width: 20%">Discount Percent</th>
+                      <th style="width: 10%">Active</th>
                       <th style="width: 20%">Start day</th>
                       <th style="width: 20%">End day</th>
                   </tr>
               </thead>
               <tbody>
               <?php 
-                  $getAllPromotions = $promotion->getAllPromotions();
-                  foreach ($getAllPromotions as $value) { ?>
+                  $getAllDiscount = $discount->getAllDiscount();
+                  foreach ($getAllDiscount as $value) { ?>
                   <tr>
                       <td><?php echo $value['id'] ?></td>
                       <td><?php echo $value['name'] ?></td>
-                      <td><?php echo number_format($value['value']) ?></td>
-                      <td><?php echo $value['prom_name'] ?></td>
+                      <td><?php echo $value['discount_percent'] ?></td>
+                      <td><?php echo $value['active'] ?></td>
                       <td><?php echo $value['start_day'] ?></td>
                       <td><?php echo $value['end_day'] ?></td>
                       <td class="project-actions text-left">
@@ -65,7 +65,7 @@
                               </i>
                               Edit
                           </a> <br>
-                          <a class="btn btn-danger btn-sm modify-icon" href="">
+                          <a class="btn btn-danger btn-sm modify-icon" href="deldiscount.php?id=<?php echo $value['id'] ?>">
                               <i class="fas fa-trash ">
                               </i>
                               Delete
