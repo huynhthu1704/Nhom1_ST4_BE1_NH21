@@ -3,11 +3,11 @@ include "config.php";
 include "models/product.php";
 include "models/manufacture.php";
 include "models/protype.php";
-include "models/promotion.php";
+include "models/discount.php";
 $product = new Product();
 $manufacture = new Manufacture();
 $protype = new Protype();
-$promotion = new Promotion();
+$discount = new Discount();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -156,9 +156,9 @@ $promotion = new Promotion();
               </a>
             </li>
             <li class="nav-item">
-              <a href="promotion.php" class="nav-link">
+              <a href="discount.php" class="nav-link">
                 <i class="nav-icon fab fa-adversal"></i>
-                <p> Promotion</p>
+                <p> Discount</p>
               </a>
             </li>
             <li class="nav-item">

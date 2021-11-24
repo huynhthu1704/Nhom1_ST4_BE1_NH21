@@ -20,4 +20,10 @@ class Product extends Db
         $sql->bind_param("i", $id);
         $sql->execute();
     }
+    public function deleteDiscount($id)
+    {
+        $sql = self::$connection->prepare("DELETE FROM discount WHERE id = ?");
+        $sql->bind_param("i", $id);
+        $sql->execute();
+    }
 }
