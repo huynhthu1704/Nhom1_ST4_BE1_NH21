@@ -21,7 +21,7 @@
 
   <!-- Main content -->
   <section class="content">
-    <form action="manufacture.php" method="post" enctype="multipart/form-data">
+    <form action="manufacture_add1.php" method="post" enctype="multipart/form-data">
       <div class="row">
         <div class="col-md-12">
           <div class="card card-primary">

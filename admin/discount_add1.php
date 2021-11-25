@@ -1,5 +1,6 @@
 <?php 
 require "config.php";
+require "models/db.php";
 require "models/discount.php";
 $discount = new AM_Discount();
 ///Xử lý add
@@ -12,8 +13,10 @@ if(isset($_POST['submit'])){
 
    if($discount->addDiscount($name,$discount_percent,$active,$start_day,$end_day)==true){
         echo "đã thêm dc";
+        header('location:discount');
    }else{
-       echo "ko duoc";
+    header('location:discount.php');
+    echo "<script>alert(\"Thêm không thành công]\")</script>";
    }
 
 }
