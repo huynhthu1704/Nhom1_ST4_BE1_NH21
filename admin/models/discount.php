@@ -20,7 +20,7 @@ class AM_Discount extends AM_Db
         $sql = self::$connection->prepare("INSERT 
         INTO `discount`(`name`, `discount_percent`, `active`, `start_day`, `end_day`) 
         VALUES (?,?,?,?,?)");
-        $sql->bind_param("siibb", $name,$discount_percent,$active,$start_day,$end_day);
+        $sql->bind_param("siiss", $name,$discount_percent,$active,$start_day,$end_day);
         return $sql->execute(); //return an object
     }
     public function editDiscount($id, $name,$discount_percent,$active,$start_day,$end_day)

@@ -1,4 +1,6 @@
 <?php include "header.php";
+$discount_id = isset($_GET['id'])? $_GET["id"] : "";
+echo $discount_id;
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -7,12 +9,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Discount</h1>
+          <h1>Edit Discount</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Discount</li>
+            <li class="breadcrumb-item active">Edit Discount</li>
           </ol>
         </div>
       </div>
@@ -21,7 +23,7 @@
 
   <!-- Main content -->
   <section class="content">
-    <form action="discount.php" method="post" enctype="multipart/form-data">
+    <form action="discount_edit1.php?id=<?php echo $discount_id?>" method="post" enctype="multipart/form-data">
       <div class="row">
         <div class="col-md-12">
           <div class="card card-primary">
@@ -55,7 +57,7 @@
                 <label for="inputQuantity">End Day</label>
                 <input type="date" id="inputQuantity" class="form-control" name="end_day">
               </div>
-            
+
             </div>
             <!-- /.card-body -->
           </div>
@@ -65,7 +67,7 @@
       <div class="row">
         <div class="col-12">
           <a href="#" class="btn btn-secondary">Cancel</a>
-          <input type="submit" value="Create new Discount" class="btn btn-success float-right" name="submit">
+          <input type="submit" value="Edit now" class="btn btn-success float-right" name="submit">
         </div>
       </div>
     </form>

@@ -155,12 +155,7 @@ $discount = new AM_Discount();
                 </li>
               </ul>
             </li>
-            <li class="nav-item">
-              <a href="manufacture.php" class="nav-link">
-                <i class="nav-icon fas fa-truck"></i>
-                <p> Manufacture</p>
-              </a>
-            </li>
+
             <li class="nav-item">
               <a href="product.php" class="nav-link">
                 <i class="nav-icon fab fa-product-hunt"></i>
@@ -182,12 +177,51 @@ $discount = new AM_Discount();
                 </li>
               </ul>
             </li>
+
             <li class="nav-item">
               <a href="discount.php" class="nav-link">
-                <i class="nav-icon fab fa-adversal"></i>
+                <i class="nav-icon fab fa-product-hunt"></i>
                 <p> Discount</p>
+                <i class="fas fa-angle-left right"></i>
               </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="discount.php" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>List Discount</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="discount_add.php" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add Discount</p>
+                  </a>
+                </li>
+              </ul>
             </li>
+            
+            <li class="nav-item">
+              <a href="manufacture.php" class="nav-link">
+                <i class="nav-icon fab fa-product-hunt"></i>
+                <p> Manufacture</p>
+                <i class="fas fa-angle-left right"></i>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="manufacture.php" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>List Manufacture</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="manufacture_add.php" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add Manufacture</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-users"></i>

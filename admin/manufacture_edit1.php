@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
     echo "đã thêm dc";
     header('location:manufacture.php');
   } else {
-    echo "ko duoc";
-    echo "<script>alert(\"Them khong thành công]\")</script>";
+    header('location:manufacture.php');
+    echo "<script>alert(\"Chỉnh sửa không thành công]\")</script>";
   }
 }

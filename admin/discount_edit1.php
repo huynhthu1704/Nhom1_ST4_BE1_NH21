@@ -11,12 +11,14 @@ if (isset($_POST['submit'])) {
   $active = $_POST['active'];
   $start_day = $_POST['start_day'];
   $end_day = $_POST['end_day'];
- 
 
-  if ($manufacture->editDiscount($id, $name, $discount_percent, $active, $start_day, $end_day) ==
-   true) {
-   header("location: discount.php");
+
+  if (
+    $manufacture->editDiscount($id, $name, $discount_percent, $active, $start_day, $end_day) == true
+  ) {
+    header("location: discount.php");
   } else {
-    echo "ko duoc";
+    header('location:discount.php');
+    echo "<script>alert(\"Chỉnh sửa không thành công]\")</script>";
   }
 }

@@ -1,6 +1,8 @@
 <?php include "header.php";
-$discount_id = isset($_GET['id'])? $_GET["id"] : "";
-echo $discount_id;
+$manu_id = "";
+if (isset($_GET['manu_id'])) {
+  $manu_id =  $_GET['manu_id'];
+}
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -9,12 +11,12 @@ echo $discount_id;
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Edit Discount</h1>
+          <h1>Manufactures</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Edit Discount</li>
+            <li class="breadcrumb-item active">Project Add</li>
           </ol>
         </div>
       </div>
@@ -23,7 +25,7 @@ echo $discount_id;
 
   <!-- Main content -->
   <section class="content">
-    <form action="editdiscount1.php?id=<?php echo $discount_id?>" method="post" enctype="multipart/form-data">
+    <form action="manufacture_edit1.php?manu_id=<?php echo $manu_id ?>" method="post" enctype="multipart/form-data">
       <div class="row">
         <div class="col-md-12">
           <div class="card card-primary">
@@ -37,27 +39,9 @@ echo $discount_id;
             </div>
             <div class="card-body">
               <div class="form-group">
-                <label for="inputName">Name</label>
-                <input type="text" id="inputName" class="form-control" name="name">
+                <label for="inputName">Manufacture Name</label>
+                <input type="text" id="inputName" class="form-control" name="manu_name">
               </div>
-
-              <div class="form-group">
-                <label for="inputClientCompany">Discount Percent</label>
-                <input type="text" id="inputClientCompany" class="form-control" name="discount_percent">
-              </div>
-              <div class="form-group">
-                <label for="inputClientCompany">Active</label>
-                <input type="text" id="inputClientCompany" class="form-control" name="active">
-              </div>
-              <div class="form-group">
-                <label for="inputQuantity">Start Day</label>
-                <input type="date" id="inputQuantity" class="form-control" name="start_day">
-              </div>
-              <div class="form-group">
-                <label for="inputQuantity">End Day</label>
-                <input type="date" id="inputQuantity" class="form-control" name="end_day">
-              </div>
-
             </div>
             <!-- /.card-body -->
           </div>

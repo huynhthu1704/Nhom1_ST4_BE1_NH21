@@ -1,8 +1,4 @@
 <?php include "header.php";
-$manu_id = "";
-if (isset($_GET['manu_id'])) {
-  $manu_id =  $_GET['manu_id'];
-}
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -11,12 +7,12 @@ if (isset($_GET['manu_id'])) {
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Manufactures</h1>
+          <h1>Add Discount</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Project Add</li>
+            <li class="breadcrumb-item active">Discount</li>
           </ol>
         </div>
       </div>
@@ -25,7 +21,7 @@ if (isset($_GET['manu_id'])) {
 
   <!-- Main content -->
   <section class="content">
-    <form action="editmanufactures1.php?manu_id=<?php echo $manu_id ?>" method="post" enctype="multipart/form-data">
+    <form action="discount_add1.php" method="post" enctype="multipart/form-data">
       <div class="row">
         <div class="col-md-12">
           <div class="card card-primary">
@@ -39,9 +35,27 @@ if (isset($_GET['manu_id'])) {
             </div>
             <div class="card-body">
               <div class="form-group">
-                <label for="inputName">Manufacture Name</label>
-                <input type="text" id="inputName" class="form-control" name="manu_name">
+                <label for="inputName">Name</label>
+                <input type="text" id="inputName" class="form-control" name="name">
               </div>
+
+              <div class="form-group">
+                <label for="inputClientCompany">Discount Percent</label>
+                <input type="text" id="inputClientCompany" class="form-control" name="discount_percent">
+              </div>
+              <div class="form-group">
+                <label for="inputClientCompany">Active</label>
+                <input type="text" id="inputClientCompany" class="form-control" name="active">
+              </div>
+              <div class="form-group">
+                <label for="inputQuantity">Start Day</label>
+                <input type="datetime-local" id="inputQuantity" class="form-control" name="start_day">
+              </div>
+              <div class="form-group">
+                <label for="inputQuantity">End Day</label>
+                <input type="datetime-local" id="inputQuantity" class="form-control" name="end_day">
+              </div>
+            
             </div>
             <!-- /.card-body -->
           </div>
@@ -51,7 +65,7 @@ if (isset($_GET['manu_id'])) {
       <div class="row">
         <div class="col-12">
           <a href="#" class="btn btn-secondary">Cancel</a>
-          <input type="submit" value="Edit now" class="btn btn-success float-right" name="submit">
+          <input type="submit" value="Create new Discount" class="btn btn-success float-right" name="submit">
         </div>
       </div>
     </form>
