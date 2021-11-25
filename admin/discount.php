@@ -60,7 +60,7 @@
                       <td><?php echo $value['start_day'] ?></td>
                       <td><?php echo $value['end_day'] ?></td>
                       <td class="project-actions text-left">
-                          <a class="btn btn-info btn-sm modify-icon" href="product-edit.php">
+                          <a class="btn btn-info btn-sm modify-icon" href="editdiscount.php?id=<?php echo $value['id'] ?>">
                               <i class="fas fa-pencil-alt ">
                               </i>
                               Edit

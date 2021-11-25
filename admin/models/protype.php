@@ -1,5 +1,5 @@
 <?php
-class Protype extends Db
+class AM_Protype extends AM_Db
 {
     public function getAllProtypes()
     {

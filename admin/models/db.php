@@ -1,5 +1,6 @@
 <?php
-class Db
+
+class AM_Db
 {
     public static $connection;
     public function __construct()

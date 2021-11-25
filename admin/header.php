@@ -1,13 +1,15 @@
 <?php
 include "config.php";
+include "models/db.php";
 include "models/product.php";
 include "models/manufacture.php";
 include "models/protype.php";
 include "models/discount.php";
-$product = new Product();
-$manufacture = new Manufacture();
-$protype = new Protype();
-$discount = new Discount();
+
+$product = new AM_Product();
+$manufacture = new AM_Manufacture();
+$protype = new AM_Protype();
+$discount = new AM_Discount();
 ?>
 <!DOCTYPE html>
 <html lang="en">
