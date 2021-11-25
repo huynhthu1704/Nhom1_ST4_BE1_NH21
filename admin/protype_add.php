@@ -1,10 +1,4 @@
 <?php include "header.php";
-$type_id=(int)$_GET['type_id'];
-$gettypeId=$protype->getProtypeId($type_id);
-$getTypeName;
-    foreach($gettypeId as $value){
-    $getTypeName=$value['type_name'];
-}
 ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -27,7 +21,7 @@ $getTypeName;
 
     <!-- Main content -->
     <section class="content">
-      <form action="protype_edit1.php?id=<?php echo $type_id ?>" method="post" enctype="multipart/form-data">
+      <form action="protype_add1.php" method="post" enctype="multipart/form-data">
       <div class="row">
         <div class="col-md-12">
           <div class="card card-primary">
@@ -42,7 +36,7 @@ $getTypeName;
             <div class="card-body">
               <div class="form-group">
                 <label for="inputName">Name</label>
-                <input type="text" id="inputName" class="form-control" value="<?php echo $getTypeName; ?>" name="name">
+                <input type="text" id="inputName" class="form-control" name="name">
               </div>
             </div>
             <!-- /.card-body -->

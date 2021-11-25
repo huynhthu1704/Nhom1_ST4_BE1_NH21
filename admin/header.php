@@ -136,7 +136,22 @@ $discount = new Discount();
               <a href="protype.php" class="nav-link">
                 <i class="nav-icon fas fa-list-alt"></i>
                 <p> Product Type</p>
+                <i class="fas fa-angle-left right"></i>
               </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="protype.php" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>List Protype</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="protype_add.php" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add Protype</p>
+                  </a>
+                </li>
+              </ul>
             </li>
             <li class="nav-item">
               <a href="manufacture.php" class="nav-link">
@@ -148,7 +163,22 @@ $discount = new Discount();
               <a href="product.php" class="nav-link">
                 <i class="nav-icon fab fa-product-hunt"></i>
                 <p> Product</p>
+                <i class="fas fa-angle-left right"></i>
               </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="product.php" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>List Product</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="product_add.php" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add Product</p>
+                  </a>
+                </li>
+              </ul>
             </li>
             <li class="nav-item">
               <a href="discount.php" class="nav-link">

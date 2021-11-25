@@ -53,12 +53,12 @@
                 <td><?php echo $value['type_id'] ?></td>
                 <td><?php echo $value['type_name'] ?></td>
                 <td class="project-actions text-left">
-                  <a class="btn btn-info btn-sm modify-icon" href="product_edit.php?type_id=<?php echo $value['id'] ?>">
+                  <a class="btn btn-info btn-sm modify-icon" href="protype_edit.php?type_id=<?php echo $value['type_id'];?>">
                     <i class="fas fa-pencil-alt ">
                     </i>
                     Edit
                   </a>
-                  <a class="btn btn-danger btn-sm modify-icon" href="">
+                  <a class="btn btn-danger btn-sm modify-icon" href="protype_delete.php?type_id=<?php echo $value['type_id'];?>">
                     <i class="fas fa-trash ">
                     </i>
                     Delete

@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
     if ($product->addProducts($name, $manu_id, $type_id, $price, $quantity, $image, $desc, $feature, $discount) == true) {
         header("location:product.php");
     } else {
-        header("location:addproduct.php");
+        header("location:product_add1.php");
     }
     //upload hinh
     $target_dir = "../img/";
