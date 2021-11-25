@@ -53,12 +53,12 @@
                 <td><?php echo $value['manu_id'] ?></td>
                 <td><?php echo $value['manu_name'] ?></td>
                 <td class="project-actions text-left">
-                  <a class="btn btn-info btn-sm modify-icon" href="product-edit.php">
+                  <a class="btn btn-info btn-sm modify-icon" href="editmanufactures.php?manu_id=<?php echo $value['manu_id'] ?>">
                     <i class="fas fa-pencil-alt ">
                     </i>
                     Edit
                   </a>
-                  <a class="btn btn-danger btn-sm modify-icon" href="delmanufactures.php?id=<?php echo $value['manu_id'] ?>">
+                  <a class="btn btn-danger btn-sm modify-icon" href="delmanufactures.php?manu_id=<?php echo $value['manu_id'] ?>">
                     <i class="fas fa-trash ">
                     </i>
                     Delete

@@ -1,7 +1,7 @@
 <?php 
 require "config.php";
 require "models/product.php";
-$product= new Product();
+$product= new AM_Product();
 ///Xử lý add
 if(isset($_POST['submit'])){
     $name = $_POST['name'];

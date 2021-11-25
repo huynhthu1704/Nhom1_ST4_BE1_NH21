@@ -1,6 +1,5 @@
 <?php
-include "db.php";
-class Product extends Db
+class AM_Product extends AM_Db
 {
     public function getAllProducts()
     {
