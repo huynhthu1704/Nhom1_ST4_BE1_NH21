@@ -1,5 +1,26 @@
 <?php include "header.php";
-$productId= $_POST['id'];
+$Id=(int)$_GET['id'];
+$getproductt=$product->getProductId($Id);
+$getName;
+$getManuId;
+$getTypeid;
+$getPrice;
+$getQuantity;
+$getImage;
+$getDescription;
+$getFeature;
+$getDiscount;
+foreach($getproductt as $value){
+  $getName=$value['name'];
+  $getManuid=$value['manu_id'];
+  $getTypeid=$value['type_id'];
+  $getPrice=$value['price'];
+  $getQuantity=$value['quantity'];
+  $getImage=$value['pro_image'];
+  $getDescription=$value['description'];
+  $getFeature=$value['feature'];
+  $getDiscount=$value['discount_id'];
+}
 ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -22,7 +43,7 @@ $productId= $_POST['id'];
 
     <!-- Main content -->
     <section class="content">
-      <form action="add.php" method="post" enctype="multipart/form-data">
+      <form action="product1_edit.php?id=<?php echo $Id ?>" method="post" enctype="multipart/form-data">
       <div class="row">
         <div class="col-md-12">
           <div class="card card-primary">
@@ -37,12 +58,11 @@ $productId= $_POST['id'];
             <div class="card-body">
               <div class="form-group">
                 <label for="inputName">Name</label>
-                <input type="text" id="inputName" class="form-control" name="name">
+                <input type="text" id="inputName" class="form-control" value="<?php echo $getName; ?>" name="name">
               </div>
               <div class="form-group">
-                <label for="inputStatus">Manufacture</label>
-                <select id="inputStatus" class="form-control custom-select" name="manu">
-                  <option selected disabled>Select one</option>
+                <label for="inputManufacture">Manufacture</label>
+                <select id="inputManufacture" class="form-control custom-select" name="manu">
                  <?php 
                  $getAllManu = $manufacture->getAllManufactures();
                  foreach($getAllManu as $value){
@@ -52,9 +72,8 @@ $productId= $_POST['id'];
                 </select>
               </div>
               <div class="form-group">
-                <label for="inputStatus">Protype</label>
-                <select id="inputStatus" class="form-control custom-select" name="type">
-                  <option selected disabled>Select one</option>
+                <label for="inputProtype">Protype</label>
+                <select id="inputProtype" class="form-control custom-select" name="type">
                   <?php 
                    $getAllProtype = $protype->getAllProtypes();
                   foreach($getAllProtype as $value){
@@ -64,20 +83,20 @@ $productId= $_POST['id'];
                 </select>
               </div>
               <div class="form-group">
-                <label for="inputClientCompany">Price</label>
-                <input type="text" id="inputClientCompany" class="form-control" name="price">
+                <label for="inputPrice">Price</label>
+                <input type="text" id="inputPrice" class="form-control" value="<?php echo $getPrice; ?>" name="price">
               </div>
               <div class="form-group">
                 <label for="inputDescription">Project Description</label>
-                <textarea id="inputDescription" class="form-control" rows="4" name="desc"></textarea>
+                <textarea id="inputDescription" class="form-control" rows="4" name="desc"><?php echo $getDescription; ?></textarea>
               </div>
               <div class="form-group">
                 <label for="inputQuantity">Quantity</label>
-                <input type="text" id="inputQuantity" class="form-control" name="quantity">
+                <input type="text" id="inputQuantity" class="form-control" value="<?php echo $getQuantity; ?>" name="quantity">
               </div>
               <div class="form-group">
                 <label for="inputImage">Image</label>
-                <input type="file" class="form-control" name="image">
+                <input type="file" class="form-control" value="<?php echo $getImage;?>" name="image">
               </div>
               <div class="form-group">
                 <label for="inputStatus">Feature</label>
@@ -105,7 +124,7 @@ $productId= $_POST['id'];
       </div>
       <div class="row">
         <div class="col-12">
-          <a href="#" class="btn btn-secondary">Cancel</a>
+          <a href="product.php" class="btn btn-secondary">Cancel</a>
           <input type="submit" value="Create new Porject" class="btn btn-success float-right" name="submit">
         </div>
       </div>

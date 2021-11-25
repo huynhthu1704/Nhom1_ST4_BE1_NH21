@@ -21,7 +21,7 @@
 
     <!-- Main content -->
     <section class="content">
-      <form action="add.php" method="post" enctype="multipart/form-data">
+      <form action="product_add1.php" method="post" enctype="multipart/form-data">
       <div class="row">
         <div class="col-md-12">
           <div class="card card-primary">
@@ -39,8 +39,8 @@
                 <input type="text" id="inputName" class="form-control" name="name">
               </div>
               <div class="form-group">
-                <label for="inputStatus">Manufacture</label>
-                <select id="inputStatus" class="form-control custom-select" name="manu">
+                <label for="inputManufacture">Manufacture</label>
+                <select id="inputManufacture" class="form-control custom-select" name="manu">
                   <option selected disabled>Select one</option>
                  <?php 
                  $getAllManu = $manufacture->getAllManufactures();
@@ -51,8 +51,8 @@
                 </select>
               </div>
               <div class="form-group">
-                <label for="inputStatus">Protype</label>
-                <select id="inputStatus" class="form-control custom-select" name="type">
+                <label for="inputProtype">Protype</label>
+                <select id="inputProtype" class="form-control custom-select" name="type">
                   <option selected disabled>Select one</option>
                   <?php 
                    $getAllProtype = $protype->getAllProtypes();
@@ -63,8 +63,8 @@
                 </select>
               </div>
               <div class="form-group">
-                <label for="inputClientCompany">Price</label>
-                <input type="text" id="inputClientCompany" class="form-control" name="price">
+                <label for="inputPrice">Price</label>
+                <input type="text" id="inputPrice" class="form-control" name="price">
               </div>
               <div class="form-group">
                 <label for="inputDescription">Project Description</label>
@@ -79,8 +79,8 @@
                 <input type="file" class="form-control" name="image">
               </div>
               <div class="form-group">
-                <label for="inputStatus">Feature</label>
-                <select id="inputStatus" class="form-control custom-select" name="feature" >
+                <label for="inputFeature">Feature</label>
+                <select id="inputFeature" class="form-control custom-select" name="feature" >
                   <option value="0">0</option>
                   <option value="1">1</option>
                 </select>
