@@ -70,7 +70,7 @@ if (isset($_GET['id'])) {
 								<h3 class="product-price"><?php echo number_format($value['price']) ?> <del class="product-old-price">$990.00</del></h3>
 								<span class="product-available">In Stock</span>
 							</div>
-							<p><?php echo substr($value['description'], 0, 100) ?> <a href="#">[Read more]</a></p>
+							<p><?php echo $value['description'] ?> </p>
 
 							<!-- <div class="product-options">
 								<label>
