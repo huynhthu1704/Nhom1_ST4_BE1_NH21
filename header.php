@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 require "config.php";
@@ -63,12 +64,12 @@ $protype = new Protype();
 				<ul class="header-links pull-right">
 					<li><a href="#"><i class="fa fa-dollar"></i> VND</a></li>
 					<?php if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) { ?>
-						<li><a href="#"><i class="fa fa-user-o"></i> <?php echo $_SESSION['name'] ?></a></li>
+						<li><a href="#"><i class="fa fa-user-o"></i> <?php echo 'Hello! '. $_SESSION['name'] ?></a></li>
 					<?php } else {
 						header("location:login.php");
 						exit();
 					} ?>
-					<li><a href="#"><i class="fa fa-user-o"></i> Logout</a></li>
+					<li><a href="logout.php"><i class="fa fa-user-o"></i> Logout</a></li>
 				</ul>
 			</div>
 		</div>
