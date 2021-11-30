@@ -2,7 +2,7 @@
 class Login extends Db {
 
     public function getLogin($username,$password) {
-        $sql = self::$connection->prepare("SELECT * FROM accounts WHERE `user_name` = ? AND `password` = ?");
+        $sql = self::$connection->prepare("SELECT * FROM customers WHERE `username` = ? AND `pwd` = ?");
         $sql->bind_param("ss", $username,$password);
         $sql->execute();
         $item = array();

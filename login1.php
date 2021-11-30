@@ -3,6 +3,7 @@ session_start();
 require "config.php";
 require "models/db.php";
 require "models/login.php";
+
 $login = new Login();
 
 if (isset($_POST['username']) && isset($_POST['password'])) {
@@ -23,12 +24,20 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
   } else {
     $getLogin = $login->getLogin($username, $password);
     foreach ($getLogin as $value) {
-      $value1 = $value['user_name'];
+      $value1 = $value['username'];
     }
-    if ($value['user_name'] == $username && $value['password'] == $password) {
-      $_SESSION['user_name'] = $value['user_name'];
-      $_SESSION['name'] = $value['name'];
+    if ($value['username'] == $username && $value['pwd'] == $password) {
+      $_SESSION['user_name'] = $value['username'];
+      $_SESSION['name'] = $value['first_name'];
       $_SESSION['id'] = $value['id'];
+      if (isset($_POST['remember'])) {
+        setcookie('username',   $username, time() + (10));
+        setcookie('password',   $password, time() + (10));
+      }
+      else{
+        setcookie('username',   '', time() - (10));
+        setcookie('password',   '', time() - (10));
+      }
       header('location:index.php');
     } else {
       header("location:login.php?error=Incorrect username or password");
