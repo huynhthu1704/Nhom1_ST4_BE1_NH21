@@ -33,6 +33,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
       if (isset($_POST['remember'])) {
         setcookie('username',   $username, time() + (10));
         setcookie('password',   $password, time() + (10));
+        echo "ok";
       }
       else{
         setcookie('username',   '', time() - (10));
