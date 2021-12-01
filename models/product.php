@@ -121,7 +121,7 @@ class Product extends Db
 
     public function getLaptops()
     {
-        $sql = self::$connection->prepare("SELECT * FROM `products`, `protypes` WHERE products.type_id = protypes.type_id and products.`type_id`=2");
+        $sql = self::$connection->prepare("SELECT * FROM `products`, `protypes`,discount WHERE products.type_id = protypes.type_id AND `products`.type_id = discount.id and products.`type_id`=2");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -130,7 +130,7 @@ class Product extends Db
 
     public function getSmartphones()
     {
-        $sql = self::$connection->prepare("SELECT * FROM `products`, `protypes` WHERE products.type_id = protypes.type_id and products.type_id =1");
+        $sql = self::$connection->prepare("SELECT * FROM `products`, `protypes`, discount WHERE products.type_id = protypes.type_id  AND `products`.type_id = discount.id and products.type_id =1");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
