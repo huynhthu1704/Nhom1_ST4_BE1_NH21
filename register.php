@@ -15,7 +15,7 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="admin/dist/css/adminlte.min.css">
 </head>
-<?php $first = $last = $phone = $email = $address = $gender = $username = $pass = ""; ?>
+<?php $first = $last = $phone = $email = $address = $gender = $username = $pass = $city = $ZipCode= ""; ?>
 
 <body class="hold-transition register-page">
   <div class="register-box">
@@ -28,7 +28,7 @@
         <p class="login-box-msg">Register a new membership</p>
         <form action="register-handle.php" method="post" novalidate>
           <div class="input-group mb-3">
-            <input type="text" name="first" class="form-control" value="<?php echo $first; ?>" placeholder="First name" pattern="[a-zA-Z]{3,}(\s?\w+)*" title="Không bắt đầu bằng khoảng trắng và không chứa ký tự đặc biệt" required>
+            <input type="text" name="first" class="form-control" value="<?php echo $first; ?>" placeholder="First name" pattern="[a-zA-Z]{3,}(\s?\w+)*"  required>
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-user"></span>
@@ -36,7 +36,7 @@
             </div>
           </div>
           <div class="input-group mb-3">
-            <input type="text" name="last" class="form-control" value="<?php echo $last; ?>" placeholder="Last name" pattern="[a-zA-Z]{3,}(\s?\w+)*" title="Không bắt đầu bằng khoảng trắng và không chứa ký tự đặc biệt" required>
+            <input type="text" name="last" class="form-control" value="<?php echo $last; ?>" placeholder="Last name" pattern="([a-zA-Z]{3,}(\s?\w+))*" required>
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-user"></span>
@@ -53,6 +53,22 @@
           </div>
           <div class="input-group mb-3">
             <input type="text" name="address" class="form-control" value="<?php echo $address; ?>" placeholder="Address">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-map-marker-alt"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input type="text" name="city" class="form-control" value="<?php echo $city; ?>" pattern="([a-zA-Z]{1,}(\s?\w+))*" placeholder="City">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-map-marker-alt"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input type="text" name="zipcode" class="form-control" value="<?php echo $ZipCode; ?>" pattern="([0-9]{6}){1}" placeholder="Zip Code">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-map-marker-alt"></span>
@@ -84,7 +100,7 @@
             </div>
           </div>
           <div class="input-group mb-3">
-            <input type="password" name="retype-password" class="form-control" placeholder="Retype password" oninput="document.getElementById('pass').pattern" required>
+            <input type="password" name="retype-password" class="form-control" placeholder="Retype password"  required>
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-lock"></span>
@@ -114,11 +130,6 @@
           </div>
         </form>
         <script>
-        function check(input) {
-        if (input.value != document.getElementById('pass').value) {
-            input.setCustomValidity('Incorrect password.');
-        }
-    }
         const form = document.querySelector('form');    
         form.onsubmit = (e) => {           
             if (form.checkValidity() === false) {

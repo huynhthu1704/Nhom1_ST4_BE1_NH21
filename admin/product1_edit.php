@@ -1,0 +1,30 @@
+<?php
+require "config.php";
+require "models/db.php";
+require "models/product.php";
+$product = new AM_Product();
+///Xử lý add
+if (isset($_POST['submit'])) {
+    $name = $_POST['name'];
+    $manu_id = $_POST['manu'];
+    $type_id = $_POST['type'];
+    $desc = $_POST['desc'];
+    $price = $_POST['price'];
+    $quantity = $_POST['quantity'];
+    $image = $_FILES['image']['name'];
+    if ($_FILES['image']['name'] == "") {
+        echo "hihi";
+    }
+    $feature = $_POST['feature'];
+    $discount = $_POST['discount'];
+    $id = $_GET['id'];
+    // if ($product->editProducts($id,$name, $manu_id, $type_id, $price, $quantity, $image, $desc, $feature, $discount) == true) {
+    //     header("location:product.php");
+    // } else {
+    //     header("location:edit_product1.php?id=$id");
+    // }
+    //upload hinh
+    // $target_dir = "../img/";
+    // $target_file = $target_dir . basename($_FILES["image"]["name"]);
+    // move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+}

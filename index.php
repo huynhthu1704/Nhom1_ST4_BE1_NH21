@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php 
 //session_start();
 include "header.php";
@@ -21,6 +22,10 @@ include "component.php";
 // 	}
 // }
 ?>
+=======
+
+<?php include "header.php"; ?>
+>>>>>>> 3232cbc5f366e27ebd5534bbb3a2f938ff3e1924
 <!-- SECTION -->
 <div class="section">
 	<!-- container -->
