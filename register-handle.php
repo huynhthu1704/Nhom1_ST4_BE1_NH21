@@ -1,5 +1,4 @@
 <?php
-require "config.php";
 require "models/db.php";
 require "models/product.php";
 require "models/protype.php";
@@ -25,12 +24,10 @@ if (isset($_POST['submit'])) {
         $check = $values['username'];
     }
     if ($retypepassword != $pass) {
-        echo "<script> alert('Tài khoản đã tồn tại'); </script>";
-        header("Location: register.php");
+        header("Location: register.php?error=Password mismatch");
     } else {
         if ($username == $check) {
-            echo "<script> alert('Registered name was used'); </script>";
-            header("Location: register.php");
+            header("Location: register.php?error=Account already exists");
         } else {
             $addNewCustomer = $customer->addNewCustomer($first,$last,$phone,$address,$city,$zipcode,$email,$gender,$birtday,$username,$pass);
         }

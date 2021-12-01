@@ -2,7 +2,6 @@
 <?php
 session_start();
 //session_destroy();
-require "config.php";
 require "models/db.php";
 require "models/product.php";
 require "models/protype.php";
@@ -73,12 +72,6 @@ if (isset($_SESSION['cart'])) {
 				</ul>
 				<ul class="header-links pull-right">
 					<li><a href="#"><i class="fa fa-dollar"></i> VND</a></li>
-					<?php if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) { ?>
-						<li><a href="#"><i class="fa fa-user-o"></i> <?php echo 'Hello! '. $_SESSION['name'] ?></a></li>
-					<?php } else {
-						header("location:login.php");
-						exit();
-					} ?>
 					<li><a href="logout.php"><i class="fa fa-user-o"></i> Logout</a></li>
 				</ul>
 			</div>

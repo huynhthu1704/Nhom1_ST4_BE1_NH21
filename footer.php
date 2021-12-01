@@ -158,7 +158,7 @@
 		//preventDefault();
 		
 		let xmlhttp = new XMLHttpRequest();
-		alert("hihh");
+		alert("hihi");
 		xmlhttp.onload = function() {
 			let item = this.responseText.split("#");
 			alert("hi");
@@ -166,7 +166,6 @@
 			document.getElementById('qty').innerHTML = item[1];
 			document.getElementById('totalPro').innerHTML = item[1];
 			document.getElementById('subtotal').innerHTML = item[0];
-
 			document.getElementById('cart-list').insertAdjacentHTML("beforeend", item[2]);
 			xmlhttp.open("GET", "cart-handle.php?id=" + id);
 			xmlhttp.send();

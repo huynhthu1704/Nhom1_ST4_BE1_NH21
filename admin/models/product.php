@@ -43,4 +43,12 @@ class AM_Product extends AM_Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
+    public function editProducts1($id,$name,$manu_id,$type_id,$price,$quantity,$desc,$feature,$discount_id)
+    {
+        $sql = self::$connection->prepare("UPDATE `products` 
+        SET `name` = ?, `manu_id` = ?,`type_id` = ?, `price`=?, `quantity`=?, `description`=?, `feature`=?, `discount_id`=?
+        WHERE `id` = ? ;");
+        $sql->bind_param("siiiissii", $name,$manu_id,$type_id,$price,$quantity,$desc,$feature,$discount_id,$id);
+        return $sql->execute(); //return an object
+    }
 }

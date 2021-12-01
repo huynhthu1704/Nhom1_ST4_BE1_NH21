@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AdminLTE 3 | Registration Page</title>
-
+  <link rel="stylesheet" type="text/css" href="css/login.css">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -27,6 +27,9 @@
       <div class="card-body register-card-body">
         <p class="login-box-msg">Register a new membership</p>
         <form action="register-handle.php" method="post" novalidate>
+        <?php if (isset($_GET['error'])) { ?>
+          <p class="error"><?php echo $_GET['error']  ?></p>
+        <?php } ?>
           <div class="input-group mb-3">
             <input type="text" name="first" class="form-control" value="<?php echo $first; ?>" placeholder="First name" pattern="[a-zA-Z]{3,}(\s?\w+)*"  required>
             <div class="input-group-append">

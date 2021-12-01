@@ -17,7 +17,7 @@ class Customer extends Db
     }
     public function checkUser($user)
     {
-        $sql = self::$connection->prepare("SELECT * FROM `customers` WHERE `username` = ?");
+        $sql = self::$connection->prepare("SELECT * FROM `accounts` WHERE `username` = ?");
         $sql->bind_param("s",$user);
         $sql->execute();
         $items = array();

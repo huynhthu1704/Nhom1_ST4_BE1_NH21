@@ -1,31 +1,9 @@
-<<<<<<< HEAD
 <?php 
 //session_start();
 include "header.php";
 include "component.php";
-
-// if (isset($_POST['add-to-cart'])) {
-// 	if (isset($_SESSION['cart'])) {
-// 		$item_arr_id = array_column($_SESSION['cart'], "pro_id");
-// 		if (in_array($_POST['pro_id'], $item_arr_id)) {
-// 			$_SESSION['cart'][$_POST['pro_id']]['qty']++;
-// 		} else {
-// 			$count = count($_SESSION['cart']);
-// 			$item_arr = array("pro_id"  => $_POST['pro_id'],
-// 							"qty" => 1);
-// 			$_SESSION['cart'][$count] = $item_arr;
-// 		}
-// 	} else {
-// 		$item_arr = array("pro_id"  => $_POST['pro_id'],
-// 							"qty" => 1);
-// 		$_SESSION['cart'][0] = $item_arr;
-// 	}
-// }
 ?>
-=======
 
-<?php include "header.php"; ?>
->>>>>>> 3232cbc5f366e27ebd5534bbb3a2f938ff3e1924
 <!-- SECTION -->
 <div class="section">
 	<!-- container -->
