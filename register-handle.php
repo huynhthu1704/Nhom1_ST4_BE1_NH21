@@ -19,18 +19,17 @@ if (isset($_POST['submit'])) {
     $city = $_POST['city'];
     $zipcode = $_POST['zipcode'];
     $checkname = $customer->checkUser($username);
-    $check;
+    $check="";
     foreach ($checkname as $values) {
         $check = $values['username'];
     }
     if ($retypepassword != $pass) {
         header("Location: register.php?error=Password mismatch");
+    } else if ($username == $check) {
+        header("Location: register.php?error=Account already exists");
     } else {
-        if ($username == $check) {
-            header("Location: register.php?error=Account already exists");
-        } else {
-            $addNewCustomer = $customer->addNewCustomer($first,$last,$phone,$address,$city,$zipcode,$email,$gender,$birtday,$username,$pass);
-        }
+        $addNewCustomer = $customer->addNewCustomer($first, $last, $phone, $address, $city, $zipcode, $email, $gender, $birtday, $username, $pass);
+        header("Location: index.php");
     }
 }
 ?>

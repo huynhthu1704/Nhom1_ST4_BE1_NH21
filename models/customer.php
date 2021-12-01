@@ -8,7 +8,6 @@ class Customer extends Db
         $sql = "INSERT INTO customers (id,first_name,last_name,email,cus_address,city,zip_code,phone_number,gender,birthday,join_day,username,pwd) VALUES
         (NULL,'$first','$last','$email','$address','$city','$zipcode','$phone','$gender','$birthday',CURRENT_TIMESTAMP,'$user','$pass')";
         if (self::$connection->query($sql) === TRUE) {
-            echo "Thêm Thành công";
         } else {
             echo self::$connection->error;
         }
@@ -17,7 +16,7 @@ class Customer extends Db
     }
     public function checkUser($user)
     {
-        $sql = self::$connection->prepare("SELECT * FROM `accounts` WHERE `username` = ?");
+        $sql = self::$connection->prepare("SELECT * FROM `customers` WHERE `username` = ?");
         $sql->bind_param("s",$user);
         $sql->execute();
         $items = array();

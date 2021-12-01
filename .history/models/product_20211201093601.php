@@ -22,7 +22,7 @@ class Product extends Db
 
     public function getNewProducts()
     {
-        $sql = self::$connection->prepare("SELECT * FROM `products`, `protypes`, discount WHERE `products`.type_id = `protypes`.type_id AND `products`.type_id = discount.id ORDER BY products.`created_at` DESC LIMIT 10");
+        $sql = self::$connection->prepare("SELECT * FROM `products`, `protypes` WHERE `products`.type_id = `protypes`.type_id ORDER BY `created_at` DESC LIMIT 10");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);

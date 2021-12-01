@@ -1,5 +1,5 @@
 <?php
-function component($pro_image, $type_name, $id, $name, $price)
+function component($pro_image, $type_name, $id, $name , $discount_price, $price)
 {
     echo "
         <div class=\"product\">
@@ -10,7 +10,7 @@ function component($pro_image, $type_name, $id, $name, $price)
             <div class=\"product-body\">
                 <p class=\"product-category\">$type_name</p>
                 <h3 class=\"product-name\"><a href=\"detail.php?id=$id\">$name</a></h3>
-                <h4 class=\"product-price\">".number_format($price)."</h4>
+                <h4 class=\"product-price\">".number_format($discount_price)."<del class=\"product-old-price\">".number_format($price)."</del></h4>
                 <div class=\"product-rating\">
                     <i class=\"fa fa-star\"></i>
                     <i class=\"fa fa-star\"></i>

@@ -3,8 +3,6 @@
 include "header.php";
 include "component.php";
 ?>
-
-
 <!-- SECTION -->
 <div class="section">
 	<!-- container -->
@@ -94,11 +92,7 @@ include "component.php";
 								<?php
 								$getNewProducts = $product->getNewProducts();
 								foreach ($getNewProducts as $value) {
-									$price=$value['price'];
-									$discountPercent=$value['discount_percent'];
-									$discount_price = 
-									$discount_price=$price -$price * $discountPercent/100;
-									component($value['pro_image'], $value['type_name'], $value['id'], $value['name'],$discount_price,  $value['price']);
+									component($value['pro_image'], $value['type_name'], $value['id'], $value['name'], $value['price']);
 								} ?>
 								<!-- /product -->
 							</div>
@@ -196,7 +190,7 @@ include "component.php";
 								<?php
 								$smartphones = $product->getSmartphones();
 								foreach ($smartphones as $value) {
-									component($value['pro_image'], $value['type_name'], $value['id'], $value['name'], $value['price'], 0);
+									component($value['pro_image'], $value['type_name'], $value['id'], $value['name'], $value['price']);
 								} ?>
 									
 							</div>
@@ -247,7 +241,7 @@ include "component.php";
 								<?php
 								$laptops = $product->getLaptops();
 								foreach ($laptops as $value) {
-									component($value['pro_image'], $value['type_name'], $value['id'], $value['name'], $value['price'],0);
+									component($value['pro_image'], $value['type_name'], $value['id'], $value['name'], $value['price']);
 								} ?>
 							</div>
 							<div id="slick-nav-2" class="products-slick-nav"></div>

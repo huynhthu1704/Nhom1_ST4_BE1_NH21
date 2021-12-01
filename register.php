@@ -19,8 +19,8 @@
 
 <body class="hold-transition register-page">
   <div class="register-box">
-    <div class="register-logo">
-      <a href="../../index2.html"><b>Admin</b>LTE</a>
+  <div class="login-logo">
+      <a href="index.php"><img src="./img/logo1.png" alt=""></a>
     </div>
 
     <div class="card">
@@ -142,18 +142,7 @@
             form.classList.add('was-validated');
         };         
     </script>
-        <div class="social-auth-links text-center">
-          <p>- OR -</p>
-          <a href="#" class="btn btn-block btn-primary">
-            <i class="fab fa-facebook mr-2"></i>
-            Sign up using Facebook
-          </a>
-          <a href="#" class="btn btn-block btn-danger">
-            <i class="fab fa-google-plus mr-2"></i>
-            Sign up using Google+
-          </a>
-        </div>
-        <a href="login.html" class="text-center">I already have a membership</a>
+        <a href="login.php" class="text-center">I already have a membership</a>
       </div>
       <!-- /.form-box -->
     </div><!-- /.card -->
