@@ -1,6 +1,7 @@
 <?php
 session_start();
 //session_destroy();
+require "config.php";
 require "models/db.php";
 require "models/product.php";
 require "models/protype.php";

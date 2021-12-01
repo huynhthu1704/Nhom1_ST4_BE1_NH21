@@ -148,7 +148,7 @@ class Product extends Db
 
     public function getSaleProduct()
     {
-        $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `discount_id` != 0");
+        $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `promotion_id` != 0");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -158,7 +158,7 @@ class Product extends Db
     public function get6ProductSale($page, $perPage)
     {
         $firstLink = ($page - 1) * $perPage;
-        $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `discount_id` != 0 LIMIT ?, ?");
+        $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `promotion_id` != 0 LIMIT ?, ?");
         $sql->bind_param("ii",$firstLink, $perPage);
         $sql->execute();
         $items = array();
