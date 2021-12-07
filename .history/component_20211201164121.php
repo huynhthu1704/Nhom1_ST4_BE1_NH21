@@ -39,7 +39,8 @@ function component($pro_image, $discount_percent, $isNew, $type_name, $id, $name
         </div>";
 }
 
-function getProduct ($value, $getNewProducts, $discount){
+function getProduct ($arr, $getNewProducts, $discount){
+    foreach ($arr as $value) {
         $isNew = 0;
         foreach ($getNewProducts as $value1) {
             if ($value['id'] == $value1['id']) {
@@ -55,5 +56,5 @@ function getProduct ($value, $getNewProducts, $discount){
         }
         component($value['pro_image'], $dis_Percent, $isNew, $value['type_name'], $value['id'], $value['name'],$discount_price,  $value['price']);
     }
-
+}
 

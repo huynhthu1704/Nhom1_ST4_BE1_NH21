@@ -92,9 +92,8 @@ include "component.php";
 							<div class="products-slick" data-nav="#slick-nav-1">
 								<!-- product -->
 								<?php
-								foreach($getNewProducts as $value) {
-									getProduct ($value, $getNewProducts, $discount);
-								}
+								$getNewProducts = $product->getNewProducts();
+								getProduct ($getNewProducts, $getNewProducts, $discount);
 								?>
 								<!-- /product -->
 							</div>
@@ -169,56 +168,6 @@ include "component.php";
 			<!-- section title -->
 			<div id="" class="col-md-12">
 				<div class="section-title">
-					<h3 class="title">FEATURE PRODUCTS</h3>
-					<div class="section-nav">
-						<ul class="section-tab-nav tab-nav">
-							<?php foreach ($getAllProtype as $value) { ?>
-								<li><a href="products.php?type_id=<?php echo $value['type_id']; ?>"><?php echo $value['type_name'] ?></a></li>
-							<?php } ?>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-			<!-- /section title -->
-
-			<!-- Products tab & slick -->
-			<div class="col-md-12">
-				<div class="row">
-					<div class="products-tabs">
-						<!-- tab -->
-						<div id="tab2" class="tab-pane fade in active">
-							<div class="products-slick" data-nav="#slick-nav-2">
-								<?php
-								$smartphones = $product->getSmartphones();
-								foreach ($smartphones as $value) {
-									getProduct ($value, $getNewProducts, $discount);
-								}
-								?>
-							</div>
-							<div id="slick-nav-2" class="products-slick-nav"></div>
-						</div>
-						<!-- /tab -->
-					</div>
-				</div>
-			</div>
-			<!-- /Products tab & slick -->
-		</div>
-		<!-- /row -->
-	</div>
-	<!-- /container -->
-</div>
-<!-- /SECTION -->
-<!-- SECTION -->
-<div class="section">
-	<!-- container -->
-	<div class="container">
-		<!-- row -->
-		<div class="row">
-
-			<!-- section title -->
-			<div id="" class="col-md-12">
-				<div class="section-title">
 					<h3 class="title">SMARTPHONES</h3>
 					<div class="section-nav">
 						<ul class="section-tab-nav tab-nav">
@@ -241,9 +190,7 @@ include "component.php";
 							<div class="products-slick" data-nav="#slick-nav-2">
 								<?php
 								$smartphones = $product->getSmartphones();
-								foreach ($smartphones as $value) {
-									getProduct ($value, $getNewProducts, $discount);
-								}
+								getProduct ($smartphones, $getNewProducts, $discount);
 								?>
 							</div>
 							<div id="slick-nav-2" class="products-slick-nav"></div>
@@ -292,9 +239,7 @@ include "component.php";
 							<div class="products-slick" data-nav="#slick-nav-2">
 								<?php
 								$laptops = $product->getLaptops();
-								foreach($laptops as $value) {
-									getProduct ($value, $getNewProducts, $discount);
-								}
+								getProduct ($laptops, $getNewProducts, $discount);
 								?>
 							</div>
 							<div id="slick-nav-2" class="products-slick-nav"></div>

@@ -169,7 +169,7 @@ include "component.php";
 			<!-- section title -->
 			<div id="" class="col-md-12">
 				<div class="section-title">
-					<h3 class="title">FEATURE PRODUCTS</h3>
+					<h3 class="title">SMARTPHONES</h3>
 					<div class="section-nav">
 						<ul class="section-tab-nav tab-nav">
 							<?php foreach ($getAllProtype as $value) { ?>

@@ -1,5 +1,6 @@
-<?php include "header.php";
-include "component.php";?>
+<?php include "header.php"; 
+include "component.php";
+?>
 
 <!-- BREADCRUMB -->
 <div id="breadcrumb" class="section">
@@ -30,28 +31,37 @@ include "component.php";?>
         <div class="row">
             <!-- ASIDE -->
             <div id="aside" class="col-md-3">
-				 <!-- aside Widget -->
-				 <div class="aside">
+                <!-- aside Widget -->
+                <div class="aside">
                     <h3 class="aside-title">Brand</h3>
                     <div class="checkbox-filter">
-					<?php 
-						$name= $product->getManuNameByHotDeal();
-                        $count = $product->getCountProductHotDeal();
-                        $dem=0;
-						foreach($name as $value){
-					?>
-                        <div class="list-item checkbox">
-                        <label><input type="checkbox" value="<?php echo $value['manu_name']; ?>" id="<?php echo $value['manu_name'];?>">
-                                <span></span>
-                                <?php echo $value['manu_name'];?>
-                                <small> <?php echo "(".$count[$dem]['dem'].")"; $dem=$dem+1;?> </small>
-                            </label>
-                        </div>
-						<?php }?>
+                        <?php
+                        if (isset($_GET['submit'])) {
+                            $type_id = $_GET['id'];
+                            if ($type_id == 0) {
+                                $name = $product->getAllManufacturesName();
+                                $count = $product->getAllCountProduct();
+                            } else {
+                                $name = $product->getManufacturesName($type_id);
+                                $count = $product->getCountProduct($type_id);
+                            }
+                            $dem = 0;
+                            foreach ($name as $value) {
+                        ?>
+                                <div class="list-item checkbox">
+                                    <label><input type="checkbox" value="<?php echo $value['manu_name']; ?>" id="<?php echo $value['manu_name']; ?>">
+                                        <span></span>
+                                        <?php echo $value['manu_name']; ?>
+                                        <small> <?php echo "(" . $count[$dem]['dem'] . ")";
+                                                $dem = $dem + 1; ?> </small>
+                                    </label>
+                                </div>
+                            <?php } ?>
+                        <?php  } ?>
                     </div>
                 </div>
                 <!-- /aside Widget -->
-				
+
                 <!-- aside Widget -->
                 <div class="aside">
                     <h3 class="aside-title">Price</h3>
@@ -64,14 +74,13 @@ include "component.php";?>
                         </div>
                         <span>-</span>
                         <div class="input-number price-max">
-                            <input id="price-max" type="number" value="100">
+                            <input id="price-max" type="number">
                             <span class="qty-up">+</span>
                             <span class="qty-down">-</span>
                         </div>
                     </div>
                 </div>
                 <!-- /aside Widget -->
-
                 <!-- aside Widget -->
                 <div class="aside">
                     <h3 class="aside-title">Top selling</h3>
@@ -128,8 +137,8 @@ include "component.php";?>
                         <label>
                             Show:
                             <select class="input-select">
-                                <option value="0">3</option>
-                                <option value="1">6</option>
+                                <option value="0">20</option>
+                                <option value="1">50</option>
                             </select>
                         </label>
                     </div>
@@ -142,30 +151,40 @@ include "component.php";?>
 
                 <!-- store products -->
                 <div class="row">
-                    <?php 
-                        $getSaleProduct = $product->getSaleProduct();
-                        $page = isset($_GET['page'])? $_GET['page']:1; 			
-                        $perPage = 6; 	
-                        $total = count($getSaleProduct); 	
-                        $url = $_SERVER['PHP_SELF'];	
-                        $get6ProductSale = $product->get6ProductSale($page, $perPage);
-                        foreach ($get6ProductSale as $value) {
+                    <?php
+                    if (isset($_GET['submit'])) {
+                        $type_id = $_GET['id'];
+                        $keyword = $_GET['keyword'];
+                        if ($keyword != "") {
+                            $search = $type_id == 0 ? $product->searchAll($keyword) : $product->searchNameByTypeIDAndName($keyword, $type_id);
+                            echo "hello";
+                            echo empty($keyword);
+                        } else {
+                            $search =  $product->searchNameByTypeID($type_id);
+                        }
+                        foreach ($search as $value) {
                     ?>
-                    <!-- product -->
-                    <div class="col-md-4 col-xs-6">
-                      <?php getProduct($value, $getNewProducts, $discount) ?>
-                    </div>
-                    <!-- /product -->
-                    <div class="clearfix visible-sm visible-xs"></div>
-                    <?php } ?>
+                            <!-- product -->
+                            <div class="col-md-4 col-xs-6">
+                                <?php
+                                getProduct ($search, $getNewProducts, $discount);
+                                ?>
+                            </div>
+                            <!-- /product -->
+                            <div class="clearfix visible-sm visible-xs"></div>
+                    <?php }
+                    } ?>
                 </div>
                 <!-- /store products -->
 
                 <!-- store bottom filter -->
                 <div class="store-filter clearfix">
-                    <span class="store-qty">Showing 3 - 6 products</span>
+                    <span class="store-qty">Showing 20-100 products</span>
                     <ul class="store-pagination">
-                    <?php echo $product->paginate($url, $total, $page, $perPage)?>
+                        <li class="active">1</li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
                         <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
                     </ul>
                 </div>
@@ -179,4 +198,4 @@ include "component.php";?>
 </div>
 <!-- /SECTION -->
 
-<?php include "footer.php";?>
+<?php include "footer.php"; ?>

@@ -1,5 +1,4 @@
-<?php include "header.php";
-include "component.php";?>
+<?php include "header.php";?>
 
 <!-- BREADCRUMB -->
 <div id="breadcrumb" class="section">
@@ -64,7 +63,7 @@ include "component.php";?>
                         </div>
                         <span>-</span>
                         <div class="input-number price-max">
-                            <input id="price-max" type="number" value="100">
+                            <input id="price-max" type="number">
                             <span class="qty-up">+</span>
                             <span class="qty-down">-</span>
                         </div>
@@ -128,8 +127,8 @@ include "component.php";?>
                         <label>
                             Show:
                             <select class="input-select">
-                                <option value="0">3</option>
-                                <option value="1">6</option>
+                                <option value="0">20</option>
+                                <option value="1">50</option>
                             </select>
                         </label>
                     </div>
@@ -146,14 +145,42 @@ include "component.php";?>
                         $getSaleProduct = $product->getSaleProduct();
                         $page = isset($_GET['page'])? $_GET['page']:1; 			
                         $perPage = 6; 	
-                        $total = count($getSaleProduct); 	
+                        $total = count($getSaleProduct); 					
                         $url = $_SERVER['PHP_SELF'];	
                         $get6ProductSale = $product->get6ProductSale($page, $perPage);
                         foreach ($get6ProductSale as $value) {
                     ?>
                     <!-- product -->
                     <div class="col-md-4 col-xs-6">
-                      <?php getProduct($value, $getNewProducts, $discount) ?>
+                        <div class="product">
+                            <div class="product-img">
+                                <img src="./img/<?php echo $value['pro_image'];?>" alt="">
+                                <div class="product-label">
+                                    <span class="sale">-30%</span>
+                                    <span class="new">NEW</span>
+                                </div>
+                            </div>
+                            <div class="product-body">
+                                <p class="product-category"><?php echo $product->getTypeName($value['type_id']) ?></p>
+                                <h3 class="product-name"><a href="#"><?php echo $value['name'];?></a></h3>
+                                <h4 class="product-price"><?php echo number_format($value['price']);?> <del class="product-old-price">$990.00</del></h4>
+                                <div class="product-rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div class="product-btns">
+                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                </div>
+                            </div>
+                            <div class="add-to-cart">
+                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                            </div>
+                        </div>
                     </div>
                     <!-- /product -->
                     <div class="clearfix visible-sm visible-xs"></div>

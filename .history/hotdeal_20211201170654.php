@@ -64,7 +64,7 @@ include "component.php";?>
                         </div>
                         <span>-</span>
                         <div class="input-number price-max">
-                            <input id="price-max" type="number" value="100">
+                            <input id="price-max" type="number">
                             <span class="qty-up">+</span>
                             <span class="qty-down">-</span>
                         </div>
@@ -128,8 +128,8 @@ include "component.php";?>
                         <label>
                             Show:
                             <select class="input-select">
-                                <option value="0">3</option>
-                                <option value="1">6</option>
+                                <option value="0">20</option>
+                                <option value="1">50</option>
                             </select>
                         </label>
                     </div>
@@ -147,6 +147,7 @@ include "component.php";?>
                         $page = isset($_GET['page'])? $_GET['page']:1; 			
                         $perPage = 6; 	
                         $total = count($getSaleProduct); 	
+                        echo $total;				
                         $url = $_SERVER['PHP_SELF'];	
                         $get6ProductSale = $product->get6ProductSale($page, $perPage);
                         foreach ($get6ProductSale as $value) {

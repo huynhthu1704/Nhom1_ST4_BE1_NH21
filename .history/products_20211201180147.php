@@ -35,8 +35,8 @@ include "component.php";?>
                     <h3 class="aside-title">Brand</h3>
                     <div class="checkbox-filter">
 					<?php 
-						$name= $product->getManuNameByHotDeal();
-                        $count = $product->getCountProductHotDeal();
+						$name= $product->getManufacturesName($_GET['type_id']);
+                        $count = $product->getCountProduct($_GET['type_id']);
                         $dem=0;
 						foreach($name as $value){
 					?>
@@ -64,7 +64,7 @@ include "component.php";?>
                         </div>
                         <span>-</span>
                         <div class="input-number price-max">
-                            <input id="price-max" type="number" value="100">
+                            <input id="price-max" type="number">
                             <span class="qty-up">+</span>
                             <span class="qty-down">-</span>
                         </div>
@@ -128,8 +128,8 @@ include "component.php";?>
                         <label>
                             Show:
                             <select class="input-select">
-                                <option value="0">3</option>
-                                <option value="1">6</option>
+                                <option value="0">20</option>
+                                <option value="1">50</option>
                             </select>
                         </label>
                     </div>
@@ -143,21 +143,23 @@ include "component.php";?>
                 <!-- store products -->
                 <div class="row">
                     <?php 
-                        $getSaleProduct = $product->getSaleProduct();
+                    if (isset($_GET['type_id'])) {
+                        $type_id = $_GET['type_id'];
+                        $getProductByTypeId = $product->getProductByTypeId($type_id);
                         $page = isset($_GET['page'])? $_GET['page']:1; 			
                         $perPage = 6; 	
-                        $total = count($getSaleProduct); 	
-                        $url = $_SERVER['PHP_SELF'];	
-                        $get6ProductSale = $product->get6ProductSale($page, $perPage);
-                        foreach ($get6ProductSale as $value) {
+                        $total = count($getProductByTypeId); 					
+                        $url = $_SERVER['PHP_SELF']."?type_id=$type_id";	
+                        $get6ProductByTypeId = $product->get6ProductByTypeId($type_id, $page, $perPage);
+                        foreach ($get6ProductByTypeId as $value) {
                     ?>
                     <!-- product -->
                     <div class="col-md-4 col-xs-6">
-                      <?php getProduct($value, $getNewProducts, $discount) ?>
+                      <?php getProduct($value, $getNewProducts, $discount); ?>
                     </div>
                     <!-- /product -->
                     <div class="clearfix visible-sm visible-xs"></div>
-                    <?php } ?>
+                    <?php } }?>
                 </div>
                 <!-- /store products -->
 

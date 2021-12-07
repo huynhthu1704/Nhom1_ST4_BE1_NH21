@@ -4,11 +4,9 @@ session_start();
 require "models/db.php";
 require "models/product.php";
 require "models/protype.php";
-require "models/discount.php";
 $product = new Product();
 $protype = new Protype();
 $discount = new Discount();
-$getNewProducts = $product->getNewProducts();
 
 $count = 0;
 $cart = array();

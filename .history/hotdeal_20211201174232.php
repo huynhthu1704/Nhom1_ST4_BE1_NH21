@@ -63,7 +63,7 @@ include "component.php";?>
                             <span class="qty-down">-</span>
                         </div>
                         <span>-</span>
-                        <div class="input-number price-max">
+                        <div class="input-number">
                             <input id="price-max" type="number" value="100">
                             <span class="qty-up">+</span>
                             <span class="qty-down">-</span>

@@ -1,7 +1,7 @@
 <?php
 function component($pro_image, $discount_percent, $isNew, $type_name, $id, $name, $discount_price, $old_price)
 {
-    $percent = $discount_percent == 0? "" :  "<span class=\"sale\">- " . $discount_percent . "%</span>";
+    $percent = $discount_percent == 0 ? "" :  "<span class=\"sale\">- " . $discount_percent . "%</span>";
     $new = $isNew == 1 ? "<span class=\"new\">NEW</span>" : "";
     $price = $discount_price == 0 ?
         "<h4 class=\"product-price\">" . number_format($old_price) . "</h4>"
@@ -39,9 +39,10 @@ function component($pro_image, $discount_percent, $isNew, $type_name, $id, $name
         </div>";
 }
 
-function getProduct ($value, $getNewProducts, $discount){
+function getProduct ($arr, $newPro){
+    foreach ($arr as $value) {
         $isNew = 0;
-        foreach ($getNewProducts as $value1) {
+        foreach ($newPro as $value1) {
             if ($value['id'] == $value1['id']) {
                 $isNew = 1;
             }
@@ -54,6 +55,5 @@ function getProduct ($value, $getNewProducts, $discount){
             $discount_price=(int) ($price - $price * $dis_Percent/100);
         }
         component($value['pro_image'], $dis_Percent, $isNew, $value['type_name'], $value['id'], $value['name'],$discount_price,  $value['price']);
-    }
-
+    }";
 

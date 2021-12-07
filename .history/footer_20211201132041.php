@@ -159,7 +159,7 @@
 		xmlhttp.onload = function() {
 			let item = this.responseText.split("#");
 			alert("hi");
-			altert(item[2]);
+			console.log(item[2]);
 			document.getElementById('qty').innerHTML = item[1];
 			document.getElementById('totalPro').innerHTML = item[1];
 			document.getElementById('subtotal').innerHTML = item[0];

@@ -161,7 +161,7 @@ class Product extends Db
     {
         $sql = self::$connection->prepare("SELECT * FROM `products`, `protypes` 
                                         WHERE `products`.type_id = `protypes`.type_id 
-                                        AND `products`.`type_id` = ?");
+                                        AND `type_id` = ?");
         $sql->bind_param("i",$type_id);
         $sql->execute();
         $items = array();
@@ -202,22 +202,22 @@ class Product extends Db
     public function get6ProductByTypeId($type_id, $page, $perPage)
     {
         $firstLink = ($page - 1) * $perPage;
-        $sql = self::$connection->prepare("SELECT * FROM `products`, `protypes` WHERE `products`.type_id = `protypes`.type_id AND `products`.`type_id` = ? LIMIT ?, ?");
+        $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `type_id` = ? LIMIT ?, ?");
         $sql->bind_param("iii",$type_id, $firstLink, $perPage);
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
-    public function getTypeName($type_id)
-    {
-        $sql = self::$connection->prepare("SELECT `protypes`.`type_name` FROM `protypes` WHERE `products`.`type_id` = ?");
-        $sql->bind_param("i",$type_id);
-        $sql->execute();
-        $items = array();
-        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $items[0]['type_name'];
-    }
+    // public function getTypeName($type_id)
+    // {
+    //     $sql = self::$connection->prepare("SELECT `protypes`.`type_name` FROM `products`,`protypes` WHERE `products`.`type_id` = `protypes`.`type_id` AND `products`.`type_id` = ?");
+    //     $sql->bind_param("i",$type_id);
+    //     $sql->execute();
+    //     $items = array();
+    //     $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+    //     return $items[0]['type_name'];
+    // }
 
     public function paginate($url, $total, $page, $perPage) {
         $totalLinks = ceil($total/$perPage);
