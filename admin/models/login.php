@@ -1,8 +1,8 @@
 <?php 
-class Login extends Db {
+class Login extends AM_Db {
 
     public function getLogin($username,$password) {
-        $sql = self::$connection->prepare("SELECT * FROM customers WHERE `username` = ? AND `pwd` = ?");
+        $sql = self::$connection->prepare("SELECT * FROM `admin` WHERE `username` = ? AND `pwd` = ?");
         $sql->bind_param("ss", $username,$password);
         $sql->execute();
         $item = array();

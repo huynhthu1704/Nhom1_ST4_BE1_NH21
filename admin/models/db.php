@@ -1,5 +1,5 @@
 <?php
-
+//require "config.php";
 class AM_Db
 {
     public static $connection;

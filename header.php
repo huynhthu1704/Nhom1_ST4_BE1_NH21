@@ -70,8 +70,12 @@ if (isset($_SESSION['cart'])) {
 					<li><a href="ggmap.html"><i class="fa fa-map-marker"></i> 53 Vo Van Ngan Str, Linh Chieu Ward</a></li>
 				</ul>
 				<ul class="header-links pull-right">
-					<li><a href="#"><i class="fa fa-dollar"></i> VND</a></li>
-					<li><a href="logout.php"><i class="fa fa-user-o"></i> Logout</a></li>
+					<?php if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) { ?>
+						<li><a href="#"><i class="fa fa-user-o"></i> <?php echo 'Hello! ' . $_SESSION['name'] ?></a></li>
+						<li><a href="logout.php"><i class="fa fa-user-o"></i> Logout</a></li>
+					<?php } else { ?>
+						<li><a href="login.php"><i class="fa fa-user-o"></i> Login</a></li>
+					<?php } ?>
 				</ul>
 			</div>
 		</div>

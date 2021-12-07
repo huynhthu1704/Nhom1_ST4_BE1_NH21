@@ -1,10 +1,10 @@
 <?php
 session_start();
+require "config.php";
 require "models/db.php";
 require "models/login.php";
 
 $login = new Login();
-
 if (isset($_POST['username']) && isset($_POST['password'])) {
   function validate($data)
   {
@@ -27,7 +27,6 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     }
     if ($value['username'] == $username && $value['pwd'] == $password) {
       $_SESSION['user_name'] = $value['username'];
-      $_SESSION['name'] = $value['first_name'];
       $_SESSION['id'] = $value['id'];
       if (isset($_POST['remember'])) {
         setcookie('username',   $username, time() + (60*30));
