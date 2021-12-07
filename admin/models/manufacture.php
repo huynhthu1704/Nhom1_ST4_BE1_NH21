@@ -31,4 +31,13 @@ class AM_Manufacture extends AM_Db
         $sql->bind_param("si", $manu_name,$manu_id);
         return $sql->execute(); //return an object
     }
+    public function getManufacturesByID($manu_id)
+    {
+        $sql = self::$connection->prepare("SELECT * FROM `manufactures` WHERE manu_id = ?");
+        $sql->bind_param("i",$manu_id);
+        $sql->execute();
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items;
+    }
 }

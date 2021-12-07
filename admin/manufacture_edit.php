@@ -3,6 +3,12 @@ $manu_id = "";
 if (isset($_GET['manu_id'])) {
   $manu_id =  $_GET['manu_id'];
 }
+$manu_id = (int)$_GET['manu_id'];
+$getmanu_id = $manufacture->getManufacturesByID($manu_id);
+foreach ($getmanu_id as $value) {
+  $getmanu_name = $value['manu_name'];
+}
+
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -40,7 +46,7 @@ if (isset($_GET['manu_id'])) {
             <div class="card-body">
               <div class="form-group">
                 <label for="inputName">Manufacture Name</label>
-                <input type="text" id="inputName" class="form-control" name="manu_name">
+                <input type="text" id="inputName" class="form-control" name="manu_name" value="<?php echo $getmanu_name ?>">
               </div>
             </div>
             <!-- /.card-body -->
@@ -50,7 +56,7 @@ if (isset($_GET['manu_id'])) {
       </div>
       <div class="row">
         <div class="col-12">
-          <a href="#" class="btn btn-secondary">Cancel</a>
+          <a href="manufacture" class="btn btn-secondary">Cancel</a>
           <input type="submit" value="Edit now" class="btn btn-success float-right" name="submit">
         </div>
       </div>
