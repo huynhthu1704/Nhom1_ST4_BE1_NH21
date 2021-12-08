@@ -9,6 +9,7 @@ include "component.php";?>
                         <?php
                         if ($count != 0) {
                               foreach ($_SESSION['cart'] as $value) {
+                                   // $subtotal += $value['price'] ;
                                     cartElement($value['id'], $value['image'], $value['name'], $value['price'], $value['qty']);?>
                           
                         <?php }} else {

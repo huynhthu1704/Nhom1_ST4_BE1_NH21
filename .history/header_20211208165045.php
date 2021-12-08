@@ -11,21 +11,22 @@ $discount = new Discount();
 $getNewProducts = $product->getNewProducts();
 
 $count = 0;
-
-if (isset($_POST['remove'])) {
-	if ($_GET['action'] == "remove") {
-		foreach ($_SESSION['cart'] as $key=>$value) {
-			if ($value['id'] == $_GET['id']) {
-				unset($_SESSION['cart'][$key]);
-				echo "<script>window.location='cart.php'</script>";
-			}
-		}
-	}
-}
 if (isset($_SESSION['cart'])) {
 	foreach ($_SESSION['cart'] as $value) {
 		$count += $value['qty'];
 	}
+}
+if (isset($_POST['remove'])) {
+	if ($_GET['action'] == "remove") {
+		foreach ($_SESSION['cart'] as &$value) {
+			if ($value['id'] == $_GET['id']) {
+				unset($value);
+				echo "<script>window.location='cart.php'</script>";
+			}
+		}
+	}
+	var_dump($_SESSION['cart']);
+	echo $_GET['id'];
 }
 ?>
 
@@ -213,6 +214,7 @@ if (isset($_SESSION['cart'])) {
 			<div id="responsive-nav">
 				<!-- NAV -->
 				<ul class="main-nav nav navbar-nav">
+					<?php if(isset($_SESSION['cart'])) {var_dump($_SESSION['cart']);}?>
 					<li class="active"><a href="index.php">Home</a></li>
 					<li><a href="hotdeal.php">Hot Deals</a></li>
 					<?php foreach ($getAllProtype as $value): ?>

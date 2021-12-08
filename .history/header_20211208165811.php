@@ -213,6 +213,7 @@ if (isset($_SESSION['cart'])) {
 			<div id="responsive-nav">
 				<!-- NAV -->
 				<ul class="main-nav nav navbar-nav">
+					<?php if(isset($_SESSION['cart'])) {var_dump($_SESSION['cart']);}?>
 					<li class="active"><a href="index.php">Home</a></li>
 					<li><a href="hotdeal.php">Hot Deals</a></li>
 					<?php foreach ($getAllProtype as $value): ?>

@@ -117,11 +117,11 @@ $getDiscount = $getproductt[0]['discount_id'];
                   <?php
                   $getAllDiscount = $discount->getAllDiscount();
                   foreach ($getAllDiscount as $value) {
-                    if ($value['dis_id'] == $getDiscount) :
+                    if ($value['id'] == $getDiscount) :
                   ?>
-                      <option selected value=<?php echo $value['dis_id'] ?>><?php echo $value['dis_name'] ?></option>
+                      <option selected value=<?php echo $value['id'] ?>><?php echo $value['name'] ?></option>
                     <?php else : ?>
-                      <option value=<?php echo $value['dis_id'] ?>><?php echo $value['dis_name'] ?></option>
+                      <option value=<?php echo $value['id'] ?>><?php echo $value['name'] ?></option>
                   <?php endif;
                   } ?>
                 </select>

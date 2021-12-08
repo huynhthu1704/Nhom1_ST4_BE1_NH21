@@ -167,7 +167,7 @@
 			let check = document.getElementById(proQty);
 			if (check && check !== 'null' && check !== 'undefined') {
 				let sl = Number (check.innerHTML.split('x')[0]);
-				check.innerHTML = sl+ 1 +" x";
+				check.innerHTML = sl+ 1 +"x";
 			} else {
 				cartList.insertAdjacentHTML("beforeend", item[3]);
 			}

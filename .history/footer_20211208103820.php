@@ -162,24 +162,20 @@
 			document.getElementById('qty').innerHTML = item[1];
 			document.getElementById('totalPro').innerHTML = item[1];
 			document.getElementById('subtotal').innerHTML = item[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-			let proQty = item[2];
+			let proQty ="qty8";
 			let cartList = document.getElementById('cart-list');
+			cartList.insertAdjacentHTML("beforeend", item[3]);
 			let check = document.getElementById(proQty);
 			if (check && check !== 'null' && check !== 'undefined') {
-				let sl = Number (check.innerHTML.split('x')[0]);
-				check.innerHTML = sl+ 1 +" x";
+				console.log(check);
 			} else {
-				cartList.insertAdjacentHTML("beforeend", item[3]);
+				alert("hu");
 			}
+			
 		}
 		xmlhttp.open("GET", "cart-handle.php?id=" + id);
 		xmlhttp.send();
 	}
-
-	// function deleteProduct(id) {
-	// 	let deletePro = "p" + id;
-	// 	document.getElementById("cart-pro").removeChild(document.getElementById(deletePro));
-	// }
 </script>
 
 </html>

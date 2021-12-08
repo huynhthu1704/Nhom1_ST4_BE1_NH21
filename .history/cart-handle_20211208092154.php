@@ -54,7 +54,7 @@ $products = new Product();
         </div>
         <div class=\"product-body\">
             <h3 class=\"product-name\"><a href=\"detail.php?id=$id\">$name</a></h3>
-            <h4 class=\"product-price\"><span class=\"qty\" id=\"qty$id\">1 x </span>".number_format($price)."</h4>
+            <h4 class=\"product-price\"><span class=\"qty qty$id\">1 x </span>".number_format($price)."</h4>
         </div>
         <button class=\"delete\"><i class=\"fa fa-close\"></i></button>
     </div>

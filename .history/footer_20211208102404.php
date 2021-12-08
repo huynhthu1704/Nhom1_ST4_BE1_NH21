@@ -164,22 +164,13 @@
 			document.getElementById('subtotal').innerHTML = item[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 			let proQty = item[2];
 			let cartList = document.getElementById('cart-list');
-			let check = document.getElementById(proQty);
-			if (check && check !== 'null' && check !== 'undefined') {
-				let sl = Number (check.innerHTML.split('x')[0]);
-				check.innerHTML = sl+ 1 +" x";
-			} else {
-				cartList.insertAdjacentHTML("beforeend", item[3]);
-			}
+			cartList.insertAdjacentHTML("beforeend", item[3]);
+			let check = cartList.getElementsByClassName(qty);
+			alert(check);
 		}
 		xmlhttp.open("GET", "cart-handle.php?id=" + id);
 		xmlhttp.send();
 	}
-
-	// function deleteProduct(id) {
-	// 	let deletePro = "p" + id;
-	// 	document.getElementById("cart-pro").removeChild(document.getElementById(deletePro));
-	// }
 </script>
 
 </html>

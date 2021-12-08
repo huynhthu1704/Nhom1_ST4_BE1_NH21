@@ -165,9 +165,11 @@
 			let proQty = item[2];
 			let cartList = document.getElementById('cart-list');
 			let check = document.getElementById(proQty);
+			//console.log(check);
 			if (check && check !== 'null' && check !== 'undefined') {
 				let sl = Number (check.innerHTML.split('x')[0]);
-				check.innerHTML = sl+ 1 +" x";
+				//console.log(sl);
+				check.innerHTML = sl+ 1;
 			} else {
 				cartList.insertAdjacentHTML("beforeend", item[3]);
 			}
@@ -176,10 +178,9 @@
 		xmlhttp.send();
 	}
 
-	// function deleteProduct(id) {
-	// 	let deletePro = "p" + id;
-	// 	document.getElementById("cart-pro").removeChild(document.getElementById(deletePro));
-	// }
+	function deleteProduct(id) {
+
+	}
 </script>
 
 </html>

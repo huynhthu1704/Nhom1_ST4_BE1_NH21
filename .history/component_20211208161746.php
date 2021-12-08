@@ -62,7 +62,7 @@ function getProduct($value, $getNewProducts, $discount)
 
 function cartElement($id, $img, $name, $price, $qty)
 {
-    echo "<form action=\"cart.php?action=remove&id=$id\" method=\"post\">
+    echo "<form action=\"cart.php?action=remove&id=$id\" method=\"get\">
         <div class=\"border rounded\">
                     <div class=\"row bg-white cart-row-modify\">
                           <div class=\"col-md-3\">

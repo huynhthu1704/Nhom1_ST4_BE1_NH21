@@ -8,7 +8,10 @@ include "component.php";?>
                         <hr>
                         <?php
                         if ($count != 0) {
-                              foreach ($_SESSION['cart'] as $value) {
+                              foreach ($cart as $value) {
+                                    // $getProduct = $product->getProductById($value['id']);
+                                    // $subtotal += $getProduct[0]['price'];
+                                    $subtotal += $value['price'] ;
                                     cartElement($value['id'], $value['image'], $value['name'], $value['price'], $value['qty']);?>
                           
                         <?php }} else {
@@ -17,23 +20,15 @@ include "component.php";?>
 
                   </div>
             </div>
-            <div class="col-md-4 offset-md-1 border rounded mt-5 bg-white"  style="padding: 30px 0 0 0 !important" >
+            <div style="padding: 30px 0 0 0 !important" class="col-md-4 offset-md-1 border rounded mt-5 bg-white">
                   <div class="pt-4">
-                        <h2>Price Details</h2>
+                        <h2>PRICE DETAILS</h2>
                         <hr>
                         <div class="row price-details">
                               <div class="col-md-6">
-                                <h4>Price ( <?php echo $count?> items)</h4>   
-                                    <h4>Delivery fee:</h4>
-                                    <hr>
-                                    <h4>Total:</h4>
+                                    <?php if ($count != 0) {echo "<h4>PRICE $count ITEMS<h4>";}?>
                               </div>
-                              <div class="col-md-6">
-                                    <h4><?php echo number_format($subtotal); ?> VND</h4>
-                                    <h4 class="text-success">FREE</h4>
-                                    <hr>
-                                    <h4><?php echo number_format($subtotal) ?> VND</h4>
-                              </div>
+                              <div class="col-md-6"></div>
                         </div>
                   </div>
             </div>

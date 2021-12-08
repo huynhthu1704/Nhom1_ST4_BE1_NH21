@@ -11,21 +11,13 @@ $discount = new Discount();
 $getNewProducts = $product->getNewProducts();
 
 $count = 0;
-
-if (isset($_POST['remove'])) {
-	if ($_GET['action'] == "remove") {
-		foreach ($_SESSION['cart'] as $key=>$value) {
-			if ($value['id'] == $_GET['id']) {
-				unset($_SESSION['cart'][$key]);
-				echo "<script>window.location='cart.php'</script>";
-			}
-		}
-	}
-}
+$cart = array();
 if (isset($_SESSION['cart'])) {
-	foreach ($_SESSION['cart'] as $value) {
+	$cart = $_SESSION['cart'];
+	foreach ($cart as $value) {
 		$count += $value['qty'];
 	}
+	var_dump($_SESSION['cart']);
 }
 ?>
 
@@ -151,11 +143,11 @@ if (isset($_SESSION['cart'])) {
 								<div class="cart-dropdown">
 									<div id="cart-list" class="cart-list">
 										<?php
-										$subtotal = 0; $total = 0;
+										$subtotal = 0;
 										$count = 0;
 										if (isset($_SESSION['cart'])) {
-										//	$cart = $_SESSION['cart'];
-											foreach ($_SESSION['cart'] as $value) {
+											$cart = $_SESSION['cart'];
+											foreach ($cart as $value) {
 												$count +=  (int) $value['qty'];
 												$subtotal += (int) $value['price'] * (int) $value['qty'];
 										?>
@@ -165,7 +157,7 @@ if (isset($_SESSION['cart'])) {
 													</div>
 													<div class="product-body">
 														<h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>"><?php echo $value['name']; ?></a></h3>
-														<h4 class="product-price"><span class="qty" id="qty<?php echo $value['id'] ?>"><?php echo $value['qty'] ?> x </span><?php echo number_format($value['price']); ?></h4>
+														<h4 class="product-price"><span class="qty qty<?php echo $value['id'] ?>"><?php echo $value['qty'] ?> x </span><?php echo number_format($value['price']); ?></h4>
 													</div>
 													<button class="delete"><i class="fa fa-close"></i></button>
 												</div>
@@ -215,7 +207,7 @@ if (isset($_SESSION['cart'])) {
 				<ul class="main-nav nav navbar-nav">
 					<li class="active"><a href="index.php">Home</a></li>
 					<li><a href="hotdeal.php">Hot Deals</a></li>
-					<?php foreach ($getAllProtype as $value): ?>
+					<?php foreach ($getAllProtype as $value) : ?>
 						<li><a href="products.php?type_id=<?php echo $value['type_id']; ?>"><?php echo $value['type_name'] ?></a></li>
 					<?php endforeach; ?>
 				</ul>

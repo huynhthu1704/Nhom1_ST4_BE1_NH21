@@ -8,7 +8,10 @@ include "component.php";?>
                         <hr>
                         <?php
                         if ($count != 0) {
-                              foreach ($_SESSION['cart'] as $value) {
+                              foreach ($cart as $value) {
+                                    // $getProduct = $product->getProductById($value['id']);
+                                    // $subtotal += $getProduct[0]['price'];
+                                    $subtotal += $value['price'] ;
                                     cartElement($value['id'], $value['image'], $value['name'], $value['price'], $value['qty']);?>
                           
                         <?php }} else {
@@ -23,17 +26,12 @@ include "component.php";?>
                         <hr>
                         <div class="row price-details">
                               <div class="col-md-6">
-                                <h4>Price ( <?php echo $count?> items)</h4>   
-                                    <h4>Delivery fee:</h4>
+                                    <?php if ($count != 0) {echo "<h4>Price ( $count items)<h4>";}?>
+                                    <h6>Delivery fee:</h6>
                                     <hr>
-                                    <h4>Total:</h4>
+                                    <h6>Total:</h6>
                               </div>
-                              <div class="col-md-6">
-                                    <h4><?php echo number_format($subtotal); ?> VND</h4>
-                                    <h4 class="text-success">FREE</h4>
-                                    <hr>
-                                    <h4><?php echo number_format($subtotal) ?> VND</h4>
-                              </div>
+                              <div class="col-md-6"></div>
                         </div>
                   </div>
             </div>
