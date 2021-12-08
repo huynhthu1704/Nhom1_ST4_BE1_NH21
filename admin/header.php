@@ -6,7 +6,10 @@ include "models/product.php";
 include "models/manufacture.php";
 include "models/protype.php";
 include "models/discount.php";
-
+include "models/customer.php";
+include "models/orderDetails.php";
+$orderDetails=new AM_OrderDetails();
+$customer=new AM_Customer();
 $product = new AM_Product();
 $manufacture = new AM_Manufacture();
 $protype = new AM_Protype();
