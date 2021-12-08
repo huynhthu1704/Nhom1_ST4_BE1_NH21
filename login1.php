@@ -1,6 +1,5 @@
 <?php
 session_start();
-require "config.php";
 require "models/db.php";
 require "models/login.php";
 
@@ -31,9 +30,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
       $_SESSION['name'] = $value['first_name'];
       $_SESSION['id'] = $value['id'];
       if (isset($_POST['remember'])) {
-        setcookie('username',   $username, time() + (10));
-        setcookie('password',   $password, time() + (10));
-        echo "ok";
+        setcookie('username',   $username, time() + (60*30));
+        setcookie('password',   $password, time() + (60*30));
       }
       else{
         setcookie('username',   '', time() - (10));
@@ -46,5 +44,4 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
   }
 } else {
   header("location:login.php");
-  exit();
 }

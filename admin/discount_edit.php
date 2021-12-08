@@ -1,6 +1,18 @@
 <?php include "header.php";
-$discount_id = isset($_GET['id'])? $_GET["id"] : "";
+$discount_id = isset($_GET['id']) ? $_GET["id"] : "";
 echo $discount_id;
+
+$id = (int)$_GET['id'];
+$getId = $discount->getDiscountByID($id);
+foreach ($getId as $value) {
+  $getname = $value['name'];
+  $getdiscount_percent = $value['discount_percent'];
+  $getactive = $value['active'];
+  $getname = $value['name'];
+  $getstart_day = $value['start_day'];
+  $getend_day = $value['end_day'];
+}
+
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -23,7 +35,7 @@ echo $discount_id;
 
   <!-- Main content -->
   <section class="content">
-    <form action="discount_edit1.php?id=<?php echo $discount_id?>" method="post" enctype="multipart/form-data">
+    <form action="discount_edit1.php?id=<?php echo $discount_id ?>" method="post" enctype="multipart/form-data">
       <div class="row">
         <div class="col-md-12">
           <div class="card card-primary">
@@ -38,26 +50,25 @@ echo $discount_id;
             <div class="card-body">
               <div class="form-group">
                 <label for="inputName">Name</label>
-                <input type="text" id="inputName" class="form-control" name="name">
+                <input type="text" id="inputName" class="form-control" name="name" value="<?php echo $getname ?>">
               </div>
 
               <div class="form-group">
                 <label for="inputClientCompany">Discount Percent</label>
-                <input type="text" id="inputClientCompany" class="form-control" name="discount_percent">
+                <input type="text" id="inputClientCompany" class="form-control" name="discount_percent" value="<?php echo $getdiscount_percent ?>">
               </div>
               <div class="form-group">
                 <label for="inputClientCompany">Active</label>
-                <input type="text" id="inputClientCompany" class="form-control" name="active">
+                <input type="text" id="inputClientCompany" class="form-control" name="active" value="<?php echo $getactive ?>">
               </div>
               <div class="form-group">
                 <label for="inputQuantity">Start Day</label>
-                <input type="date" id="inputQuantity" class="form-control" name="start_day">
+                <input type="datetime-local" id="inputQuantity" class="form-control" name="start_day" value="<?php echo $getstart_day ?>">
               </div>
               <div class="form-group">
                 <label for="inputQuantity">End Day</label>
-                <input type="date" id="inputQuantity" class="form-control" name="end_day">
+                <input type="datetime-local" id="inputQuantity" class="form-control" name="end_day" value="<?php echo $getend_day ?>">
               </div>
-
             </div>
             <!-- /.card-body -->
           </div>
@@ -66,7 +77,7 @@ echo $discount_id;
       </div>
       <div class="row">
         <div class="col-12">
-          <a href="#" class="btn btn-secondary">Cancel</a>
+          <a href="discount.php" class="btn btn-secondary">Cancel</a>
           <input type="submit" value="Edit now" class="btn btn-success float-right" name="submit">
         </div>
       </div>

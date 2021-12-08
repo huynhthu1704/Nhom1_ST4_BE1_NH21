@@ -29,4 +29,13 @@ class AM_Discount extends AM_Db
         $sql->bind_param("siissi", $name,$discount_percent,$active,$start_day,$end_day,$id);
         return $sql->execute(); //return an object
     }
+    public function getDiscountByID($id)
+    {
+        $sql = self::$connection->prepare("SELECT * FROM `discount` WHERE `id` = ? ");
+        $sql->bind_param("i",$id);
+        $sql->execute();
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items;
+    }
 }
