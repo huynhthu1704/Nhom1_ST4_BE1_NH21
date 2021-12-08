@@ -276,7 +276,7 @@ class Product extends Db
         }
         return $link;
     }
-<<<<<<< HEAD
+
     public function getFeature()
     {
         $sql = self::$connection->prepare("SELECT * FROM `products`, protypes WHERE products.type_id = protypes.type_id AND `feature` = 1");
@@ -284,7 +284,7 @@ class Product extends Db
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
-=======
+    }
 
     public function paginateForHotDeal($url, $total, $page, $perPage) {
         $totalLinks = ceil($total/$perPage);
@@ -294,6 +294,5 @@ class Product extends Db
             $link = $link."<li><a href='$url?page=$j'> $j </a></li>";
         }
         return $link;
->>>>>>> 889bf18f0e130cb0142f5866d4acc6993f2bbed2
     }
 }
