@@ -32,9 +32,8 @@ class Product extends Db
     public function getProductById($id)
     {
         $sql = self::$connection->prepare("SELECT * 
-                                            FROM `products`, protypes 
-                                            WHERE products.type_id = protypes.type_id
-                                            AND `id` = ? 
+                                            FROM `products` 
+                                            WHERE `id` = ? 
                                             LIMIT 1"
                                             );
         $sql->bind_param("i",$id);

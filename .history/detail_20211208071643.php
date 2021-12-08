@@ -1,10 +1,4 @@
-<?php include "header.php";
-include "component.php";
-if (isset($_GET['id'])) {
-	$id = $_GET['id'];
-	$getProduct = $product->getProductById($id)[0];
-	$typeName = $protype->getTypeName($getProduct['type_id']);
-?>
+<?php include "header.php" ?>
 
 <!-- BREADCRUMB -->
 <div id="breadcrumb" class="section">
@@ -14,9 +8,9 @@ if (isset($_GET['id'])) {
 		<div class="row">
 			<div class="col-md-12">
 				<ul class="breadcrumb-tree">
-					<li><a href="index.php">Home</a></li>
-					<li><a href="products.php?type_id=<?php echo $getProduct['type_id'];?>"><?php echo $typeName?></a></li>
-					<li class="active"><?php echo $getProduct['name'];?></li>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">All Categories</a></li>
+					<li class="active">Product name goes here</li>
 				</ul>
 			</div>
 		</div>
@@ -25,6 +19,12 @@ if (isset($_GET['id'])) {
 	<!-- /container -->
 </div>
 <!-- /BREADCRUMB -->
+<?php
+if (isset($_GET['id'])) {
+	$id = $_GET['id'];
+	$getAllProductsWithProtype = $product->getAllProductsWithProtype($id);
+	foreach ($getAllProductsWithProtype as $value) :
+?>
 		<!-- SECTION -->
 		<div class="section">
 			<!-- container -->
@@ -35,7 +35,7 @@ if (isset($_GET['id'])) {
 					<div class="col-md-5 col-md-push-2">
 						<div id="product-main-img">
 							<div class="product-preview">
-								<img src="./img/<?php echo $getProduct['pro_image'] ?>" alt="">
+								<img src="./img/<?php echo $value['pro_image'] ?>" alt="">
 							</div>
 
 						</div>
@@ -46,7 +46,7 @@ if (isset($_GET['id'])) {
 					<div class="col-md-2  col-md-pull-5">
 						<div id="product-imgs">
 							<div class="product-preview">
-								<img src="./img/<?php echo $getProduct['pro_image'] ?>" alt="">
+								<img src="./img/<?php echo $value['pro_image'] ?>" alt="">
 							</div>
 						</div>
 					</div>
@@ -55,7 +55,7 @@ if (isset($_GET['id'])) {
 					<!-- Product details -->
 					<div class="col-md-5">
 						<div class="product-details">
-							<h2 class="product-name"><?php echo $getProduct['name'] ?></h2>
+							<h2 class="product-name"><?php echo $value['name'] ?></h2>
 							<div>
 								<div class="product-rating">
 									<i class="fa fa-star"></i>
@@ -67,10 +67,25 @@ if (isset($_GET['id'])) {
 								<a class="review-link" href="#">10 Review(s) | Add your review</a>
 							</div>
 							<div>
-								<h3 class="product-price"><?php echo number_format($getProduct['price']) ?> <del class="product-old-price">$990.00</del></h3>
+								<h3 class="product-price"><?php echo number_format($value['price']) ?> <del class="product-old-price">$990.00</del></h3>
 								<span class="product-available">In Stock</span>
 							</div>
-							<p><?php echo $getProduct['description'] ?> </p>
+							<p><?php echo $value['description'] ?> </p>
+
+							<!-- <div class="product-options">
+								<label>
+									Size
+									<select class="input-select">
+										<option value="0">X</option>
+									</select>
+								</label>
+								<label>
+									Color
+									<select class="input-select">
+										<option value="0">Red</option>
+									</select>
+								</label>
+							</div> -->
 
 							<div class="add-to-cart">
 								<div class="qty-label">
@@ -86,11 +101,12 @@ if (isset($_GET['id'])) {
 
 							<ul class="product-btns">
 								<li><a href="#"><i class="fa fa-heart-o"></i> add to wishlist</a></li>
+								<!-- <li><a href="#"><i class="fa fa-exchange"></i> add to compare</a></li> -->
 							</ul>
 
 							<ul class="product-links">
 								<li>Category:</li>
-								<li><a href="products.php?type_id=<?php echo $getProduct['type_id']?>"><?php echo $getProduct['type_name']?></a></li>
+								<li><a href="products.php?type_id=<?php echo $value['type_id']?>"><?php echo $value['type_name']?></a></li>
 							</ul>
 
 							<ul class="product-links">
@@ -114,13 +130,17 @@ if (isset($_GET['id'])) {
 								<li><a data-toggle="tab" href="#tab2">Reviews (3)</a></li>
 							</ul>
 							<!-- /product tab nav -->
+					<?php
+				endforeach;
+			}
+					?>
 					<!-- product tab content -->
 					<div class="tab-content">
 						<!-- tab1  -->
 						<div id="tab1" class="tab-pane fade in active">
 							<div class="row">
 								<div class="col-md-12">
-									<p><?php echo $getProduct['description'] ?></p>
+									<p><?php echo $value['description'] ?></p>
 								</div>
 							</div>
 						</div>
@@ -326,10 +346,43 @@ if (isset($_GET['id'])) {
 							<div class="products-slick" data-nav="#slick-nav-1">
 								<!-- product -->
 								<?php
-								$getRelevantProducts = $product->searchNameByTypeID($getProduct['type_id']);
-								foreach ($getRelevantProducts as $value) {
-									getProduct ($value, $getNewProducts, $discount);
-								 } ?>
+								$id = $_GET['id'];
+								$getProductByID = $product->getProductById($id);
+								$type_id = "";
+								foreach ($getProductByID as $value)
+								{
+									$type_id = $value['type_id'];
+								}
+								$getNewProducts = $product->searchNameByTypeID($type_id);
+								foreach ($getNewProducts as $value) {
+								?>
+									<div class="product">
+										<div class="product-img">
+											<img src="./img/<?php echo $value['pro_image'] ?>" alt="">
+										</div>
+										<div class="product-body">
+
+											<p class="product-category"><?php echo $value['type_id'] ?></p>
+											<h3 class="product-name"><a href="detail.php?id=<?php echo $value['id']  ?>"><?php echo $value['name']; ?></a></h3>
+											<h4 class="product-price"><?php echo number_format($value['price']); ?></h4>
+											<div class="product-rating">
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+											</div>
+											<div class="product-btns">
+												<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+												<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+												<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+											</div>
+										</div>
+										<div class="add-to-cart">
+											<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+										</div>
+									</div>
+								<?php } ?>
 								<!-- /product -->
 							</div>
 							<div id="slick-nav-1" class="products-slick-nav"></div>
@@ -339,6 +392,10 @@ if (isset($_GET['id'])) {
 				</div>
 			</div>
 					<div class="clearfix visible-sm visible-xs"></div>
+
+
+
+
 				</div>
 				<!-- /row -->
 			</div>
@@ -346,4 +403,4 @@ if (isset($_GET['id'])) {
 		</div>
 		<!-- /Section -->
 
-		<?php } include "footer.php" ?>
+		<?php include "footer.php" ?>

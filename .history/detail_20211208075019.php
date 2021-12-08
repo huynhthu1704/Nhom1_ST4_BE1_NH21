@@ -14,9 +14,9 @@ if (isset($_GET['id'])) {
 		<div class="row">
 			<div class="col-md-12">
 				<ul class="breadcrumb-tree">
-					<li><a href="index.php">Home</a></li>
-					<li><a href="products.php?type_id=<?php echo $getProduct['type_id'];?>"><?php echo $typeName?></a></li>
-					<li class="active"><?php echo $getProduct['name'];?></li>
+					<li><a href="#">Home</a></li>
+					<li><a href="#"><?php echo $typeName?></a></li>
+					<li class="active"><?php echo $getProduct['name']?></li>
 				</ul>
 			</div>
 		</div>
