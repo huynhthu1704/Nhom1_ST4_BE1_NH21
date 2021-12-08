@@ -10,6 +10,7 @@ $protype = new Protype();
 $discount = new Discount();
 $getNewProducts = $product->getNewProducts();
 
+
 $count = 0;
 
 if (isset($_POST['remove'])) {
