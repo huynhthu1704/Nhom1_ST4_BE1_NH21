@@ -22,17 +22,14 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     header("location:login.php?error=Password is required");
   } else {
     $getLogin = $login->getLogin($username, $password);
-    foreach ($getLogin as $value) {
-      $value1 = $value['username'];
-    }
-    if ($value['username'] == $username && $value['pwd'] == $password) {
-      $_SESSION['user_name'] = $value['username'];
-      $_SESSION['id'] = $value['id'];
+
+    if ($getLogin[0]['username'] == $username &&  $getLogin[0]['pwd'] == md5($password)) {
+      $_SESSION['user_name'] = $getLogin[0]['username'];
+      $_SESSION['id'] = $getLogin[0]['id'];
       if (isset($_POST['remember'])) {
-        setcookie('username',   $username, time() + (60*30));
-        setcookie('password',   $password, time() + (60*30));
-      }
-      else{
+        setcookie('username',   $username, time() + (60 * 30));
+        setcookie('password',   $password, time() + (60 * 30));
+      } else {
         setcookie('username',   '', time() - (10));
         setcookie('password',   '', time() - (10));
       }
@@ -41,6 +38,4 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
       header("location:login.php?error=Incorrect username or password");
     }
   }
-} else {
-  header("location:login.php");
 }
