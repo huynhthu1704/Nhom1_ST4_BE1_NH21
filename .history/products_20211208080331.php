@@ -1,36 +1,16 @@
 <?php include "header.php";
 include "component.php";
-
-$type_id = "";
-$keyword = "";
-$search = array();
-$name = array();
-$count = array();
-$countPro = 0;
-$perPage = 6;
-$total = 0;
-$page = isset($_GET['page']) ? $_GET['page'] : 1;
-if (isset($_GET['submit'])) {
+$typeName = "";
+if (isset($_GET['type_id'])) {
+    $typeName = $protype->getTypeName($_GET['type_id']);
     $type_id = $_GET['type_id'];
-    $keyword = $_GET['keyword'];
-    $url = $_SERVER['PHP_SELF'] . "?type_id=$type_id&keyword=$keyword&submit=";
-    if ($type_id == 0) {
-        $get6Product = $product->get6Product($keyword, $page, $perPage);
-        $search = $product->searchAll($keyword);
-        $name = $product->getManuName($keyword);
-        $count = $product->getCountProduct($keyword);
-    } else {
-        $get6Product = $product->get6ProductByTypeId($type_id, $page, $perPage);
-        $search =$product->searchNameByTypeIDAndName($keyword, $type_id);
-        $name = $product->getManuNameByKeyWord($keyword, $type_id);
-        $count = $product->getCountProductByKeyWord($keyword,$type_id);
-    }
-    $total = count($search);
-    foreach ($count as $value) {
-        $countPro += $value['dem'];
-    }
+    $getProductByTypeId = $product->getProductByTypeId($type_id);
+    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+    $perPage = 6;
+    $total = count($getProductByTypeId);
+    $url = $_SERVER['PHP_SELF'] . "?type_id=$type_id";
+    $get6ProductByTypeId = $product->get6ProductByTypeId($type_id, $page, $perPage);
 }
-
 ?>
 
 <!-- BREADCRUMB -->
@@ -41,12 +21,8 @@ if (isset($_GET['submit'])) {
         <div class="row">
             <div class="col-md-12">
                 <ul class="breadcrumb-tree">
-                    <li><a href="#">Home</a></li>
-                    <li class="active">
-                        <?php
-                        if (isset($_GET['keyword'])) {
-                            echo $_GET['keyword'];
-                        } ?> (<?php echo $countPro; ?> Results)</li>
+                    <li><a href="index.php">Home</a></li>
+                    <li class="active"><?php echo $typeName." (".$total.") Results" ?></li>
                 </ul>
             </div>
         </div>
@@ -69,6 +45,8 @@ if (isset($_GET['submit'])) {
                     <h3 class="aside-title">Brand</h3>
                     <div class="checkbox-filter">
                         <?php
+                        $name = $product->getManuNameByType($_GET['type_id']);
+                        $count = $product->getCountProductByType($_GET['type_id']);
                         $dem = 0;
                         foreach ($name as $value) {
                         ?>
@@ -87,25 +65,6 @@ if (isset($_GET['submit'])) {
 
                 <!-- aside Widget -->
                 <div class="aside">
-                    <h3 class="aside-title">Price</h3>
-                    <div class="price-filter">
-                        <div id="price-slider"></div>
-                        <div class="input-number price-min">
-                            <input id="price-min" type="number">
-                            <span class="qty-up">+</span>
-                            <span class="qty-down">-</span>
-                        </div>
-                        <span>-</span>
-                        <div class="input-number price-max">
-                            <input id="price-max" type="number">
-                            <span class="qty-up">+</span>
-                            <span class="qty-down">-</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- /aside Widget -->
-                <!-- aside Widget -->
-                <div class="aside">
                     <h3 class="aside-title">Top selling</h3>
                     <div class="product-widget">
                         <div class="product-img">
@@ -118,27 +77,6 @@ if (isset($_GET['submit'])) {
                         </div>
                     </div>
 
-                    <div class="product-widget">
-                        <div class="product-img">
-                            <img src="./img/product02.png" alt="">
-                        </div>
-                        <div class="product-body">
-                            <p class="product-category">Category</p>
-                            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                            <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                        </div>
-                    </div>
-
-                    <div class="product-widget">
-                        <div class="product-img">
-                            <img src="./img/product03.png" alt="">
-                        </div>
-                        <div class="product-body">
-                            <p class="product-category">Category</p>
-                            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                            <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                        </div>
-                    </div>
                 </div>
                 <!-- /aside Widget -->
             </div>
@@ -175,24 +113,26 @@ if (isset($_GET['submit'])) {
                 <!-- store products -->
                 <div class="row">
                     <?php
-                    foreach ($get6Product as $value) {
+                    if (isset($_GET['type_id'])) {
+
+                        foreach ($get6ProductByTypeId as $value) {
                     ?>
-                        <!-- product -->
-                        <div class="col-md-4 col-xs-6">
-                            <?php
-                            getProduct($value, $getNewProducts, $discount);  ?>
-                        </div>
-                        <!-- /product -->
-                        <div class="clearfix visible-sm visible-xs"></div>
-                    <?php } ?>
+                            <!-- product -->
+                            <div class="col-md-4 col-xs-6">
+                                <?php getProduct($value, $getNewProducts, $discount); ?>
+                            </div>
+                            <!-- /product -->
+                            <div class="clearfix visible-sm visible-xs"></div>
+                    <?php }
+                    } ?>
                 </div>
                 <!-- /store products -->
 
                 <!-- store bottom filter -->
                 <div class="store-filter clearfix">
-                    <span class="store-qty">Showing 3-6 products</span>
+                    <span class="store-qty">Showing 3 - 6 products</span>
                     <ul class="store-pagination">
-                    <?php echo $product->paginate($url, $total, $page, $perPage) ?>
+                        <?php echo $product->paginate($url, $total, $page, $perPage) ?>
                         <!-- <li><a href="#"><i class="fa fa-angle-right"></i></a></li> -->
                     </ul>
                 </div>

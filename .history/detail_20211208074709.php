@@ -3,7 +3,7 @@ include "component.php";
 if (isset($_GET['id'])) {
 	$id = $_GET['id'];
 	$getProduct = $product->getProductById($id)[0];
-	$typeName = $protype->getTypeName($getProduct['type_id']);
+
 ?>
 
 <!-- BREADCRUMB -->
@@ -14,9 +14,9 @@ if (isset($_GET['id'])) {
 		<div class="row">
 			<div class="col-md-12">
 				<ul class="breadcrumb-tree">
-					<li><a href="index.php">Home</a></li>
-					<li><a href="products.php?type_id=<?php echo $getProduct['type_id'];?>"><?php echo $typeName?></a></li>
-					<li class="active"><?php echo $getProduct['name'];?></li>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">All Categories</a></li>
+					<li class="active">Product name goes here</li>
 				</ul>
 			</div>
 		</div>
@@ -328,8 +328,10 @@ if (isset($_GET['id'])) {
 								<?php
 								$getRelevantProducts = $product->searchNameByTypeID($getProduct['type_id']);
 								foreach ($getRelevantProducts as $value) {
-									getProduct ($value, $getNewProducts, $discount);
-								 } ?>
+								?>
+								
+								getProduct ($value, $getNewProducts, $discount)
+								<?php } ?>
 								<!-- /product -->
 							</div>
 							<div id="slick-nav-1" class="products-slick-nav"></div>

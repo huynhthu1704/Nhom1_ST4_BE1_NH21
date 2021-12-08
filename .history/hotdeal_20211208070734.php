@@ -1,37 +1,12 @@
 <?php include "header.php";
 include "component.php";
 
-$type_id = "";
-$keyword = "";
-$search = array();
-$name = array();
-$count = array();
-$countPro = 0;
-$perPage = 6;
-$total = 0;
-$page = isset($_GET['page']) ? $_GET['page'] : 1;
-if (isset($_GET['submit'])) {
-    $type_id = $_GET['type_id'];
-    $keyword = $_GET['keyword'];
-    $url = $_SERVER['PHP_SELF'] . "?type_id=$type_id&keyword=$keyword&submit=";
-    if ($type_id == 0) {
-        $get6Product = $product->get6Product($keyword, $page, $perPage);
-        $search = $product->searchAll($keyword);
-        $name = $product->getManuName($keyword);
-        $count = $product->getCountProduct($keyword);
-    } else {
-        $get6Product = $product->get6ProductByTypeId($type_id, $page, $perPage);
-        $search =$product->searchNameByTypeIDAndName($keyword, $type_id);
-        $name = $product->getManuNameByKeyWord($keyword, $type_id);
-        $count = $product->getCountProductByKeyWord($keyword,$type_id);
-    }
-    $total = count($search);
-    foreach ($count as $value) {
-        $countPro += $value['dem'];
-    }
-}
-
-?>
+$getSaleProduct = $product->getSaleProduct();
+$page = isset($_GET['page'])? $_GET['page']:1; 			
+$perPage = 6; 	
+$total = count($getSaleProduct); 	
+$url = $_SERVER['PHP_SELF'];	
+$get6ProductSale = $product->get6ProductSale($page, $perPage);?>
 
 <!-- BREADCRUMB -->
 <div id="breadcrumb" class="section">
@@ -42,11 +17,7 @@ if (isset($_GET['submit'])) {
             <div class="col-md-12">
                 <ul class="breadcrumb-tree">
                     <li><a href="#">Home</a></li>
-                    <li class="active">
-                        <?php
-                        if (isset($_GET['keyword'])) {
-                            echo $_GET['keyword'];
-                        } ?> (<?php echo $countPro; ?> Results)</li>
+                    <li class="active">Hot Deal (<?php echo $total;?> Results)</li>
                 </ul>
             </div>
         </div>
@@ -64,27 +35,28 @@ if (isset($_GET['submit'])) {
         <div class="row">
             <!-- ASIDE -->
             <div id="aside" class="col-md-3">
-                <!-- aside Widget -->
-                <div class="aside">
+				 <!-- aside Widget -->
+				 <div class="aside">
                     <h3 class="aside-title">Brand</h3>
                     <div class="checkbox-filter">
-                        <?php
-                        $dem = 0;
-                        foreach ($name as $value) {
-                        ?>
-                            <div class="list-item checkbox">
-                                <label><input type="checkbox" value="<?php echo $value['manu_name']; ?>" id="<?php echo $value['manu_name']; ?>">
-                                    <span></span>
-                                    <?php echo $value['manu_name']; ?>
-                                    <small> <?php echo "(" . $count[$dem]['dem'] . ")";
-                                            $dem = $dem + 1; ?> </small>
-                                </label>
-                            </div>
-                        <?php } ?>
+					<?php 
+						$name= $product->getManuNameByHotDeal();
+                        $count = $product->getCountProductHotDeal();
+                        $dem=0;
+						foreach($name as $value){
+					?>
+                        <div class="list-item checkbox">
+                        <label><input type="checkbox" value="<?php echo $value['manu_name']; ?>" id="<?php echo $value['manu_name'];?>">
+                                <span></span>
+                                <?php echo $value['manu_name'];?>
+                                <small> <?php echo "(".$count[$dem]['dem'].")"; $dem=$dem+1;?> </small>
+                            </label>
+                        </div>
+						<?php }?>
                     </div>
                 </div>
                 <!-- /aside Widget -->
-
+				
                 <!-- aside Widget -->
                 <div class="aside">
                     <h3 class="aside-title">Price</h3>
@@ -97,13 +69,14 @@ if (isset($_GET['submit'])) {
                         </div>
                         <span>-</span>
                         <div class="input-number price-max">
-                            <input id="price-max" type="number">
+                            <input id="price-max" type="number" value="100">
                             <span class="qty-up">+</span>
                             <span class="qty-down">-</span>
                         </div>
                     </div>
                 </div>
                 <!-- /aside Widget -->
+
                 <!-- aside Widget -->
                 <div class="aside">
                     <h3 class="aside-title">Top selling</h3>
@@ -174,26 +147,26 @@ if (isset($_GET['submit'])) {
 
                 <!-- store products -->
                 <div class="row">
-                    <?php
-                    foreach ($get6Product as $value) {
+                    <?php 
+                       
+                        foreach ($get6ProductSale as $value) {
                     ?>
-                        <!-- product -->
-                        <div class="col-md-4 col-xs-6">
-                            <?php
-                            getProduct($value, $getNewProducts, $discount);  ?>
-                        </div>
-                        <!-- /product -->
-                        <div class="clearfix visible-sm visible-xs"></div>
+                    <!-- product -->
+                    <div class="col-md-4 col-xs-6">
+                      <?php getProduct($value, $getNewProducts, $discount) ?>
+                    </div>
+                    <!-- /product -->
+                    <div class="clearfix visible-sm visible-xs"></div>
                     <?php } ?>
                 </div>
                 <!-- /store products -->
 
                 <!-- store bottom filter -->
                 <div class="store-filter clearfix">
-                    <span class="store-qty">Showing 3-6 products</span>
+                    <span class="store-qty">Showing 3 - 6 products</span>
                     <ul class="store-pagination">
-                    <?php echo $product->paginate($url, $total, $page, $perPage) ?>
-                        <!-- <li><a href="#"><i class="fa fa-angle-right"></i></a></li> -->
+                    <?php echo $product->paginateForHotDeal($url, $total, $page, $perPage)?>
+                        <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
                     </ul>
                 </div>
                 <!-- /store bottom filter -->
@@ -206,4 +179,4 @@ if (isset($_GET['submit'])) {
 </div>
 <!-- /SECTION -->
 
-<?php include "footer.php"; ?>
+<?php include "footer.php";?>
