@@ -14,7 +14,7 @@ $count = 0;
 if (isset($_POST['remove'])) {
 	if ($_GET['action'] == "remove") {
 		foreach ($_SESSION['cart'] as $key=>$value) {
-			if ($value['id'] == $_GET['pid']) {
+			if ($value['pid'] == $_GET['id']) {
 				unset($_SESSION['cart'][$key]);
 				echo "<script>window.location='cart.php'</script>";
 			}

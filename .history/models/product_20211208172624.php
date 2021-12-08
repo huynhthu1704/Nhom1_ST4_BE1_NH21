@@ -283,8 +283,7 @@ class Product extends Db
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
-    }
-    
+
     public function paginateForHotDeal($url, $total, $page, $perPage) {
         $totalLinks = ceil($total/$perPage);
         $link ="";

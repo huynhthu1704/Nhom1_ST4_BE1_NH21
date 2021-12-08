@@ -23,7 +23,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
   } else {
     $getLogin = $login->getLoginCustomer($username, $password);
     if ($getLogin[0]['username'] == $username && $getLogin[0]['pwd'] == md5($password)) {
-      $_SESSION['user_name'] = $getLogin[0]['username'];
+     // $_SESSION['user_name'] = $getLogin[0]['username'];
       $_SESSION['name'] = $getLogin[0]['first_name'];
       $_SESSION['id'] = $getLogin[0]['id'];
       if (isset($_POST['remember'])) {

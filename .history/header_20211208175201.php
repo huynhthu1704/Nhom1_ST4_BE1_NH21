@@ -10,11 +10,13 @@ $protype = new Protype();
 $discount = new Discount();
 $getNewProducts = $product->getNewProducts();
 
+
 $count = 0;
+
 if (isset($_POST['remove'])) {
 	if ($_GET['action'] == "remove") {
 		foreach ($_SESSION['cart'] as $key=>$value) {
-			if ($value['id'] == $_GET['pid']) {
+			if ($value['pid'] == $_GET['id']) {
 				unset($_SESSION['cart'][$key]);
 				echo "<script>window.location='cart.php'</script>";
 			}
@@ -81,7 +83,7 @@ if (isset($_SESSION['cart'])) {
 					<li><a href="ggmap.html"><i class="fa fa-map-marker"></i> 53 Vo Van Ngan Str, Linh Chieu Ward</a></li>
 				</ul>
 				<ul class="header-links pull-right">
-					<?php if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) { ?>
+					<?php if (isset($_SESSION['id']) && isset($_SESSION['name'])) { ?>
 						<li><a href="#"><i class="fa fa-user-o"></i> <?php echo 'Hello! ' . $_SESSION['name'] ?></a></li>
 						<li><a href="logout.php"><i class="fa fa-user-o"></i> Logout</a></li>
 					<?php } else { ?>
