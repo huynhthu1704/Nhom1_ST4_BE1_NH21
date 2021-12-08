@@ -2,7 +2,7 @@
 //session_start();
 include "header.php";
 include "component.php";
-
+echo "a";
 // if (isset($_POST['add-to-cart'])) {
 // 	if (isset($_SESSION['cart'])) {
 // 		$item_arr_id = array_column($_SESSION['cart'], "pro_id");
