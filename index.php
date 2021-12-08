@@ -145,10 +145,12 @@ include "component.php";
 							<div class="products-slick" data-nav="#slick-nav-1">
 								<!-- product -->
 								<?php
-								foreach($getNewProducts as $value) {
+								$getFeature = $product->getFeature();
+								foreach($getFeature as $value) {
 									getProduct ($value, $getNewProducts, $discount);
 								}
 								?>
+								
 								<!-- /product -->
 							</div>
 							<div id="slick-nav-1" class="products-slick-nav"></div>

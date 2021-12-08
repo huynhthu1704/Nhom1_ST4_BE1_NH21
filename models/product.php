@@ -275,4 +275,12 @@ class Product extends Db
         }
         return $link;
     }
+    public function getFeature()
+    {
+        $sql = self::$connection->prepare("SELECT * FROM `products`, protypes WHERE products.type_id = protypes.type_id AND `feature` = 1");
+        $sql->execute();
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items;
+    }
 }
