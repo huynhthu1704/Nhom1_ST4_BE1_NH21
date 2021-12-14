@@ -53,19 +53,19 @@
                   $getAllDiscount = $discount->getAllDiscount();
                   foreach ($getAllDiscount as $value) { ?>
                   <tr>
-                      <td><?php echo $value['id'] ?></td>
-                      <td><?php echo $value['name'] ?></td>
-                      <td><?php echo $value['discount_percent'] ?></td>
-                      <td><?php echo $value['active'] ?></td>
+                      <td><?php echo $value['dis_id'] ?></td>
+                      <td><?php echo $value['dis_name'] ?></td>
+                      <td><?php echo $value['dis_percent'] ?></td>
+                      <td><?php echo $value['dis_active'] ?></td>
                       <td><?php echo $value['start_day'] ?></td>
                       <td><?php echo $value['end_day'] ?></td>
                       <td class="project-actions text-left">
-                          <a class="btn btn-info btn-sm modify-icon" href="discount_edit.php?id=<?php echo $value['id'] ?>">
+                          <a class="btn btn-info btn-sm modify-icon" href="discount_edit.php?id=<?php echo $value['dis_id'] ?>">
                               <i class="fas fa-pencil-alt ">
                               </i>
                               Edit
                           </a> <br>
-                          <a class="btn btn-danger btn-sm modify-icon" href="discount_delete.php?id=<?php echo $value['id'] ?>">
+                          <a class="btn btn-danger btn-sm modify-icon" href="discount_delete.php?id=<?php echo $value['dis_id'] ?>">
                               <i class="fas fa-trash ">
                               </i>
                               Delete

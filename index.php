@@ -149,8 +149,7 @@ include "component.php";
 								foreach($getFeature as $value) {
 									getProduct ($value, $getNewProducts, $discount);
 								}
-								?>
-								
+								?>								
 								<!-- /product -->
 							</div>
 							<div id="slick-nav-1" class="products-slick-nav"></div>

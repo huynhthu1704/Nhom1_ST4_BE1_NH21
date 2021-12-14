@@ -2,7 +2,6 @@
 //session_start();
 include "header.php";
 include "component.php";
-
 // if (isset($_POST['add-to-cart'])) {
 // 	if (isset($_SESSION['cart'])) {
 // 		$item_arr_id = array_column($_SESSION['cart'], "pro_id");
@@ -21,6 +20,7 @@ include "component.php";
 // 	}
 // }
 ?>
+
 <!-- SECTION -->
 <div class="section">
 	<!-- container -->
@@ -72,9 +72,10 @@ include "component.php";
 		<!-- /row -->
 	</div>
 	<!-- /container -->
+	<a href="">aaa</a>
 </div>
 <!-- /SECTION -->
-
+<a href="">sdasd</a>
 <!-- SECTION -->
 <div class="section">
 	<!-- container -->
