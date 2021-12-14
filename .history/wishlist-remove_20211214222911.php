@@ -7,8 +7,7 @@ if (isset($_GET['id'])) {
                 unset($_SESSION['wishlist'][$key]);
             }
         }
-        echo count($_SESSION['wishlist']);
-    }else {
-        echo "0";
     }
+
+    echo count($_SESSION['wishlist']);
 }

@@ -176,27 +176,45 @@
 		xmlhttp.send();
 	}
 
+	function checkWishlistItem(id) {
+		let check = "false";
+		let xmlhttp = new XMLHttpRequest();
+		xmlhttp.onload = function() {
+			check = this.responseText;
+			alert(this.responseText + "checkgg");
+			return check;
+		}
+		xmlhttp.open("GET", "wishlist-check.php?id=" + id);
+		xmlhttp.send();
+	}
+
 	function addToWishlist(id) {
 		let wlID = "h" + id;
 		let wlItem = document.querySelectorAll("." + wlID);
 		//for (let i = 0; i < wlID.length; i++) {
-		let xmlhttp = new XMLHttpRequest();
-		if (wlItem[0].classList.contains("wishlist-icon-color-change")) {
-			xmlhttp.onload = function() {
-				document.getElementById('wishlist-qty').innerHTML = this.responseText;
+			if (wlItem[0].classList.contains(".wishlist-icon-color-change")) {
+				xmlhttp.onload = function() {
+					document.getElementById('wishlist-qty').innerHTML = this.responseText;
+					alert(this.responseText+"remove");
+				}
+				xmlhttp.open("GET", "wishlist-remove.php?id=" + id);
+				xmlhttp.send();
+			} else {
+				let xmlhttp = new XMLHttpRequest();
+				if (wlItem.length > 0) {
+					xmlhttp.onload = function() {
+						document.getElementById('wishlist-qty').innerHTML = this.responseText;
+						alert(this.responseText+"add");
+					}
+					xmlhttp.open("GET", "wishlist-handle.php?id=" + id);
+					xmlhttp.send();
+				}
 			}
-			xmlhttp.open("GET", "wishlist-remove.php?id=" + id);
-			xmlhttp.send();
-		} else {
-			xmlhttp.onload = function() {
-				document.getElementById('wishlist-qty').innerHTML = this.responseText;
+			for (let i = 0; i < wlItem.length; i++)  {
+				wlItem[i].classList.toggle('.wishlist-icon-color-change');
 			}
-			xmlhttp.open("GET", "wishlist-handle.php?id=" + id);
-			xmlhttp.send();
-		}
-		for (let i = 0; i < wlItem.length; i++) {
-			wlItem[i].classList.toggle('wishlist-icon-color-change');
-		}
+			
+		//} 
 	}
 
 	function removeProductFrWL(id) {

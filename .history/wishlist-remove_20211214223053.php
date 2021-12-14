@@ -8,7 +8,5 @@ if (isset($_GET['id'])) {
             }
         }
         echo count($_SESSION['wishlist']);
-    }else {
-        echo "0";
-    }
+    };
 }

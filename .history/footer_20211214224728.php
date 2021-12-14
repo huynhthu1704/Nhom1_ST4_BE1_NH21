@@ -176,26 +176,46 @@
 		xmlhttp.send();
 	}
 
+	function checkWishlistItem(id) {
+		let check = "false";
+		let xmlhttp = new XMLHttpRequest();
+		xmlhttp.onload = function() {
+			check = this.responseText;
+			alert(this.responseText + "checkgg");
+			return check;
+		}
+		xmlhttp.open("GET", "wishlist-check.php?id=" + id);
+		xmlhttp.send();
+	}
+
 	function addToWishlist(id) {
 		let wlID = "h" + id;
 		let wlItem = document.querySelectorAll("." + wlID);
-		//for (let i = 0; i < wlID.length; i++) {
+		
 		let xmlhttp = new XMLHttpRequest();
-		if (wlItem[0].classList.contains("wishlist-icon-color-change")) {
-			xmlhttp.onload = function() {
-				document.getElementById('wishlist-qty').innerHTML = this.responseText;
-			}
-			xmlhttp.open("GET", "wishlist-remove.php?id=" + id);
-			xmlhttp.send();
-		} else {
+		if (check.localeCompare("false") == 0) {
+			alert("hiiii")
 			xmlhttp.onload = function() {
 				document.getElementById('wishlist-qty').innerHTML = this.responseText;
 			}
 			xmlhttp.open("GET", "wishlist-handle.php?id=" + id);
 			xmlhttp.send();
-		}
-		for (let i = 0; i < wlItem.length; i++) {
-			wlItem[i].classList.toggle('wishlist-icon-color-change');
+			let wlID = "h" + id;
+			let wlItem = document.querySelectorAll("." + wlID);
+			for (let i = 0; i < wlItem.length; i++) {
+				wlItem[i].style.color = "#d10024";
+			}
+		} else {
+			alert("heee");
+			xmlhttp.onload = function() {
+				document.getElementById('wishlist-qty').innerHTML = this.responseText;
+			}
+			xmlhttp.open("GET", "wishlist-remove.php?id=" + id);
+			xmlhttp.send();
+
+			for (let i = 0; i < wlItem.length; i++) {
+				wlItem[i].style.color = "";
+			}
 		}
 	}
 

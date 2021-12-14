@@ -203,6 +203,9 @@
 		let wlId = "wl" + id;
 		let wlElement = document.getElementById(wlId);
 		wlElement.parentNode.removeChild(wlElement);
+		if (document.getElementById('wishlist-qty').innerHTML.localeCompare('1') == 0) {
+			document.getElementById('wishlist-item').insertAdjacentHTML("beforeend", "<h5>YOU HAVEN'T ADDED ANY PRODUCT TO WISHLIST</h5>")
+		}
 		let xmlhttp = new XMLHttpRequest();
 		xmlhttp.onload = function() {
 			document.getElementById('wishlist-qty').innerHTML = this.responseText;
