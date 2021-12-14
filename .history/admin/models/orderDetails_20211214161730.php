@@ -11,7 +11,7 @@ class AM_OrderDetails extends AM_Db
     }
     public function getAllTotal()
     {
-        $sql = self::$connection->prepare("SELECT SUM(total) as revenue FROM `order_details`");
+        $sql = self::$connection->prepare("SELECT SUM(total) as Alltotal FROM `order_details`");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
