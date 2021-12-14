@@ -19,16 +19,19 @@ if (isset($_POST['submit'])) {
     $total = $_POST['total'];
     $customer_id = $_POST['customer-id'];
     $order_id = 0;
-    $order_id = $orderDetail->addOrder($firstname, $lastname, $email, $address, $city, $zipcode, $qty, $subtotal, $shipping_fee, $total, $tel, $customer_id, $note);
-    if ($order_id !=  -1) {
+    if ($order_id = $orderDetail->addOrder($firstname, $lastname, $email, $address, $city, $zipcode, $qty, $subtotal, $shipping_fee, $total, $tel, $customer_id, $note) !=  -1) {
         foreach ($_SESSION['cart'] as $value) {
             $orderItem = new OrderItem();
-            $orderItem->addOrderItem($order_id, $value['id'], $value['name'], $value['image'], $value['price'], $value['qty']);
+            $orderItem->addOrderItem($order_id, $value['id'], $value['name'], $value['image'], $value['price'], $value['quantity']);
         }
         unset($_SESSION['cart']);
         echo "<script>alert('Your order is waiting for confirm. Thank for purchase')</script>";
         echo "<script>window.location = 'index.php'</script>";
     }
+
+
+
+
     echo $firstname . "<br>";
     echo $lastname . "<br>";
     echo $email . "<br>";
