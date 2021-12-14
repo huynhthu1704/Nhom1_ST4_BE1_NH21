@@ -39,7 +39,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
               "name" => $productInfo[0]['name'],
               "image" => $productInfo[0]['pro_image'],
               "price" => $productInfo[0]['price'],
-              "qty" => $value['price']
+              "qty" => $value['price']);
           );
         }
       }

@@ -30,7 +30,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
       $ssCart = $session_cart->getSessionCart($getLogin[0]['id']);
       if (count($ssCart) > 0) {
         $ssDetail = new SessionCartDetail();
-        $ssCartItem = $ssCart->getSSCartDetail($ssCart[0]['session_id']);
+        $ssCartItem = $ssCart->getSSCartDetail($value['session_id']);
         foreach ($ssCartItem as $value) {
           $product = new Product();
           $productInfo = $product->getProductById($value['product_id']);
@@ -39,7 +39,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
               "name" => $productInfo[0]['name'],
               "image" => $productInfo[0]['pro_image'],
               "price" => $productInfo[0]['price'],
-              "qty" => $value['price']
+              "qty" => $value['price'];
           );
         }
       }
