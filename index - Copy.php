@@ -72,6 +72,7 @@ include "component.php";
 		<!-- /row -->
 	</div>
 	<!-- /container -->
+	<a href="">aaa</a>
 </div>
 <!-- /SECTION -->
 <a href="">sdasd</a>
