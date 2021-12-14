@@ -148,7 +148,6 @@
     </div><!-- /.card -->
   </div>
   <!-- /.register-box -->
-
   <!-- jQuery -->
   <script src="admin/plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
