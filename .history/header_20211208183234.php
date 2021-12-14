@@ -5,13 +5,10 @@ require "models/db.php";
 require "models/product.php";
 require "models/protype.php";
 require "models/discount.php";
-require "models/customer.php";
-require "models/order_detail.php";
 $product = new Product();
 $protype = new Protype();
 $discount = new Discount();
 $customer = new Customer();
-$orderDetail = new OrderDetail();
 $getNewProducts = $product->getNewProducts();
 
 $count = 0;
@@ -178,9 +175,7 @@ if (isset($_SESSION['cart'])) {
 									</div>
 									<div class="cart-summary">
 										<small><span id="totalPro"><?php echo $count ?></span> Item(s) selected</small>
-										<h5 id="subtotal">SUBTOTAL: <?php echo number_format($subtotal); 
-										$total = $subtotal;
-										?></h5>
+										<h5 id="subtotal">SUBTOTAL: <?php echo number_format($subtotal); ?></h5>
 									</div>
 									<div class="cart-btns">
 										<a href="cart.php">View Cart</a>

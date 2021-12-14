@@ -6,12 +6,10 @@ require "models/product.php";
 require "models/protype.php";
 require "models/discount.php";
 require "models/customer.php";
-require "models/order_detail.php";
 $product = new Product();
 $protype = new Protype();
 $discount = new Discount();
 $customer = new Customer();
-$orderDetail = new OrderDetail();
 $getNewProducts = $product->getNewProducts();
 
 $count = 0;

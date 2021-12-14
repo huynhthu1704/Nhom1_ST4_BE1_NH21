@@ -57,27 +57,27 @@
 
 						?>
 						<div class="form-group">
-							<input class="input" type="text" value="<?php echo $firstname; ?>" name="first-name" placeholder="First Name" required>
+							<input class="input" type="text" value="<?php echo $firstname; ?>" name="first-name" placeholder="First Name">
 						</div>
 						<div class="form-group">
-							<input class="input" type="text" value="<?php echo $lastname; ?>" name="last-name" placeholder="Last Name" required>
+							<input class="input" type="text" value="<?php echo $lastname; ?>" name="last-name" placeholder="Last Name">
 						</div>
 						<div class="form-group">
-							<input class="input" type="email" value="<?php echo $email; ?>" name="email" placeholder="Email" required>
+							<input class="input" type="email" value="<?php echo $email; ?>" name="email" placeholder="Email">
 						</div>
 						<div class="form-group">
-							<input class="input" type="text" value="<?php echo $address; ?>" name="address" placeholder="Address" required>
+							<input class="input" type="text" value="<?php echo $address; ?>" name="address" placeholder="Address">
 						</div>
 						<div class="form-group">
-							<input class="input" type="text" value="<?php echo $city; ?>" name="city" placeholder="City" required>
+							<input class="input" type="text" value="<?php echo $city; ?>" name="city" placeholder="City">
 						</div>
 						<div class="form-group">
-							<input class="input" type="text" value="<?php echo $zipcode; ?>" name="zip-code" placeholder="ZIP Code" required>
+							<input class="input" type="text" value="<?php echo $zipcode; ?>" name="zip-code" placeholder="ZIP Code">
 						</div>
 						<div class="form-group">
-							<input class="input" type="tel" value="<?php echo $telephone; ?>" name="tel" placeholder="Telephone" required>
+							<input class="input" type="tel" value="<?php echo $telephone; ?>" name="tel" placeholder="Telephone">
 						</div>
-						<!-- <div class="form-group">
+						<div class="form-group">
 							<div class="input-checkbox">
 								<input type="checkbox" id="create-account">
 								<label for="create-account">
@@ -89,12 +89,12 @@
 									<input class="input" type="password" name="password" placeholder="Enter Your Password">
 								</div>
 							</div>
-						</div> -->
+						</div>
 					</div>
 					<!-- /Billing Details -->
 
 					<!-- Shipping Details -->
-					<!-- <div class="shiping-details">
+					<div class="shiping-details">
 						<div class="section-title">
 							<h3 class="title">Shiping address</h3>
 						</div>
@@ -128,7 +128,7 @@
 								</div>
 							</div>
 						</div>
-					</div> -->
+					</div>
 					<!-- /Shipping Details -->
 
 					<!-- Order notes -->
@@ -166,11 +166,6 @@
 							<div><strong>TOTAL</strong></div>
 							<div><strong class="order-total"><?php echo number_format($total); ?></strong></div>
 						</div>
-						<input class="input" type="hidden" name="quantity" value="<?php echo $count; ?>">
-						<input class="input" type="hidden" name="shipping-fee" value="<?php echo 0;?>">
-						<input class="input" type="hidden" name="subtotal" value="<?php echo $subtotal;?>">
-						<input class="input" type="hidden" name="total" value="<?php echo $total;?>">
-						<input class="input" type="hidden" name="customer-id" value="<?php echo $_SESSION['id'];?>">
 					</div>
 				<?php } ?>
 				<div class="payment-method">

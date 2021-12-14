@@ -170,7 +170,7 @@
 						<input class="input" type="hidden" name="shipping-fee" value="<?php echo 0;?>">
 						<input class="input" type="hidden" name="subtotal" value="<?php echo $subtotal;?>">
 						<input class="input" type="hidden" name="total" value="<?php echo $total;?>">
-						<input class="input" type="hidden" name="customer-id" value="<?php echo $_SESSION['id'];?>">
+						<input class="input" type="hidden" name="customer_id" value="<?php echo $_SESSION['id'];?>">
 					</div>
 				<?php } ?>
 				<div class="payment-method">

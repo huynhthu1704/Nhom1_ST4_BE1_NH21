@@ -77,7 +77,7 @@
 						<div class="form-group">
 							<input class="input" type="tel" value="<?php echo $telephone; ?>" name="tel" placeholder="Telephone" required>
 						</div>
-						<!-- <div class="form-group">
+						<div class="form-group">
 							<div class="input-checkbox">
 								<input type="checkbox" id="create-account">
 								<label for="create-account">
@@ -89,12 +89,12 @@
 									<input class="input" type="password" name="password" placeholder="Enter Your Password">
 								</div>
 							</div>
-						</div> -->
+						</div>
 					</div>
 					<!-- /Billing Details -->
 
 					<!-- Shipping Details -->
-					<!-- <div class="shiping-details">
+					<div class="shiping-details">
 						<div class="section-title">
 							<h3 class="title">Shiping address</h3>
 						</div>
@@ -128,7 +128,7 @@
 								</div>
 							</div>
 						</div>
-					</div> -->
+					</div>
 					<!-- /Shipping Details -->
 
 					<!-- Order notes -->
@@ -166,11 +166,6 @@
 							<div><strong>TOTAL</strong></div>
 							<div><strong class="order-total"><?php echo number_format($total); ?></strong></div>
 						</div>
-						<input class="input" type="hidden" name="quantity" value="<?php echo $count; ?>">
-						<input class="input" type="hidden" name="shipping-fee" value="<?php echo 0;?>">
-						<input class="input" type="hidden" name="subtotal" value="<?php echo $subtotal;?>">
-						<input class="input" type="hidden" name="total" value="<?php echo $total;?>">
-						<input class="input" type="hidden" name="customer-id" value="<?php echo $_SESSION['id'];?>">
 					</div>
 				<?php } ?>
 				<div class="payment-method">
