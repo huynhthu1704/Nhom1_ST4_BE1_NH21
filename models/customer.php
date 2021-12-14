@@ -23,4 +23,20 @@ class Customer extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
+    public function updateCustomer($first,$last,$address,$city,$zipcode,$gender,$birthday,$id)
+    {
+        $sql = self::$connection->prepare("UPDATE `customers`
+        SET `first_name`=? ,`last_name`=?,`cus_address`=?,`city`=?,`zip_code`=?,`gender`=?,`birthday`=?
+        WHERE `id` = ? ;");
+        $sql->bind_param("sssssssi", $first,$last,$address,$city,$zipcode,$gender,$id);
+        return $sql->execute();
+    }
+    public function updatePassWord($pass,$user)
+    {
+        $sql = self::$connection->prepare("UPDATE `customers`
+        SET `pwd`=?
+        WHERE `username` = ? ;");
+        $sql->bind_param("ss", $pass,$user);
+        return $sql->execute();
+    }
 }
