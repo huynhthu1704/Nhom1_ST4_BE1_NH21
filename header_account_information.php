@@ -2,7 +2,11 @@
 session_start();
 require "models/db.php";
 require "models/customer.php";
+require "models/order_item.php";
+require "models/order_detail.php";
 $customer = new Customer();
+$orderItem= new OrderItem();
+$orderdetail= new OrderDetail();
 $customers = $customer->checkUser($_SESSION['user_name']);
 ?>
 <!DOCTYPE html>
@@ -96,27 +100,11 @@ $customers = $customer->checkUser($_SESSION['user_name']);
             </li>
 
             <li class="nav-item">
-              <a href="protype.php" class="nav-link">
+              <a href="purchase_history.php" class="nav-link">
                 <i class="nav-icon fas fa-list-alt"></i>
-                <p> Product Type</p>
-                <i class="fas fa-angle-left right"></i>
+                <p> Purchase History</p>
               </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="protype.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>List Protype</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="protype_add.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Add Protype</p>
-                  </a>
-                </li>
-              </ul>
             </li>
-
             <li class="nav-item">
               <a href="product.php" class="nav-link">
                 <i class="nav-icon fab fa-product-hunt"></i>
