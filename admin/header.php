@@ -110,20 +110,20 @@ $discount = new AM_Discount();
 
             <li class="nav-item">
               <a href="protype.php" class="nav-link">
-                <i class="nav-icon fas fa-list-alt"></i>
+              <i class="nav-icon fas fa-laptop"></i>
                 <p> Product Type</p>
                 <i class="fas fa-angle-left right"></i>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="protype.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                  <i class="nav-icon fas fa-list-alt"></i>
                     <p>List Protype</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="protype_add.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                  <i class="nav-icon fas fa-plus-circle"></i>
                     <p>Add Protype</p>
                   </a>
                 </li>
@@ -139,13 +139,13 @@ $discount = new AM_Discount();
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="product.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                  <i class="nav-icon fas fa-list-alt"></i>
                     <p>List Product</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="product_add.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                  <i class="nav-icon fas fa-plus-circle"></i>
                     <p>Add Product</p>
                   </a>
                 </li>
@@ -154,20 +154,20 @@ $discount = new AM_Discount();
 
             <li class="nav-item">
               <a href="discount.php" class="nav-link">
-                <i class="nav-icon fab fa-product-hunt"></i>
+              <i class="nav-icon fas fa-ad"></i>
                 <p> Discount</p>
                 <i class="fas fa-angle-left right"></i>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="discount.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                  <i class="nav-icon fas fa-list-alt"></i>
                     <p>List Discount</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="discount_add.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                  <i class="nav-icon fas fa-plus-circle"></i>
                     <p>Add Discount</p>
                   </a>
                 </li>
@@ -176,20 +176,20 @@ $discount = new AM_Discount();
 
             <li class="nav-item">
               <a href="manufacture.php" class="nav-link">
-                <i class="nav-icon fab fa-product-hunt"></i>
+              <i class="nav-icon fas fa-truck"></i>
                 <p> Manufacture</p>
                 <i class="fas fa-angle-left right"></i>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="manufacture.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                  <i class="nav-icon fas fa-list-alt"></i>
                     <p>List Manufacture</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="manufacture_add.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                  <i class="nav-icon fas fa-plus-circle"></i>
                     <p>Add Manufacture</p>
                   </a>
                 </li>
@@ -197,7 +197,7 @@ $discount = new AM_Discount();
             </li>
             <li class="nav-item">
               <a href="logout.php" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
+              <i class="nav-icon fas fa-sign-out-alt"></i>
                 <p>Logout</p>
               </a>
             </li>
