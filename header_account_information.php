@@ -2,7 +2,11 @@
 session_start();
 require "models/db.php";
 require "models/customer.php";
+require "models/order_item.php";
+require "models/order_detail.php";
 $customer = new Customer();
+$orderItem= new OrderItem();
+$orderdetail= new OrderDetail();
 $customers = $customer->checkUser($_SESSION['user_name']);
 ?>
 <!DOCTYPE html>
@@ -90,101 +94,19 @@ $customers = $customer->checkUser($_SESSION['user_name']);
                with font-awesome or any other icon font library -->
             <li class="nav-item menu-open">
               <a href="account_information.php" class="nav-link active">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-user-circle"></i>
                 <p> Account Information </p>
               </a>
             </li>
 
             <li class="nav-item">
-              <a href="protype.php" class="nav-link">
-                <i class="nav-icon fas fa-list-alt"></i>
-                <p> Product Type</p>
-                <i class="fas fa-angle-left right"></i>
+              <a href="purchase_history.php" class="nav-link">
+              <i class="nav-icon fas fa-history"></i>
+                <p> Purchase History</p>
               </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="protype.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>List Protype</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="protype_add.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Add Protype</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-            <li class="nav-item">
-              <a href="product.php" class="nav-link">
-                <i class="nav-icon fab fa-product-hunt"></i>
-                <p> Product</p>
-                <i class="fas fa-angle-left right"></i>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="product.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>List Product</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="product_add.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Add Product</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-            <li class="nav-item">
-              <a href="discount.php" class="nav-link">
-                <i class="nav-icon fab fa-product-hunt"></i>
-                <p> Discount</p>
-                <i class="fas fa-angle-left right"></i>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="discount.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>List Discount</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="discount_add.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Add Discount</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-            <li class="nav-item">
-              <a href="manufacture.php" class="nav-link">
-                <i class="nav-icon fab fa-product-hunt"></i>
-                <p> Manufacture</p>
-                <i class="fas fa-angle-left right"></i>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="manufacture.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>List Manufacture</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="manufacture_add.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Add Manufacture</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
             <li class="nav-item">
               <a href="logout.php" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
+              <i class="nav-icon fas fa-sign-out-alt"></i>
                 <p>Logout</p>
               </a>
             </li>

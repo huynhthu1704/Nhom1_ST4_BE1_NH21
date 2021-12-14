@@ -11,4 +11,12 @@ class OrderDetail extends Db
             return -1;
         }
     }
+    public function getOrderDetailById($id)
+    {
+        $sql = self::$connection->prepare("SELECT * FROM `order_details` WHERE customer_id = $id");
+        $sql->execute();
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items;
+    }
 }

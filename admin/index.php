@@ -44,7 +44,7 @@
             <div class="small-box bg-success">
               <div class="inner">
               <h3><?php $total = $orderDetails->getAllTotal();
-                echo $total[0]['revenue'];?>VND</h3>
+                echo number_format($total[0]['revenue']);?>VND</h3>
                 <p>Total</p>
               </div>
               <div class="icon">

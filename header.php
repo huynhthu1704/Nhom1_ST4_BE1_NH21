@@ -103,7 +103,7 @@ if (isset($_SESSION['wishlist'])) {
 				</ul>
 				<ul class="header-links pull-right">
 					<?php if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) { ?>
-						<li><a href="#"><i class="fa fa-user-o"></i> <?php echo 'Hello! ' . $_SESSION['name'] ?></a></li>
+						<li><a href="account_information.php"><i class="fa fa-user-o"></i> <?php echo 'Hello! ' . $_SESSION['name'] ?></a></li>
 						<li><a href="logout.php"><i class="fa fa-user-o"></i> Logout</a></li>
 					<?php } else { ?>
 						<li><a href="login.php"><i class="fa fa-user-o"></i> Login</a></li>
