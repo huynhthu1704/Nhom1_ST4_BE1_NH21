@@ -30,26 +30,26 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="register-handle.php" method="post" novalidate enctype="multipart/form-data">
+            <form action="ud-account.php" method="post" novalidate enctype="multipart/form-data">
               <div class="card-body">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">First Name</label>
-                  <input type="text" name="First" class="form-control" value="<?php echo $customers[0]['first_name'] ?>" placeholder="First" pattern="([a-zA-Z]{3,}(\s?\w+))*" required>
+                  <label for="first">First Name</label>
+                  <input type="text" name="First" class="form-control" value="<?php echo $customers[0]['first_name'] ?>" placeholder="First" pattern="([a-zA-Z]{2,}(\s?\w+))*" required>
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputPassword1">Last Name</label>
-                  <input type="text" name="Last" class="form-control" value="<?php echo $customers[0]['last_name'] ?>" placeholder="Last" pattern="([a-zA-Z]{3,}(\s?\w+))*" required>
+                  <label for="last">Last Name</label>
+                  <input type="text" name="Last" class="form-control" value="<?php echo $customers[0]['last_name'] ?>" placeholder="Last" pattern="([a-zA-Z]{2,}(\s?\w+))*" required>
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputPassword1">Address</label>
+                  <label for="address">Address</label>
                   <input type="text" class="form-control" name="Address" value="<?php echo $customers[0]['cus_address'] ?>" placeholder="Address">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputPassword1">City</label>
+                  <label for="city">City</label>
                   <input type="text" class="form-control" name="City" value="<?php echo $customers[0]['city'] ?>" pattern="([a-zA-Z]{1,}(\s?\w+))*" placeholder="City">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputPassword1">Zip code</label>
+                  <label for="zipcode">Zip code</label>
                   <input type="text" class="form-control" name="zipcode" value="<?php echo $customers[0]['zip_code'] ?>" placeholder="Zip Code" pattern="([0-9]{6}){1}" required>
                 </div>
                 <div class="input-group mb-3">
@@ -64,7 +64,7 @@
               </div>
               <!-- /.card-body -->
               <div class="card-footer">
-                <button type="save" class="btn btn-primary">Save Changes</button>
+                <button type="submit" name="save" value="save" class="btn btn-primary">Save Changes</button>
               </div>
             </form>
           </div>
@@ -78,7 +78,7 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form class="form-horizontal">
+            <form class="form-horizontal" action="ud-email-numberphone.php" method="post" novalidate enctype="multipart/form-data">
               <div class="card-body">
                 <div class="form-group row">
                   <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
@@ -94,7 +94,7 @@
                 </div>
               </div>
               <div class="card-footer">
-                <button type="Update" class="btn btn-info">Update</button>
+                <button type="submit" name="Update" class="btn btn-info">Update</button>
               </div>
             </form>
           </div>
@@ -107,7 +107,7 @@
             <?php if (isset($_GET['error'])) { ?>
               <p class="error"><?php echo $_GET['error']  ?></p>
             <?php } ?>
-            <form class="form-horizontal" action="ud-account.php" method="post" novalidate enctype="multipart/form-data">
+            <form class="form-horizontal" action="ud-password.php" method="post" novalidate enctype="multipart/form-data">
               <div class="card-body">
                 <div class="form-group row">
                   <label for="inputEmail3" class="col-sm-2 col-form-label">Current Password</label>

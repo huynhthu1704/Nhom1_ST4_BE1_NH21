@@ -1,22 +1,23 @@
-<?php 
+<?php
 session_start();
 require "models/db.php";
 require "models/customer.php";
-if (isset($_POST['submit'])) {
+if (isset($_POST['save'])) {
+
     $customer =  new Customer();
-    $new = $_POST['new-password'];
-    $retypepassword = $_POST['retype-password'];
-    $current = md5($_POST['current-password']);
-    $checkpass = $customer->checkUser($_SESSION['user_name']);
-    $check=$checkpass[0]['pwd'];
-    if ($retypepassword != $new) {
-        header("Location: account_information.php?error=Retype Password and New Password mismatch");
-    } else if ($current != $check) {
-        header("Location: account_information.php?error=Current Password is incorrect");
-    } else {
-        $update = $customer->updatePassWord(md5($new),$_SESSION['user_name']);
-        echo "<script>alert('Change password successfully')</script>";
+    $first = $_POST['First'];
+    $last = $_POST['Last'];
+    $address = $_POST['Address'];
+    $city = $_POST['City'];
+    $zipcode = $_POST['zipcode'];
+    $birtday = $_POST['birthday'];
+    $gender = $_POST['gender'];
+    echo $_SESSION['user_name'];
+    if ($customer->updateCustomer($first, $last, $address, $city, $zipcode, $gender, $birtday, $_SESSION['user_name'])) {
+        echo "<script>alert('Save Changes successfully')</script>";
         echo "<script>window.location = 'account_information.php'</script>";
-      
+    } else {
+        echo "<script>alert('Save Changes failed')</script>";
+        echo "<script>window.location = 'account_information.php'</script>";
     }
 }
