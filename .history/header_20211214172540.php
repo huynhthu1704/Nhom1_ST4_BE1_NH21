@@ -25,27 +25,16 @@ if (isset($_POST['remove'])) {
 		}
 	}
 }
-
-if (isset($_POST['remove-product'])) {
-	if ($_GET['action'] == "remove-product") {
-		foreach ($_SESSION['wishlist'] as $key=>$value) {
-			if ($value['id'] == $_GET['pid']) {
-				unset($_SESSION['wishlist'][$key]);
-				echo "<script>window.location='wishlist.php'</script>";
-			}
-		}
-	}
-}
-
 if (isset($_SESSION['cart'])) {
 	foreach ($_SESSION['cart'] as $value) {
 		$count += $value['qty'];
 	}
 }
-
 $wishlistCount = 0;
 if (isset($_SESSION['wishlist'])) {
-	$wishlistCount = count($_SESSION['wishlist']);
+	foreach ($_SESSION['wishlist'] as $value) {
+		$count += $value['qty'];
+	}
 }
 ?>
 
@@ -156,7 +145,7 @@ if (isset($_SESSION['wishlist'])) {
 								<a href="wishlist.php">
 									<i class="fa fa-heart-o"></i>
 									<span>Your Wishlist</span>
-									<div id="wishlist-qty" class="qty"><?php echo $wishlistCount?></div>
+									<div id="wishlist-qty" class="qty">0</div>
 								</a>
 							</div>
 							<!-- /Wishlist -->

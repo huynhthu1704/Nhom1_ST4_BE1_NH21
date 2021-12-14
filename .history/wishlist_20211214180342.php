@@ -26,7 +26,7 @@ include "component.php";
 <div class="section">
 	<!-- container -->
 	<div class="container">
-		<div class="row wishlist-row-modify">
+		<div class="row row-modify">
 				<div class="col-md-8">
 					<div class="wishlist-item">
 						<?php

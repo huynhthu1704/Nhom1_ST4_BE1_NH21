@@ -25,24 +25,11 @@ if (isset($_POST['remove'])) {
 		}
 	}
 }
-
-if (isset($_POST['remove-product'])) {
-	if ($_GET['action'] == "remove-product") {
-		foreach ($_SESSION['wishlist'] as $key=>$value) {
-			if ($value['id'] == $_GET['pid']) {
-				unset($_SESSION['wishlist'][$key]);
-				echo "<script>window.location='wishlist.php'</script>";
-			}
-		}
-	}
-}
-
 if (isset($_SESSION['cart'])) {
 	foreach ($_SESSION['cart'] as $value) {
 		$count += $value['qty'];
 	}
 }
-
 $wishlistCount = 0;
 if (isset($_SESSION['wishlist'])) {
 	$wishlistCount = count($_SESSION['wishlist']);

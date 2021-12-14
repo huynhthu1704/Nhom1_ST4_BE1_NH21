@@ -31,11 +31,11 @@ function component($pro_image, $discount_percent, $isNew, $type_name, $id, $name
                     <i class=\"fa fa-star\"></i>
                 </div>
                 <div class=\"product-btns\">
-                    <button onclick=\"addToWishlist($id)\" class=\"add-to-wishlist\"><i class=\"fa fa-heart-o h$id\"></i><span class=\"tooltipp\">add to wishlist</span></button>
+                    <button onclick=\"addToWishlist($id)\" class=\"add-to-wishlist\"><i class=\"fa fa-heart-o\"></i><span class=\"tooltipp\">add to wishlist</span></button>
                 </div>
             </div>
             <div class=\"add-to-cart\">
-                <button onclick=\"addCart($id)\" name=\"add-to-cart\" class=\"add-to-cart-btn\"><i class=\"fa fa-shopping-cart\"></i> add to cart</button>
+                <button onclick=\"addCart($id)\" name=\"add-to-cart\" class=\"add-to-cart-btn\"><i id=\"h$id\" class=\"fa fa-shopping-cart\"></i> add to cart</button>
             </div>
             <input type=\"hidden\" name=\"pro_id\" value=\"$id\"></input>
             

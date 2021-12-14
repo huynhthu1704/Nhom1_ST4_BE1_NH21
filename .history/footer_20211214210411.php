@@ -181,7 +181,7 @@
 		let xmlhttp = new XMLHttpRequest();
 		xmlhttp.onload = function() {
 			check = this.responseText;
-			alert(this.responseText+"checkgg");
+			alert(check+"check");
 		}
 		xmlhttp.open("GET", "wishlist-check.php?id=" + id);
 		xmlhttp.send();

@@ -27,7 +27,7 @@ include "component.php";
 	<!-- container -->
 	<div class="container">
 		<div class="row wishlist-row-modify">
-				<div class="col-md-8">
+				<div class="col-md-8 wishlist-row-modify">
 					<div class="wishlist-item">
 						<?php
 						if ($count != 0) {

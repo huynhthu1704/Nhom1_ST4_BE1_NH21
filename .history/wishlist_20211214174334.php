@@ -26,18 +26,19 @@ include "component.php";
 <div class="section">
 	<!-- container -->
 	<div class="container">
-		<div class="row wishlist-row-modify">
-				<div class="col-md-8">
-					<div class="wishlist-item">
-						<?php
-						if ($count != 0) {
-							foreach ($_SESSION['wishlist'] as $value) {
-								wishlistElement($value['id'], $value['image'], $value['name'], $value['price']);
-							}
-						} else {
-						?> <h5>YOU HAVEN'T ADDED ANY PRODUCT TO WISHLIST</h5>
-						<?php } ?>
-					</div>
+		<div class="row">
+			<div class="col-md-8 offset-md-3">
+				<div class="wishlist-item">
+					<?php
+					if ($count != 0) {
+						foreach ($_SESSION['wishlist'] as $value) {
+							wishlistElement($value['id'], $value['image'], $value['name'], $value['price']);
+						}
+					} else {
+					?> <h5>YOU HAVEN'T ADDED ANY PRODUCT TO WISHLIST</h5>
+					<?php } ?>
+
+				</div>
 			</div>
 		</div>
 	</div>

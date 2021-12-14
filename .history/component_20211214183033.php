@@ -31,7 +31,7 @@ function component($pro_image, $discount_percent, $isNew, $type_name, $id, $name
                     <i class=\"fa fa-star\"></i>
                 </div>
                 <div class=\"product-btns\">
-                    <button onclick=\"addToWishlist($id)\" class=\"add-to-wishlist\"><i class=\"fa fa-heart-o h$id\"></i><span class=\"tooltipp\">add to wishlist</span></button>
+                    <button onclick=\"addToWishlist($id)\" class=\"add-to-wishlist\"><i class=\"fa fa-heart-o\"></i><span class=\"tooltipp\">add to wishlist</span></button>
                 </div>
             </div>
             <div class=\"add-to-cart\">
@@ -87,7 +87,7 @@ function cartElement($id, $img, $name, $price, $qty)
 
 function wishlistElement($id, $img, $name, $price)
 {
-    echo "<div class=\"border rounded\" id =\"wl$id\">
+    echo "<div class=\"border rounded p$id\">
                     <div class=\"row bg-white cart-row-modify\">
                           <div class=\"col-md-3\">
                                 <img src=\".\img\\$img\" alt=\"\" height=\"100\" class=\"img\">

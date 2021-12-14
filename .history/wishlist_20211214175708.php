@@ -26,8 +26,9 @@ include "component.php";
 <div class="section">
 	<!-- container -->
 	<div class="container">
-		<div class="row wishlist-row-modify">
-				<div class="col-md-8">
+		<div class="row">
+			<div class="center-block">
+				<div class="col-md-8 ">
 					<div class="wishlist-item">
 						<?php
 						if ($count != 0) {
@@ -38,8 +39,26 @@ include "component.php";
 						?> <h5>YOU HAVEN'T ADDED ANY PRODUCT TO WISHLIST</h5>
 						<?php } ?>
 					</div>
+				</div>
+
 			</div>
 		</div>
+		<div class="container">
+    <div class="row">
+        <div class="center-block">row center-block</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 brd">
+            <div class="center-block">1 center-block</div>
+        </div>
+        <div class="col-md-6 brd">
+            <div class="center-block">2 center-block</div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-2 col-center-block">row col-xs-2 col-center-block</div>
+</div>
 	</div>
 	<!-- /container -->
 </div>

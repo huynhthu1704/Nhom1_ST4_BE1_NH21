@@ -31,7 +31,7 @@ function component($pro_image, $discount_percent, $isNew, $type_name, $id, $name
                     <i class=\"fa fa-star\"></i>
                 </div>
                 <div class=\"product-btns\">
-                    <button onclick=\"addToWishlist($id)\" class=\"add-to-wishlist\"><i class=\"fa fa-heart-o h$id\"></i><span class=\"tooltipp\">add to wishlist</span></button>
+                    <button onclick=\"addToWishlist($id)\" class=\"add-to-wishlist\"><i class=\"fa fa-heart-o\"></i><span class=\"tooltipp\">add to wishlist</span></button>
                 </div>
             </div>
             <div class=\"add-to-cart\">
@@ -87,7 +87,8 @@ function cartElement($id, $img, $name, $price, $qty)
 
 function wishlistElement($id, $img, $name, $price)
 {
-    echo "<div class=\"border rounded\" id =\"wl$id\">
+    echo "<form action=\"wishlist.php?action=remove-product&pid=$id\" method=\"post\">
+        <div class=\"border rounded\">
                     <div class=\"row bg-white cart-row-modify\">
                           <div class=\"col-md-3\">
                                 <img src=\".\img\\$img\" alt=\"\" height=\"100\" class=\"img\">
@@ -95,27 +96,10 @@ function wishlistElement($id, $img, $name, $price)
                           <div class=\"col-md-6\">
                                 <h4 class=\"pt-2\"><a href=\"detail.php?id=$id\">$name</a></h4>
                                 <h5 class=\"pt-2\">" . number_format($price) . "</h5>
-                                <button type=\"button\" onclick=\"removeProductFrWL($id)\" class=\"btn btn-danger\" name=\"remove-product\">Remove</button>
-                                <button type=\"button\" onclick=\"addCart($id)\" class=\"btn btn-success\" name=\"add-to-cart\">Add to cart</button>
+                                <button type=\"submit\" class=\"btn btn-danger\" name=\"remove-product\">Remove</button>
+                                <button onclick=\"addCart($id)\" class=\"btn btn-success\" name=\"add-to-cart\">Add to cart</button>
                           </div>
                     </div>
-        </div>";
+        </div>
+  </form>";
 }
-// function wishlistElement($id, $img, $name, $price)
-// {
-//     echo \"<form action=\"wishlist.php?action=remove-product&pid=$id\" method=\"post\">
-//         <div class=\"border rounded p$id\">
-//                     <div class=\"row bg-white cart-row-modify\">
-//                           <div class=\"col-md-3\">
-//                                 <img src=\".\img\\$img\" alt=\"\" height=\"100\" class=\"img\">
-//                           </div>
-//                           <div class=\"col-md-6\">
-//                                 <h4 class=\"pt-2\"><a href=\"detail.php?id=$id\">$name</a></h4>
-//                                 <h5 class=\"pt-2\">" . number_format($price) . "</h5>
-//                                 <button type=\"submit\" onclick=\"removeProductFrWL($id)\" class=\"btn btn-danger\" name=\"remove-product\">Remove</button>
-//                                 <button type=\"button\" onclick=\"addCart($id)\" class=\"btn btn-success\" name=\"add-to-cart\">Add to cart</button>
-//                           </div>
-//                     </div>
-//         </div>
-//   </form>";
-// }

@@ -181,7 +181,7 @@
 		let xmlhttp = new XMLHttpRequest();
 		xmlhttp.onload = function() {
 			check = this.responseText;
-			alert(this.responseText+"checkgg");
+			alert(check+"check");
 		}
 		xmlhttp.open("GET", "wishlist-check.php?id=" + id);
 		xmlhttp.send();
@@ -192,7 +192,7 @@
 		let check = checkWishlistItem(id);
 		alert(check+"addcheck");
 		let xmlhttp = new XMLHttpRequest();
-		if (check) {
+		if (check.compartTo("false") == 0) {
 			alert("hiiii")
 			xmlhttp.onload = function() {
 				document.getElementById('wishlist-qty').innerHTML = this.responseText;

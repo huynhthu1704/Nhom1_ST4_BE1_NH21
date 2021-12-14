@@ -176,53 +176,16 @@
 		xmlhttp.send();
 	}
 
-	function checkWishlistItem(id) {
-		let check = false;
+	function addToWishlist(id) {
 		let xmlhttp = new XMLHttpRequest();
 		xmlhttp.onload = function() {
-			check = this.responseText;
-			alert(this.responseText+"checkgg");
+			document.getElementById('wishlist-qty').innerHTML = this.responseText;
 		}
-		xmlhttp.open("GET", "wishlist-check.php?id=" + id);
+		xmlhttp.open("GET", "wishlist-handle.php?id=" + id);
 		xmlhttp.send();
-		return check;
-	}
-
-	function addToWishlist(id) {
-		let check = checkWishlistItem(id);
-		alert(check+"addcheck");
-		let xmlhttp = new XMLHttpRequest();
-		if (check) {
-			alert("hiiii")
-			xmlhttp.onload = function() {
-				document.getElementById('wishlist-qty').innerHTML = this.responseText;
-			}
-			xmlhttp.open("GET", "wishlist-handle.php?id=" + id);
-			xmlhttp.send();
-			let wlID = "h" + id;
-			let wlItem = document.querySelectorAll("." + wlID);
-			for (let i = 0; i < wlItem.length; i++) {
-				wlItem[i].style.color = "#d10024";
-			}
-		} else {
-			alert("heee");
-			xmlhttp.onload = function() {
-				document.getElementById('wishlist-qty').innerHTML = this.responseText;
-			}
-			xmlhttp.open("GET", "wishlist-remove.php?id=" + id);
-			xmlhttp.send();
-			let wlID = "h" + id;
-			let wlItem = document.querySelectorAll("." + wlID);
-			for (let i = 0; i < wlItem.length; i++) {
-				wlItem[i].style.color = "";
-			}
-		}
 	}
 
 	function removeProductFrWL(id) {
-		let wlId = "wl" + id;
-		let wlElement = document.getElementById(wlId);
-		wlElement.parentNode.removeChild(wlElement);
 		let xmlhttp = new XMLHttpRequest();
 		xmlhttp.onload = function() {
 			document.getElementById('wishlist-qty').innerHTML = this.responseText;
