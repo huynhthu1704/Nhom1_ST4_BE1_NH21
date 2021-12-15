@@ -62,8 +62,7 @@ function getProduct($value, $getNewProducts, $discount)
 
 function cartElement($id, $img, $name, $price, $qty)
 {
-    echo "<form action=\"cart.php?action=remove&pid=$id\" method=\"post\">
-        <div class=\"border rounded\">
+    echo "<div class=\"border rounded cart$id\">
                     <div class=\"row bg-white cart-row-modify\">
                           <div class=\"col-md-3\">
                                 <img src=\".\img\\$img\" alt=\"\" height=\"100\" class=\"img\">
@@ -71,18 +70,17 @@ function cartElement($id, $img, $name, $price, $qty)
                           <div class=\"col-md-6\">
                                 <h4 class=\"pt-2\">$name</h4>
                                 <h5 class=\"pt-2\">" . number_format($price) . "</h5>
-                                <button type=\"submit\" class=\"btn btn-danger\" name=\"remove\">Remove</button>
+                                <button type=\"submit\" onclick=\"removeProductFrCart($id, 'remove')\" class=\"btn btn-danger\" name=\"remove\">Remove</button>
                           </div>
                           <div class=\"col-md-3\">
                                 <div>
-                                      <button type=\"button\" class=\"btn bg-light border rounded-circle\"><i class=\"fa fa-minus\"></i></button>
-                                      <input type=\"text\" value=\"$qty\" class=\"form-control qty-modify\">
-                                      <button type=\"button\" class=\"btn bg-light border rounded-circle\"><i class=\"fa fa-plus\"></i></button>
+                                      <button type=\"button\" onclick=\"decreaseQty($id)\" class=\"btn bg-light border rounded-circle\"><i class=\"fa fa-minus\"></i></button>
+                                      <input type=\"text\" onfocusout=\"checkQty($id)\" id=\"pro$id\" value=\"$qty\" class=\"form-control qty-modify\">
+                                      <button type=\"button\" onclick=\"increaseQty($id)\" class=\"btn bg-light border rounded-circle\"><i class=\"fa fa-plus\"></i></button>
                                 </div>
                           </div>
                     </div>
-        </div>
-  </form>";
+        </div>";
 }
 
 function wishlistElement($id, $img, $name, $price)
