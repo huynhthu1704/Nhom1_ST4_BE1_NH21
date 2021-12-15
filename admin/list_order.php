@@ -40,20 +40,21 @@
                 <table class="table table-striped projects">
                     <thead>
                         <tr>
-                            <th style="width: 10%">ID</th>
+                            <th style="width: 10%">ID Order</th>
+                            <th style="width: 10%">Name Customer</th>
                             <th style="width: 20%">Purchase Date</th>
-                            <th style="width: 50%">Name</th>
+                            <th style="width: 40%">Name</th>
                             <th style="width: 20%">Total</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         $orderdetails = $orderDetails->getAllOrderDetail();
-                        $dem = 0;
                         $tong = 0;
                         foreach ($orderdetails as $value) {
-                            $orderItemm = $orderItems->getCountOrderItem($orderdetails[$dem]['order_id']); ?>
+                            $orderItemm = $orderItems->getCountOrderItem($value['order_id']); ?>
                             <td><?php echo "<a href=order_Items.php?order_id=" . $value['order_id'] . " </a>" . $value['order_id']; ?></td>
+                            <td> <?php echo $value['last_name']." ".$value['first_name'] ?></td>
                             <td><?php echo $value['order_date'] ?></td>
                             <?php if ($orderItemm[0]['dem'] > 1) { ?>
                                 <td><?php echo $orderItemm[0]['name'] . " And " . ((int)$orderItemm[0]['dem'] - 1) . " other products" ?></td>
@@ -61,7 +62,6 @@
                                 <td><?php echo $orderItemm[0]['name'] ?></td>
                             <?php } ?>
                             <td><?php echo number_format($value['total']);
-                                $dem = $dem + 1;
                                 $tong = $tong + (int)$value['total']; ?></td>
                     </tbody>
                 <?php } ?>
