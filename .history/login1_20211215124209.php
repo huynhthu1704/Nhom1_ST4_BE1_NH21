@@ -32,6 +32,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     if ($getLogin[0]['username'] == $username && $getLogin[0]['pwd'] == md5($password)) {
       $ssCart = $session_cart->getSessionCart($getLogin[0]['id']);
       if (count($ssCart) > 0) {
+        var_dump($ssCart[0]['session_id']);
         $ssDetail = new SessionCartDetail();
         $ssCartItem = $ssDetail->getSSCartDetail($ssCart[0]['session_id']);
         foreach ($ssCartItem as $value) {
@@ -49,7 +50,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
       $ssWL = $session_wishlist->getWishlist($getLogin[0]['id']);
       if (count($ssWL) > 0) {
         $ssWLDetail = new SessionWishlistDetail();
-        $ssWLItem = $ssWLDetail->getDetail($ssWL[0]['ss_wishlist_id']);
+        $ssWLItem = $ssWLDetail->getDetail($ssCart[0]['ss_wishlist_id']);
         foreach ($ssWLItem as $value) {
           $product = new Product();
           $productInfo = $product->getProductById($value['product_id']);

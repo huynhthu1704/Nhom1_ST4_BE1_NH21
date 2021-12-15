@@ -317,6 +317,15 @@ class Product extends Db
         return $link;
     }
 
+<<<<<<< HEAD
+    public function getTopSelling()
+    {
+        $sql = self::$connection->prepare("SELECT *,product_id,SUM(qty) FROM order_items, products,protypes WHERE order_items.product_id = products.id and protypes.type_id = products.type_id   and order_items.qty > 0 GROUP BY product_id LIMIT 3");
+        $sql->execute();
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items;
+=======
     public function getQuantity($id)
     {
         $sql = self::$connection->prepare("SELECT * FROM `products`WHERE id = ?");
@@ -332,5 +341,6 @@ class Product extends Db
         $sql = self::$connection->prepare("UPDATE `products` SET quantity = ? WHERE id = ?");
         $sql->bind_param("ii", $qty, $id);
         return $sql->execute();
+>>>>>>> 99d0b4e17adc77642e14a7aa8cec112e0fd2cca8
     }
 }

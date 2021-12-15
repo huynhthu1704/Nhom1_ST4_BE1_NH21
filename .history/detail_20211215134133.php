@@ -56,7 +56,16 @@ if (isset($_GET['id'])) {
 					<div class="col-md-5">
 						<div class="product-details">
 							<h2 class="product-name"><?php echo $getProduct['name'] ?></h2>
-
+							<div>
+								<div class="product-rating">
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star-o"></i>
+								</div>
+								<a class="review-link" href="#">10 Review(s) | Add your review</a>
+							</div>
 							<div>
 								<h3 class="product-price"><?php echo number_format($getProduct['price']) ?> <del class="product-old-price">$990.00</del></h3>
 								<span class="product-available">In Stock</span>

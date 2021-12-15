@@ -56,7 +56,16 @@ if (isset($_GET['id'])) {
 					<div class="col-md-5">
 						<div class="product-details">
 							<h2 class="product-name"><?php echo $getProduct['name'] ?></h2>
-
+							<div>
+								<div class="product-rating">
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star-o"></i>
+								</div>
+								<a class="review-link" href="#">10 Review(s) | Add your review</a>
+							</div>
 							<div>
 								<h3 class="product-price"><?php echo number_format($getProduct['price']) ?> <del class="product-old-price">$990.00</del></h3>
 								<span class="product-available">In Stock</span>
@@ -67,9 +76,9 @@ if (isset($_GET['id'])) {
 								<div class="qty-label">
 									Qty
 									<div class="input-number">
-										<input oninput="checkQtyDetail(<?php echo $getProduct['id'];?>)" id="pro<?php echo $getProduct['id'] ?>"  type="number" value="1" min="1" max="<?php echo $getProduct['price'] ?>">
-										<span onclick="checkQtyDetail(<?php echo $getProduct['id'];?>)" class="qty-up">+</span>
-										<span onclick="checkQtyDetail(<?php echo $getProduct['id'];?>)"  class="qty-down">-</span>
+										<input oninput="checkQty(<?php echo $getProduct['id'];?>)" id="pro<?php echo $getProduct['id'] ?>"  type="number" value="1" min="1" max="<?php echo $getProduct['price'] ?>">
+										<span class="qty-up">+</span>
+										<span class="qty-down">-</span>
 									</div>
 								</div>
 								<button onclick="addCart(<?php echo $getProduct['id']; ?>)" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>

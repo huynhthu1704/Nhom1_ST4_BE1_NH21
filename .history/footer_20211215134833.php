@@ -200,7 +200,7 @@
 				cartList.insertAdjacentHTML("beforeend", item[3]);
 			}
 		}
-		xmlhttp.open("GET", "cart-handle.php?id=" + id+"&pro-qty="+qty);
+		xmlhttp.open("GET", "cart-handle.php?id=" + id+"pro-qty="+qty);
 		xmlhttp.send();
 	}
 	function addToWishlist(id) {
