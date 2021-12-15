@@ -147,7 +147,7 @@ include "component.php";
 								<?php
 								$getFeature = $product->getFeature();
 								foreach($getFeature as $value) {
-									getProduct ($value, $getNewProducts, $discount, $session_wishlist);
+									getProduct ($value, $getNewProducts, $discount, );
 								}
 								?>								
 								<!-- /product -->
@@ -247,7 +247,7 @@ include "component.php";
 								<?php
 								$smartphones = $product->getSmartphones();
 								foreach ($smartphones as $value) {
-									getProduct ($value, $getNewProducts, $discount, $session_wishlist);
+									getProduct ($value, $getNewProducts, $discount);
 								}
 								?>
 							</div>
@@ -298,7 +298,7 @@ include "component.php";
 								<?php
 								$laptops = $product->getLaptops();
 								foreach($laptops as $value) {
-									getProduct ($value, $getNewProducts, $discount, $session_wishlist);
+									getProduct ($value, $getNewProducts, $discount);
 								}
 								?>
 							</div>

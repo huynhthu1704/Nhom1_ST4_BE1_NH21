@@ -1,5 +1,6 @@
 <?php
 session_start();
+//session_destroy();
 require "models/db.php";
 require "models/product.php";
 require "models/protype.php";
@@ -13,6 +14,27 @@ $customer = new Customer();
 $orderDetail = new OrderDetail();
 $getNewProducts = $product->getNewProducts();
 $count = 0;
+if (isset($_POST['remove'])) {
+	if ($_GET['action'] == "remove") {
+		foreach ($_SESSION['cart'] as $key=>$value) {
+			if ($value['id'] == $_GET['pid']) {
+				unset($_SESSION['cart'][$key]);
+				echo "<script>window.location='cart.php'</script>";
+			}
+		}
+	};
+}
+
+if (isset($_POST['remove-product'])) {
+	if ($_GET['action'] == "remove-product") {
+		foreach ($_SESSION['wishlist'] as $key=>$value) {
+			if ($value['id'] == $_GET['pid']) {
+				unset($_SESSION['wishlist'][$key]);
+				echo "<script>window.location='wishlist.php'</script>";
+			}
+		}
+	};
+}
 
 if (isset($_SESSION['cart'])) {
 	foreach ($_SESSION['cart'] as $value) {
@@ -21,10 +43,8 @@ if (isset($_SESSION['cart'])) {
 }
 
 $wishlistCount = 0;
-$session_wishlist = array();
 if (isset($_SESSION['wishlist'])) {
 	$wishlistCount = count($_SESSION['wishlist']);
-	$session_wishlist = $_SESSION['wishlist']; 
 }
 ?>
 

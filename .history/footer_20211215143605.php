@@ -156,7 +156,6 @@
 		if (qty == 0) {
 			let proID = 'pro' + id;
 			qty = Number(document.getElementById(proID).value);
-			document.getElementById(proID).value = 1;
 		}
 		let xmlhttp = new XMLHttpRequest();
 		xmlhttp.onload = function() {
@@ -174,7 +173,7 @@
 			let check = document.getElementById(proQty);
 			if (check && check !== 'null' && check !== 'undefined') {
 				let sl = Number(check.innerHTML);
-				check.innerHTML = sl + qty;
+				check.innerHTML = sl + 1;;
 			} else {
 				cartList.insertAdjacentHTML("beforeend", item[3]);
 			}

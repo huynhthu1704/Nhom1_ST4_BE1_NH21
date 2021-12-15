@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 use function PHPSTORM_META\elementType;
 
 function component($pro_image, $discount_percent, $isNew, $type_name, $id, $name, $discount_price, $old_price, $check)
@@ -6,7 +8,7 @@ function component($pro_image, $discount_percent, $isNew, $type_name, $id, $name
     $icon_color_change = $check? "wishlist-icon-color-change" : "";
     $percent = $discount_percent == 0 ? "" :  "<span class=\"sale\">- " . $discount_percent . "%</span>";
     $new = $isNew == 1 ? "<span class=\"new\">NEW</span>" : "";
-    $price = $discount_percent == 0 ?
+    $price = $discount_price == 0 ?
         "<h4 class=\"product-price\">" . number_format($old_price) . "</h4>"
         :  "<h4 class=\"product-price\">" . number_format($discount_price) . "<del class=\"product-old-price\">" . number_format($old_price) . "</del></h4>";
     echo "
@@ -42,7 +44,7 @@ function component($pro_image, $discount_percent, $isNew, $type_name, $id, $name
         </div>";
 }
 
-function getProduct($value, $getNewProducts, $discount, $session_wishlist)
+function getProduct($value, $getNewProducts, $discount)
 {
     $isNew = 0;
     foreach ($getNewProducts as $value1) {
@@ -51,7 +53,7 @@ function getProduct($value, $getNewProducts, $discount, $session_wishlist)
         }
     }
     $check = false;
-    if ((count($session_wishlist) > 0)) {
+    if (isset($_SESSION['wishlist'])) {
         foreach ($_SESSION['wishlist'] as $value2) {
             if ($value2['id'] == $value['id']) {
                 $check = true;

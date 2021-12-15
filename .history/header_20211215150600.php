@@ -24,7 +24,6 @@ $wishlistCount = 0;
 $session_wishlist = array();
 if (isset($_SESSION['wishlist'])) {
 	$wishlistCount = count($_SESSION['wishlist']);
-	$session_wishlist = $_SESSION['wishlist']; 
 }
 ?>
 

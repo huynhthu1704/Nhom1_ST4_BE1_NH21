@@ -6,7 +6,7 @@ function component($pro_image, $discount_percent, $isNew, $type_name, $id, $name
     $icon_color_change = $check? "wishlist-icon-color-change" : "";
     $percent = $discount_percent == 0 ? "" :  "<span class=\"sale\">- " . $discount_percent . "%</span>";
     $new = $isNew == 1 ? "<span class=\"new\">NEW</span>" : "";
-    $price = $discount_percent == 0 ?
+    $price = $discount_price == 0 ?
         "<h4 class=\"product-price\">" . number_format($old_price) . "</h4>"
         :  "<h4 class=\"product-price\">" . number_format($discount_price) . "<del class=\"product-old-price\">" . number_format($old_price) . "</del></h4>";
     echo "

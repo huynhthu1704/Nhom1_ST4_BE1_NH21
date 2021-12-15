@@ -103,7 +103,8 @@ if (isset($_GET['id'])) {
 							}
 						} ?>
 						<ul class="product-btns">
-							<li>
+							<li class="h<?php echo $getProduct['id'];
+										?>">
 								<a class="h<?php echo $getProduct['id']. " " . $icon_color_change ?>" style="cursor:pointer" onclick="addToWishlist(<?php echo $getProduct['id']; ?>)">
 									<i class="fa fa-heart-o"></i> add to wishlist</a>
 							</li>

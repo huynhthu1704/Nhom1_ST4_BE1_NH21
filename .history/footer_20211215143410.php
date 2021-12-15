@@ -152,11 +152,36 @@
 <script src="js/main.js"></script>
 <script src="js/scripts.js"></script>
 <script>
+	// function addCart(id) {
+	// 	let xmlhttp = new XMLHttpRequest();
+	// 	xmlhttp.onload = function() {
+	// 		let item = this.responseText.split("#");
+	// 		document.getElementById('qty').innerHTML = item[1];
+	// 		document.getElementById('totalPro').innerHTML = item[1];
+	// 		document.getElementById('subtotal').innerHTML = item[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	// 		if (document.getElementById('price-detail-subtotal')) {
+	// 			document.getElementById('price-detail-subtotal').innerHTML = item[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " VND";
+	// 			document.getElementById('price-detail-total').innerHTML = item[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " VND";
+	// 			document.getElementById('price-detail-qty').innerHTML = item[1];
+	// 		}
+	// 		let proQty = item[2];
+	// 		let cartList = document.getElementById('cart-list');
+	// 		let check = document.getElementById(proQty);
+	// 		if (check && check !== 'null' && check !== 'undefined') {
+	// 			let sl = Number(check.innerHTML);
+	// 			check.innerHTML = sl + 1;;
+	// 		} else {
+	// 			cartList.insertAdjacentHTML("beforeend", item[3]);
+	// 		}
+	// 	}
+	// 	xmlhttp.open("GET", "cart-handle.php?id=" + id);
+	// 	xmlhttp.send();
+	// }
+
 	function addCart(id, qty) {
 		if (qty == 0) {
-			let proID = 'pro' + id;
+			let proID = 'pro' +id;
 			qty = Number(document.getElementById(proID).value);
-			document.getElementById(proID).value = 1;
 		}
 		let xmlhttp = new XMLHttpRequest();
 		xmlhttp.onload = function() {
@@ -174,15 +199,14 @@
 			let check = document.getElementById(proQty);
 			if (check && check !== 'null' && check !== 'undefined') {
 				let sl = Number(check.innerHTML);
-				check.innerHTML = sl + qty;
+				check.innerHTML = sl + 1;;
 			} else {
 				cartList.insertAdjacentHTML("beforeend", item[3]);
 			}
 		}
-		xmlhttp.open("GET", "cart-handle.php?id=" + id + "&pro-qty=" + qty);
+		xmlhttp.open("GET", "cart-handle.php?id=" + id+"&pro-qty="+qty);
 		xmlhttp.send();
 	}
-
 	function addToWishlist(id) {
 		let wlID = "h" + id;
 		let wlItem = document.querySelectorAll("." + wlID);

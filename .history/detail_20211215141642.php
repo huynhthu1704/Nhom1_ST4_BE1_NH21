@@ -1,5 +1,5 @@
 <?php include "header.php";
-include "component.php";
+
 if (isset($_GET['id'])) {
 	$id = $_GET['id'];
 	$getProduct = $product->getProductById($id)[0];
@@ -67,16 +67,13 @@ if (isset($_GET['id'])) {
 							<a class="review-link" href="#">10 Review(s) | Add your review</a>
 						</div>
 						<div>
-							<?php
-							$price = $getProduct['price'];
+							<?php 
 							$discount_price = 0;
-							if ($discount->getDiscountByID(($getProduct['discount_id']))) {
-								$dis_Percent = (int) $discount->getDiscountByID(($getProduct['discount_id']))[0]['dis_percent'];
+							if ($discount->getDiscountByID(($value['discount_id']))) {
+								$dis_Percent = (int) $discount->getDiscountByID(($value['discount_id']))[0]['dis_percent'];
 								$discount_price = (int) ($price - $price * $dis_Percent / 100);
 							} ?>
-							<h3 class="product-price"><?php echo number_format($getProduct['price']) ?> <del class="product-old-price"><?php if ($discount_price != 0) {
-																																			echo $discount_price;
-																																		} ?></del></h3>
+							<h3 class="product-price"><?php echo number_format($getProduct['price']) ?> <del class="product-old-price"><?php echo $discount_price?></del></h3>
 							<span class="product-available">In Stock</span>
 						</div>
 						<p><?php echo $getProduct['description'] ?> </p>
@@ -85,28 +82,16 @@ if (isset($_GET['id'])) {
 							<div class="qty-label">
 								Qty
 								<div class="input-number">
-									<input oninput="checkQtyDetail(<?php echo $getProduct['id']; ?>)" id="pro<?php echo $getProduct['id'] ?>" type="number" value="1" min="1" max="<?php echo $getProduct['quantity'] ?>">
+									<input oninput="checkQtyDetail(<?php echo $getProduct['id']; ?>)" id="pro<?php echo $getProduct['id'] ?>" type="number" value="1" min="1" max="<?php echo $getProduct['price'] ?>">
 									<span onclick="checkQtyDetail(<?php echo $getProduct['id']; ?>)" class="qty-up">+</span>
 									<span onclick="checkQtyDetail(<?php echo $getProduct['id']; ?>)" class="qty-down">-</span>
 								</div>
 							</div>
-							<button onclick="addCart(<?php echo $getProduct['id']; ?>, 0)" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+							<button onclick="addCart(<?php echo $getProduct['id']; ?>)" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
 						</div>
 
-						<?php
-						$icon_color_change = "";
-						if (isset($_SESSION['wishlist'])) {
-							foreach ($_SESSION['wishlist'] as $value) {
-								if ($value['id'] == $getProduct['id']) {
-									$icon_color_change = "wishlist-icon-color-change";
-								}
-							}
-						} ?>
 						<ul class="product-btns">
-							<li>
-								<a class="h<?php echo $getProduct['id']. " " . $icon_color_change ?>" style="cursor:pointer" onclick="addToWishlist(<?php echo $getProduct['id']; ?>)">
-									<i class="fa fa-heart-o"></i> add to wishlist</a>
-							</li>
+							<li><a style="cursor:pointer" onclick="addToWishlist(<?php echo $getProduct['id']; ?>)"><i class="fa fa-heart-o"></i> add to wishlist</a></li>
 						</ul>
 
 						<ul class="product-links">
@@ -340,7 +325,7 @@ if (isset($_GET['id'])) {
 									<?php
 									$getRelevantProducts = $product->searchNameByTypeID($getProduct['type_id']);
 									foreach ($getRelevantProducts as $value) {
-										getProduct($value, $getNewProducts, $discount, $session_wishlist);
+										getProduct($value, $getNewProducts, $discount);
 									} ?>
 									<!-- /product -->
 								</div>
@@ -358,6 +343,5 @@ if (isset($_GET['id'])) {
 	</div>
 	<!-- /Section -->
 
-<?php
-	include "footer.php";
-} ?>
+<?php }
+include "footer.php" ?>

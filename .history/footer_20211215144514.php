@@ -156,7 +156,6 @@
 		if (qty == 0) {
 			let proID = 'pro' + id;
 			qty = Number(document.getElementById(proID).value);
-			document.getElementById(proID).value = 1;
 		}
 		let xmlhttp = new XMLHttpRequest();
 		xmlhttp.onload = function() {
