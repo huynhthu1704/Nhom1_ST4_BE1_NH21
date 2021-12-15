@@ -10,6 +10,7 @@ if (isset($_GET['type_id'])) {
     $total = count($getProductByTypeId);
     $url = $_SERVER['PHP_SELF'] . "?type_id=$type_id";
     $get6ProductByTypeId = $product->get6ProductByTypeId($type_id, $page, $perPage);
+    $getTopSelling = $product->getTopSelling();
 }
 ?>
 
@@ -22,7 +23,7 @@ if (isset($_GET['type_id'])) {
             <div class="col-md-12">
                 <ul class="breadcrumb-tree">
                     <li><a href="index.php">Home</a></li>
-                    <li class="active"><?php echo $typeName." (".$total.") Results" ?></li>
+                    <li class="active"><?php echo $typeName . " (" . $total . ") Results" ?></li>
                 </ul>
             </div>
         </div>
@@ -67,16 +68,16 @@ if (isset($_GET['type_id'])) {
                 <div class="aside">
                     <h3 class="aside-title">Top selling</h3>
                     <div class="product-widget">
-                        <div class="product-img">
-                            <img src="./img/product01.png" alt="">
-                        </div>
                         <div class="product-body">
-                            <p class="product-category">Category</p>
-                            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                            <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                            <?php
+                            $getTopSelling = $product->getTopSelling();
+                            foreach ($getTopSelling as $value) { ?>
+
+                                <?php getOrder($value, $getNewProducts, $discount) ?> <br>
+
+                            <?php } ?>
                         </div>
                     </div>
-
                 </div>
                 <!-- /aside Widget -->
             </div>
