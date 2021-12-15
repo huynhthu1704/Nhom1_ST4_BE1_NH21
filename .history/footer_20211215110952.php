@@ -237,6 +237,7 @@
 					document.getElementById('price-detail-qty').innerHTML = item[1];
 				}
 			}
+
 		}
 		xmlhttp.open("GET", "cart-remove.php?id=" + id + "&action=" + action);
 		xmlhttp.send();
@@ -293,7 +294,6 @@
 				let qtyInStock = Number(this.responseText);
 				if (qty >= qtyInStock) {
 					alert("Sorry, stock just have " + qtyInStock + " product left");
-					document.getElementById(pID).value = document.getElementById('qty' + id).innerHTML;
 				} else {
 					modifyCart(id, qty);
 					document.getElementById('qty' + id).innerHTML = document.getElementById(pID).value;
