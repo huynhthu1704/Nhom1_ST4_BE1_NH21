@@ -305,4 +305,13 @@ class Product extends Db
         }
         return $link;
     }
+
+    public function getTopSelling()
+    {
+        $sql = self::$connection->prepare("SELECT *,product_id,SUM(qty) FROM order_items, products,protypes WHERE order_items.product_id = products.id and protypes.type_id = products.type_id   and order_items.qty > 0 GROUP BY product_id LIMIT 3");
+        $sql->execute();
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items;
+    }
 }
