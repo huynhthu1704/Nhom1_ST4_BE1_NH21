@@ -228,14 +228,12 @@
 			document.getElementById('qty').innerHTML = item[1];
 			document.getElementById('totalPro').innerHTML = item[1];
 			document.getElementById('subtotal').innerHTML = item[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-			if (document.getElementById('price-detail')) {
-				if (qty == 0) {
-					document.getElementById('price-detail').remove();
-				} else {
-					document.getElementById('price-detail-subtotal').innerHTML = item[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " VND";
-					document.getElementById('price-detail-total').innerHTML = item[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " VND";
-					document.getElementById('price-detail-qty').innerHTML = item[1];
-				}
+			if (qty == 0) {
+				document.getElementById('price-detail').remove();
+			} else {
+				document.getElementById('price-detail-subtotal').innerHTML = item[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " VND";
+				document.getElementById('price-detail-total').innerHTML = item[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " VND";
+				document.getElementById('price-detail-qty').innerHTML = item[1];
 			}
 		}
 		xmlhttp.open("GET", "cart-remove.php?id=" + id + "&action=" + action);
@@ -293,7 +291,6 @@
 				let qtyInStock = Number(this.responseText);
 				if (qty >= qtyInStock) {
 					alert("Sorry, stock just have " + qtyInStock + " product left");
-					document.getElementById(pID).value = document.getElementById('qty' + id).innerHTML;
 				} else {
 					modifyCart(id, qty);
 					document.getElementById('qty' + id).innerHTML = document.getElementById(pID).value;
