@@ -17,20 +17,23 @@ if (isset($_POST['submit'])) {
     if ($_FILES['image']['name'] == "") {
         $id = $_GET['id'];
         if ($product->editProducts1($id, $name, $manu_id, $type_id, $price, $quantity, $desc, $feature, $discount) == true) {
-            header("location:product.php");
+            echo "<script>alert('Update successfully')</script>";
+            echo "<script>window.location = 'product.php'</script>";
         } else {
-            header("location:edit_product1.php?id=$id");
+            echo "<script>alert('Update failed')</script>";
+            echo "<script>window.location = 'edit_product1.php?id=$id'</script>";
         }
     } else {
         $id = $_GET['id'];
         if ($product->editProducts($id, $name, $manu_id, $type_id, $price, $quantity, $image, $desc, $feature, $discount) == true) {
-            header("location:product.php");
+            echo "<script>alert('Update successfully')</script>";
         } else {
-            header("location:edit_product1.php?id=$id");
+            echo "<script>alert('Update failed')</script>";
         }
         // upload hinh
         $target_dir = "../img/";
         $target_file = $target_dir . basename($_FILES["image"]["name"]);
         move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+        echo "<script>window.location = 'product.php'</script>";
     }
 }

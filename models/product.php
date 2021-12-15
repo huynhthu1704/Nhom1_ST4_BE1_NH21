@@ -267,11 +267,22 @@ class Product extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
+    public function get6ProductByTypeIdKeyword($type_id, $page, $perPage,$keyword)
+    {
+        $firstLink = ($page - 1) * $perPage;
+        $sql = self::$connection->prepare("SELECT * FROM `products`, `protypes` WHERE products.quantity >= 1 and  `products`.type_id = `protypes`.type_id AND `products`.`type_id` = ? AND `products`.`name` LIKE ? LIMIT ?, ?");
+        $keyword = "%$keyword%";
+        $sql->bind_param("isii", $type_id,$keyword ,$firstLink, $perPage);
+        $sql->execute();
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items;
+    }
     public function get6ProductByTypeId($type_id, $page, $perPage)
     {
         $firstLink = ($page - 1) * $perPage;
         $sql = self::$connection->prepare("SELECT * FROM `products`, `protypes` WHERE products.quantity >= 1 and  `products`.type_id = `protypes`.type_id AND `products`.`type_id` = ? LIMIT ?, ?");
-        $sql->bind_param("iii", $type_id, $firstLink, $perPage);
+        $sql->bind_param("iii", $type_id ,$firstLink, $perPage);
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);

@@ -41,7 +41,6 @@
               <div class="form-group">
                 <label for="inputManufacture">Manufacture</label>
                 <select id="inputManufacture" class="form-control custom-select" name="manu">
-                  <option selected disabled>Select one</option>
                  <?php 
                  $getAllManu = $manufacture->getAllManufactures();
                  foreach($getAllManu as $value){
@@ -53,7 +52,6 @@
               <div class="form-group">
                 <label for="inputProtype">Protype</label>
                 <select id="inputProtype" class="form-control custom-select" name="type">
-                  <option selected disabled>Select one</option>
                   <?php 
                    $getAllProtype = $protype->getAllProtypes();
                   foreach($getAllProtype as $value){
@@ -92,7 +90,7 @@
                    $getAllDiscount = $discount->getAllDiscount();
                   foreach($getAllDiscount as $value){
                   ?>
-                  <option value=<?php echo $value['id'] ?>><?php echo $value['name'] ?></option>
+                  <option value=<?php echo $value['dis_id'] ?>><?php echo $value['dis_name'] ?></option>
                   <?php } ?>
                 </select>
               </div>

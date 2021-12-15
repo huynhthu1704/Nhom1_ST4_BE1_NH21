@@ -43,6 +43,30 @@ class AM_Product extends AM_Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
+    public function getQuantilyByTypeId($type_id){
+        $sql = self::$connection->prepare("SELECT `quantity` FROM products WHERE `type_id` =?");
+        $sql->bind_param("i", $type_id);
+        $items = array();
+        $sql->execute();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items;
+    }
+    public function getQuantilyByManu($manu_id){
+        $sql = self::$connection->prepare("SELECT `quantity` FROM products WHERE `manu_id` =?");
+        $sql->bind_param("i", $manu_id);
+        $items = array();
+        $sql->execute();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items;
+    }
+    public function getQuantilyByDiscount($id){
+        $sql = self::$connection->prepare("SELECT `quantity` FROM products WHERE `discount_id` =?");
+        $sql->bind_param("i", $id);
+        $items = array();
+        $sql->execute();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items;
+    }
     public function editProducts1($id,$name,$manu_id,$type_id,$price,$quantity,$desc,$feature,$discount_id)
     {
         $sql = self::$connection->prepare("UPDATE `products` 
