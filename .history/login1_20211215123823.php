@@ -5,8 +5,6 @@ require "models/product.php";
 require "models/login.php";
 require "models/session_cart.php";
 require "models/session_cart_detail.php";
-require "models/session_wishlist.php";
-require "models/session_wishlist_detail.php";
 
 $login = new Login();
 $session_cart = new SessionCart();
@@ -32,8 +30,24 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     if ($getLogin[0]['username'] == $username && $getLogin[0]['pwd'] == md5($password)) {
       $ssCart = $session_cart->getSessionCart($getLogin[0]['id']);
       if (count($ssCart) > 0) {
+        var_dump($ssCart[0]['session_id']);
         $ssDetail = new SessionCartDetail();
-        $ssCartItem = $ssDetail->getSSCartDetail($ssCart[0]['session_id']);
+        $ssDetailItem = $ssDetail->getSSCartDetail($ssCart[0]['ss_wishlist_id']);
+        foreach ($ssDetailItem as $value) {
+          $product = new Product();
+          $productInfo = $product->getProductById($value['product_id']);
+          $_SESSION['wishlist'][$value['product_id']] = array(
+            "id" => $value['product_id'],
+            "name" => $productInfo[0]['name'],
+            "image" => $productInfo[0]['pro_image'],
+            "price" => $productInfo[0]['price'],
+          );
+        }
+      }
+      $ssWL = $session_wishlist->getWishlist($getLogin[0]['id']);
+      if (count($ssWL) > 0) {
+        $ssWLDetail = new SessionWishlistDetail();
+        $ssWLItem = $ssWLDetail->getDetail($ssCart[0]['session_id']);
         foreach ($ssCartItem as $value) {
           $product = new Product();
           $productInfo = $product->getProductById($value['product_id']);
@@ -43,21 +57,6 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             "image" => $productInfo[0]['pro_image'],
             "price" => $productInfo[0]['price'],
             "qty" => $value['qty']
-          );
-        }
-      }
-      $ssWL = $session_wishlist->getWishlist($getLogin[0]['id']);
-      if (count($ssWL) > 0) {
-        $ssWLDetail = new SessionWishlistDetail();
-        $ssWLItem = $ssWLDetail->getDetail($ssWL[0]['ss_wishlist_id']);
-        foreach ($ssWLItem as $value) {
-          $product = new Product();
-          $productInfo = $product->getProductById($value['product_id']);
-          $_SESSION['wishlist'][$value['product_id']] = array(
-            "id" => $value['product_id'],
-            "name" => $productInfo[0]['name'],
-            "image" => $productInfo[0]['pro_image'],
-            "price" => $productInfo[0]['price'],
           );
         }
       }

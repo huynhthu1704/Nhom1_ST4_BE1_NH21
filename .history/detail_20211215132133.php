@@ -76,21 +76,29 @@ if (isset($_GET['id'])) {
 								<div class="qty-label">
 									Qty
 									<div class="input-number">
-										<input oninput="checkQtyDetail(<?php echo $getProduct['id'];?>)" id="pro<?php echo $getProduct['id'] ?>"  type="number" value="1" min="1" max="<?php echo $getProduct['price'] ?>">
-										<span onclick="checkQtyDetail(<?php echo $getProduct['id'];?>)" class="qty-up">+</span>
-										<span onclick="checkQtyDetail(<?php echo $getProduct['id'];?>)"  class="qty-down">-</span>
+										<input type="number">
+										<span onclick="increaseQty(<?php echo $getProduct['id'];?>)" class="qty-up">+</span>
+										<span onclick="decreaseQty(<?php echo $getProduct['id'];?>)" class="qty-down">-</span>
 									</div>
 								</div>
-								<button onclick="addCart(<?php echo $getProduct['id']; ?>)" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
 							</div>
 
 							<ul class="product-btns">
-								<li><a style="cursor:pointer" onclick="addToWishlist(<?php echo $getProduct['id']; ?>)"><i class="fa fa-heart-o"></i> add to wishlist</a></li>
+								<li><a href="#"><i class="fa fa-heart-o"></i> add to wishlist</a></li>
 							</ul>
 
 							<ul class="product-links">
 								<li>Category:</li>
 								<li><a href="products.php?type_id=<?php echo $getProduct['type_id']?>"><?php echo $getProduct['type_name']?></a></li>
+							</ul>
+
+							<ul class="product-links">
+								<li>Share:</li>
+								<li><a href="https://www.facebook.com/3TMobile.TDC"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="https://twitter.com/3TMobileTDC"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+								<li><a href="mailto:3tmobile.tdc@gmail.com"><i class="fa fa-envelope"></i></a></li>
 							</ul>
 
 						</div>

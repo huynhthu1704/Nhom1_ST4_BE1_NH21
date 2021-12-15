@@ -77,8 +77,8 @@ if (isset($_GET['id'])) {
 									Qty
 									<div class="input-number">
 										<input oninput="checkQtyDetail(<?php echo $getProduct['id'];?>)" id="pro<?php echo $getProduct['id'] ?>"  type="number" value="1" min="1" max="<?php echo $getProduct['price'] ?>">
-										<span onclick="checkQtyDetail(<?php echo $getProduct['id'];?>)" class="qty-up">+</span>
-										<span onclick="checkQtyDetail(<?php echo $getProduct['id'];?>)"  class="qty-down">-</span>
+										<span class="qty-up">+</span>
+										<span class="qty-down">-</span>
 									</div>
 								</div>
 								<button onclick="addCart(<?php echo $getProduct['id']; ?>)" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>

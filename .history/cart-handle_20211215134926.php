@@ -57,7 +57,7 @@ $products = new Product();
             <h3 class=\"product-name\"><a href=\"detail.php?id=$id\">$name</a></h3>
             <h4 class=\"product-price\"><span class=\"qty\" id=\"qty$id\">1</span> x ".number_format($price)."</h4>
         </div>
-        <button onclick=\"removeProductFrCart($id, 'remove')\" class=\"delete\"><i class=\"fa fa-close\"></i></button>
+        <button onclick=\"removeProductFrCart($id, \"remove\")\" class=\"delete\"><i class=\"fa fa-close\"></i></button>
     </div>
 ";
     } 

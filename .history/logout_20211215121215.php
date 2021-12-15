@@ -27,7 +27,7 @@ if (isset($_SESSION['wishlist'])) {
                 echo "hihi";
             }
         }
-    };
+    }
 }
 session_destroy();
 header("location:login.php");

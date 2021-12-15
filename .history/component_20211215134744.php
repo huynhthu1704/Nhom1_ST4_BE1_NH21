@@ -94,7 +94,7 @@ function wishlistElement($id, $img, $name, $price)
                                 <h4 class=\"pt-2\"><a href=\"detail.php?id=$id\">$name</a></h4>
                                 <h5 class=\"pt-2\">" . number_format($price) . "</h5>
                                 <button type=\"button\" onclick=\"removeProductFrWL($id)\" class=\"btn btn-danger\" name=\"remove-product\">Remove</button>
-                                <button type=\"button\" onclick=\"addCart($id, 1)\" class=\"btn btn-success\" name=\"add-to-cart\">Add to cart</button>
+                                <button type=\"button\" onclick=\"addCart($id)\" class=\"btn btn-success\" name=\"add-to-cart\">Add to cart</button>
                           </div>
                     </div>
         </div>";
