@@ -7,6 +7,10 @@ require "models/order_detail.php";
 $customer = new Customer();
 $orderItem= new OrderItem();
 $orderdetail= new OrderDetail();
+ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) { 
+ } else { 
+ header("location: login.php") ;
+ } 
 $customers = $customer->checkUser($_SESSION['user_name']);
 ?>
 <!DOCTYPE html>
