@@ -13,7 +13,6 @@ if (isset($_GET['type_id'])) {
     $getTopSelling = $product->getTopSelling();
 }
 ?>
-
 <!-- BREADCRUMB -->
 <div id="breadcrumb" class="section">
     <!-- container -->

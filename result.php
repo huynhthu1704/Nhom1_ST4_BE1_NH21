@@ -20,7 +20,7 @@ if (isset($_GET['submit'])) {
         $name = $product->getManuName($keyword);
         $count = $product->getCountProduct($keyword);
     } else {
-        $get6Product = $product->get6ProductByTypeId($type_id, $page, $perPage);
+        $get6Product = $product->get6ProductByTypeIdKeyword($type_id, $page, $perPage,$keyword);
         $search =$product->searchNameByTypeIDAndName($keyword, $type_id);
         $name = $product->getManuNameByKeyWord($keyword, $type_id);
         $count = $product->getCountProductByKeyWord($keyword,$type_id);
@@ -70,6 +70,10 @@ if (isset($_GET['submit'])) {
                     <div class="checkbox-filter">
                         <?php
                         $dem = 0;
+                        if(count($name)==0){
+                            echo "<script>alert('Product not found')</script>";
+                            echo "<script>window.location = 'index.php'</script>";
+                        }
                         foreach ($name as $value) {
                         ?>
                             <div class="list-item checkbox">

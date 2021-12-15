@@ -5,10 +5,9 @@ echo $discount_id;
 $id = (int)$_GET['id'];
 $getId = $discount->getDiscountByID($id);
 foreach ($getId as $value) {
-  $getname = $value['name'];
-  $getdiscount_percent = $value['discount_percent'];
-  $getactive = $value['active'];
-  $getname = $value['name'];
+  $getname = $value['dis_name'];
+  $getdiscount_percent = $value['dis_percent'];
+  $getactive = $value['dis_active'];
   $getstart_day = $value['start_day'];
   $getend_day = $value['end_day'];
 }

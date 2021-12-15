@@ -1,12 +1,33 @@
 <?php
-require "config.php";
+session_start();
 require "models/db.php";
 require "models/product.php";
 require "models/protype.php";
+require "models/discount.php";
+require "models/customer.php";
+require "models/order_detail.php";
 $product = new Product();
 $protype = new Protype();
-$getAllProtype = $protype->getAllProtype();
+$discount = new Discount();
+$customer = new Customer();
+$orderDetail = new OrderDetail();
+$getNewProducts = $product->getNewProducts();
+$count = 0;
+
+if (isset($_SESSION['cart'])) {
+	foreach ($_SESSION['cart'] as $value) {
+		$count += $value['qty'];
+	}
+}
+
+$wishlistCount = 0;
+$session_wishlist = array();
+if (isset($_SESSION['wishlist'])) {
+	$wishlistCount = count($_SESSION['wishlist']);
+	$session_wishlist = $_SESSION['wishlist']; 
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,8 +58,6 @@ $getAllProtype = $protype->getAllProtype();
 	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/fontawesome.min.css" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" />
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -62,8 +81,12 @@ $getAllProtype = $protype->getAllProtype();
 					<li><a href="ggmap.html"><i class="fa fa-map-marker"></i> 53 Vo Van Ngan Str, Linh Chieu Ward</a></li>
 				</ul>
 				<ul class="header-links pull-right">
-					<li><a href="#"><i class="fa fa-dollar"></i> VND</a></li>
-					<li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
+					<?php if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) { ?>
+						<li><a href="account_information.php"><i class="fa fa-user-o"></i> <?php echo 'Hello! ' . $_SESSION['name'] ?></a></li>
+						<li><a href="logout.php"><i class="fa fa-user-o"></i> Logout</a></li>
+					<?php } else { ?>
+						<li><a href="login.php"><i class="fa fa-user-o"></i> Login</a></li>
+					<?php } ?>
 				</ul>
 			</div>
 		</div>
@@ -89,7 +112,7 @@ $getAllProtype = $protype->getAllProtype();
 					<div class="col-md-6">
 						<div class="header-search">
 							<form method="get" action="result.php">
-								<select type="id" name="id" class="input-select">
+								<select type="id" name="type_id" class="input-select">
 									<option value="0">All Categories</option>
 									<?php
 									$getAllProtype = $protype->getAllProtype();
@@ -97,7 +120,7 @@ $getAllProtype = $protype->getAllProtype();
 										<option value="<?php echo $value['type_id'] ?>"> <?php echo $value['type_name'] ?> </option>
 									<?php } ?>
 								</select>
-								<input class="input" placeholder="Search here" name="keyword">
+								<input class="input" placeholder="Search here" name="keyword" required> 
 								<button type="submit" name="submit" class="search-btn">Search</button>
 							</form>
 						</div>
@@ -109,10 +132,10 @@ $getAllProtype = $protype->getAllProtype();
 						<div class="header-ctn">
 							<!-- Wishlist -->
 							<div>
-								<a href="#">
+								<a href="wishlist.php">
 									<i class="fa fa-heart-o"></i>
 									<span>Your Wishlist</span>
-									<div class="qty">2</div>
+									<div id="wishlist-qty" class="qty"><?php echo $wishlistCount?></div>
 								</a>
 							</div>
 							<!-- /Wishlist -->
@@ -122,35 +145,37 @@ $getAllProtype = $protype->getAllProtype();
 								<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 									<i class="fa fa-shopping-cart"></i>
 									<span>Your Cart</span>
-									<div class="qty">3</div>
+									<div id="qty" class="qty"><?php echo $count ?></div>
 								</a>
 								<div class="cart-dropdown">
-									<div class="cart-list">
-										<div class="product-widget">
-											<div class="product-img">
-												<img src="./img/product01.png" alt="">
-											</div>
-											<div class="product-body">
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
-											</div>
-											<button class="delete"><i class="fa fa-close"></i></button>
-										</div>
+									<div id="cart-list" class="cart-list">
+										<?php
+										$subtotal = 0; $total = 0;
+										$count = 0;
+										if (isset($_SESSION['cart'])) {
+											foreach ($_SESSION['cart'] as $value) {
+												$count +=  (int) $value['qty'];
+												$subtotal += (int) $value['price'] * (int) $value['qty'];
+										?>
+												<div id="cart<?php echo $value['id'] ?>" class="product-widget">
+													<div class="product-img">
+														<img src="./img/<?php echo $value['image']; ?>" alt="">
+													</div>
+													<div class="product-body">
+														<h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>"><?php echo $value['name']; ?></a></h3>
+														<h4 class="product-price"><span class="qty" id="qty<?php echo $value['id'] ?>"><?php echo $value['qty']?></span> x <?php echo number_format($value['price']); ?></h4>
+													</div>
+													<button onclick="removeProductFrCart(<?php echo $value['id']?>, 'remove')" class="delete"><i class="fa fa-close"></i></button>
+												</div>
 
-										<div class="product-widget">
-											<div class="product-img">
-												<img src="./img/product02.png" alt="">
-											</div>
-											<div class="product-body">
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
-											</div>
-											<button class="delete"><i class="fa fa-close"></i></button>
-										</div>
+										<?php }
+										} ?>
 									</div>
 									<div class="cart-summary">
-										<small>3 Item(s) selected</small>
-										<h5>SUBTOTAL: $2940.00</h5>
+										<small><span id="totalPro"><?php echo $count ?></span> Item(s) selected</small>
+										<h5 id="subtotal">SUBTOTAL: <?php echo number_format($subtotal); 
+										$total = $subtotal;
+										?></h5>
 									</div>
 									<div class="cart-btns">
 										<a href="cart.php">View Cart</a>
@@ -189,10 +214,10 @@ $getAllProtype = $protype->getAllProtype();
 				<!-- NAV -->
 				<ul class="main-nav nav navbar-nav">
 					<li class="active"><a href="index.php">Home</a></li>
-					<li><a href="#">Hot Deals</a></li>
-					<?php foreach ($getAllProtype as $value) { ?>
+					<li><a href="hotdeal.php">Hot Deals</a></li>
+					<?php foreach ($getAllProtype as $value): ?>
 						<li><a href="products.php?type_id=<?php echo $value['type_id']; ?>"><?php echo $value['type_name'] ?></a></li>
-					<?php } ?>
+					<?php endforeach; ?>
 				</ul>
 				<!-- /NAV -->
 			</div>
