@@ -112,7 +112,7 @@ class Product extends Db
                                             FROM `products` 
                                             INNER JOIN `manufactures` 
                                             ON `products`.`manu_id` = `manufactures`.`manu_id` 
-                                            AND `discount_id` != 0 
+                                            AND `discount_id` != 0 AND `products`.`quantity`>0
                                             GROUP BY `products`.manu_id "
         );
         $sql->execute();
@@ -123,7 +123,7 @@ class Product extends Db
 
     public function getCountProductHotDeal()
     {
-        $sql = self::$connection->prepare("SELECT count(manu_id) AS dem FROM `products` WHERE products.quantity >= 1 and  `discount_id` != 0  GROUP BY manu_id");
+        $sql = self::$connection->prepare("SELECT *,count(manu_id) AS dem FROM `products` WHERE products.quantity >= 1 and  `discount_id` != 0  GROUP BY manu_id");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);

@@ -38,16 +38,15 @@ $get6ProductSale = $product->get6ProductSale($page, $perPage); ?>
                 <!-- aside Widget -->
                 <div class="aside">
                     <h3 class="aside-title">Brand</h3>
-                    <div class="checkbox-filter">
+                    <div class="filter">
                         <?php
                         $name = $product->getManuNameByHotDeal();
                         $count = $product->getCountProductHotDeal();
                         $dem = 0;
                         foreach ($name as $value) {
                         ?>
-                            <div class="list-item checkbox">
-                                <label><input type="checkbox" value="<?php echo $value['manu_name']; ?>" id="<?php echo $value['manu_name']; ?>">
-                                    <span></span>
+                            <div class="list-item ">
+                                <label>
                                     <?php echo $value['manu_name']; ?>
                                     <small> <?php echo "(" . $count[$dem]['dem'] . ")";
                                             $dem = $dem + 1; ?> </small>
@@ -77,33 +76,6 @@ $get6ProductSale = $product->get6ProductSale($page, $perPage); ?>
 
             <!-- STORE -->
             <div id="store" class="col-md-9">
-                <!-- store top filter -->
-                <div class="store-filter clearfix">
-                    <div class="store-sort">
-                        <label>
-                            Sort By:
-                            <select class="input-select">
-                                <option value="0">Popular</option>
-                                <option value="1">Position</option>
-                            </select>
-                        </label>
-
-                        <label>
-                            Show:
-                            <select class="input-select">
-                                <option value="0">3</option>
-                                <option value="1">6</option>
-                            </select>
-                        </label>
-                    </div>
-                    <ul class="store-grid">
-                        <li class="active"><i class="fa fa-th"></i></li>
-                        <li><a href="#"><i class="fa fa-th-list"></i></a></li>
-                    </ul>
-                </div>
-                <!-- /store top filter -->
-
-                <!-- store products -->
                 <div class="row">
                     <?php
 
@@ -111,7 +83,7 @@ $get6ProductSale = $product->get6ProductSale($page, $perPage); ?>
                     ?>
                         <!-- product -->
                         <div class="col-md-4 col-xs-6">
-                            <?php getProduct($value, $getNewProducts, $discount) ?>
+                            <?php getProduct($value, $getNewProducts, $discount,$session_wishlist) ?>
                         </div>
                         <!-- /product -->
                         <div class="clearfix visible-sm visible-xs"></div>

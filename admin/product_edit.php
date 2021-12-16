@@ -82,7 +82,7 @@ $getDiscount = $getproductt[0]['discount_id'];
               </div>
               <div class="form-group">
                 <label for="inputPrice">Price</label>
-                <input type="text" id="inputPrice" class="form-control" value="<?php echo $getPrice; ?>" name="price">
+                <input type="number" id="inputPrice" class="form-control" value="<?php echo $getPrice; ?>" name="price">
               </div>
               <div class="form-group">
                 <label for="inputDescription">Project Description</label>
@@ -90,7 +90,7 @@ $getDiscount = $getproductt[0]['discount_id'];
               </div>
               <div class="form-group">
                 <label for="inputQuantity">Quantity</label>
-                <input type="text" id="inputQuantity" class="form-control" value="<?php echo $getQuantity; ?>" name="quantity">
+                <input type="number" id="inputQuantity" class="form-control" value="<?php echo $getQuantity; ?>" name="quantity">
               </div>
               <div class="form-group">
                 <label for="inputImage">Image</label>

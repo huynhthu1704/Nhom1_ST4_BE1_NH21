@@ -62,7 +62,7 @@
               </div>
               <div class="form-group">
                 <label for="inputPrice">Price</label>
-                <input type="text" id="inputPrice" class="form-control" name="price">
+                <input type="number" id="inputPrice" class="form-control" name="price">
               </div>
               <div class="form-group">
                 <label for="inputDescription">Project Description</label>
@@ -70,7 +70,7 @@
               </div>
               <div class="form-group">
                 <label for="inputQuantity">Quantity</label>
-                <input type="text" id="inputQuantity" class="form-control" name="quantity">
+                <input type="number" id="inputQuantity" class="form-control" name="quantity">
               </div>
               <div class="form-group">
                 <label for="inputImage">Image</label>
