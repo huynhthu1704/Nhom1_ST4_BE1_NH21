@@ -1,0 +1,24 @@
+<?
+require "models/db.php";
+require "models/reviews.php";
+$review = new Review();
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $getRV = $review->getAllReviewByID($id);
+    $averageRating = 0;
+    $totalRating = 0;
+    $count = count($getRV);
+    foreach ($getRV as $value) {
+        $totalRating += $value['rating'];
+    }
+    $averageRating = (int) $totalRating/$count;
+    $rvrating= "";
+    for ($i = 1; $i <= $averageRating; $i++) {
+        $rvrating .= "<i class=\"fa fa-star\"></i>";
+    }
+    for ($i = 1; $i <= (5 - $averageRating); $i++) {
+        $rvrating .= "<i class=\"fa fa-star-o empty\"></i>";
+    }
+    $rvrating .= "</div>";
+    echo $totalRating."#".$rvrating;
+}
