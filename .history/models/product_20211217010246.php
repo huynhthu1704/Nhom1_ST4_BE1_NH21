@@ -163,7 +163,7 @@ class Product extends Db
     }
     public function searchAll($keyword)
     {
-        $sql = self::$connection->prepare("SELECT * FROM `products` WHERE products.quantity > 0 and `name` LIKE ?");
+        $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `name` LIKE ?");
         $keyword = "%$keyword%";
         $sql->bind_param("s", $keyword);
         $sql->execute();

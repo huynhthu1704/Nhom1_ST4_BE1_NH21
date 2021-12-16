@@ -83,7 +83,11 @@ $get6ProductSale = $product->get6ProductSale($page, $perPage); ?>
                     ?>
                         <!-- product -->
                         <div class="col-md-4 col-xs-6">
+<<<<<<< HEAD
+                            <?php getProduct($value, $getNewProducts, $discount, $session_wishlist) ?>
+=======
                             <?php getProduct($value, $getNewProducts, $discount,$session_wishlist) ?>
+>>>>>>> a99d3e77e5ddcb584ada418064f67cc2b73f28b3
                         </div>
                         <!-- /product -->
                         <div class="clearfix visible-sm visible-xs"></div>

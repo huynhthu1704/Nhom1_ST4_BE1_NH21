@@ -20,10 +20,10 @@ if (isset($_GET['submit'])) {
         $name = $product->getManuName($keyword);
         $count = $product->getCountProduct($keyword);
     } else {
-        $get6Product = $product->get6ProductByTypeIdKeyword($type_id, $page, $perPage,$keyword);
-        $search =$product->searchNameByTypeIDAndName($keyword, $type_id);
+        $get6Product = $product->get6ProductByTypeIdKeyword($type_id, $page, $perPage, $keyword);
+        $search = $product->searchNameByTypeIDAndName($keyword, $type_id);
         $name = $product->getManuNameByKeyWord($keyword, $type_id);
-        $count = $product->getCountProductByKeyWord($keyword,$type_id);
+        $count = $product->getCountProductByKeyWord($keyword, $type_id);
     }
     $total = count($search);
     foreach ($count as $value) {
@@ -67,18 +67,17 @@ if (isset($_GET['submit'])) {
                 <!-- aside Widget -->
                 <div class="aside">
                     <h3 class="aside-title">Brand</h3>
-                    <div class="checkbox-filter">
+                    <div class="filter">
                         <?php
                         $dem = 0;
-                        if(count($name)==0){
+                        if (count($name) == 0) {
                             echo "<script>alert('Product not found')</script>";
                             echo "<script>window.location = 'index.php'</script>";
                         }
                         foreach ($name as $value) {
                         ?>
-                            <div class="list-item checkbox">
-                                <label><input type="checkbox" value="<?php echo $value['manu_name']; ?>" id="<?php echo $value['manu_name']; ?>">
-                                    <span></span>
+                            <div class="list-item ">
+                                <label>
                                     <?php echo $value['manu_name']; ?>
                                     <small> <?php echo "(" . $count[$dem]['dem'] . ")";
                                             $dem = $dem + 1; ?> </small>
@@ -95,17 +94,15 @@ if (isset($_GET['submit'])) {
                 <!-- aside Widget -->
                 <div class="aside">
                     <h3 class="aside-title">Top selling</h3>
-                    <div class="product-widget">
-                        <div class="product-body">
-                            <?php
-                            $getTopSelling = $product->getTopSelling();
-                            foreach ($getTopSelling as $value) { ?>
 
-                                <?php getOrder($value, $getNewProducts, $discount) ?> <br>
+                    <?php
+                    $getTopSelling = $product->getTopSelling();
+                    foreach ($getTopSelling as $value) { ?>
 
-                            <?php } ?>
-                        </div>
-                    </div>
+                        <?php getOrder($value, $getNewProducts, $discount) ?> <br>
+
+                    <?php } ?>
+
                 </div>
                 <!-- /aside Widget -->
             </div>
@@ -113,32 +110,6 @@ if (isset($_GET['submit'])) {
 
             <!-- STORE -->
             <div id="store" class="col-md-9">
-                <!-- store top filter -->
-                <div class="store-filter clearfix">
-                    <div class="store-sort">
-                        <label>
-                            Sort By:
-                            <select class="input-select">
-                                <option value="0">Popular</option>
-                                <option value="1">Position</option>
-                            </select>
-                        </label>
-
-                        <label>
-                            Show:
-                            <select class="input-select">
-                                <option value="0">3</option>
-                                <option value="1">6</option>
-                            </select>
-                        </label>
-                    </div>
-                    <ul class="store-grid">
-                        <li class="active"><i class="fa fa-th"></i></li>
-                        <li><a href="#"><i class="fa fa-th-list"></i></a></li>
-                    </ul>
-                </div>
-                <!-- /store top filter -->
-
                 <!-- store products -->
                 <div class="row">
                     <?php
@@ -159,7 +130,7 @@ if (isset($_GET['submit'])) {
                 <div class="store-filter clearfix">
                     <span class="store-qty">Showing 3-6 products</span>
                     <ul class="store-pagination">
-                    <?php echo $product->paginate($url, $total, $page, $perPage) ?>
+                        <?php echo $product->paginate($url, $total, $page, $perPage) ?>
                         <!-- <li><a href="#"><i class="fa fa-angle-right"></i></a></li> -->
                     </ul>
                 </div>

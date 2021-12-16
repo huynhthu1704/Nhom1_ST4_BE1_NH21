@@ -91,8 +91,8 @@ $discount = new AM_Discount();
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
 
           <div class="info">
-            <?php if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) { ?>
-              <a href="#" class="d-block"><?php echo "Hello! " . $_SESSION['user_name'] ?></a>
+            <?php if (isset($_SESSION['aid']) && isset($_SESSION['auser_name'])) { ?>
+              <a href="#" class="d-block"><?php echo "Hello! " . $_SESSION['auser_name'] ?></a>
             <?php } else { ?>
               <?php header("location: login.php") ?>
             <?php } ?>

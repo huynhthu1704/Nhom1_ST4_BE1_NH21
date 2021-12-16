@@ -50,7 +50,7 @@
                 </div>
                 <div class="form-group">
                   <label for="zipcode">Zip code</label>
-                  <input type="text" class="form-control" name="zipcode" value="<?php echo $customers[0]['zip_code'] ?>" placeholder="Zip Code" pattern="([0-9]{6}){1}" required>
+                  <input type="number" class="form-control" name="zipcode" value="<?php echo $customers[0]['zip_code'] ?>" placeholder="Zip Code" pattern="([0-9]{6}){1}" required>
                 </div>
                 <div class="input-group mb-3">
                   <p>Ngày sinh:<input type="date" name="birthday" value="<?php echo strftime('%Y-%m-%d',strtotime($customers[0]['birthday'])) ?>" required></p>
@@ -81,15 +81,15 @@
             <form class="form-horizontal" action="ud-email-numberphone.php" method="post" novalidate enctype="multipart/form-data">
               <div class="card-body">
                 <div class="form-group row">
-                  <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                  <label for="email" class="col-sm-2 col-form-label">Email</label>
                   <div class="col-sm-10">
-                    <input type="email" class="form-control" name="Email" value="<?php echo $customers[0]['email'] ?>" pattern="\w{3,}[\.-]?\w+@\w+(\.\w{2,4})+" required>
+                    <input type="email" class="form-control" name="email" value="<?php echo $customers[0]['email'] ?>" pattern="\w{3,}[\.-]?\w+@\w+(\.\w{2,4})+" required>
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label for="inputEmail3" class="col-sm-2 col-form-label">Phone Number</label>
+                  <label for="phone" class="col-sm-2 col-form-label">Phone Number</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name="Phone" value="<?php echo $customers[0]['phone_number'] ?>" placeholder="Phone number" pattern="[0-9]{10,11}" required>
+                    <input type="number" class="form-control" name="phone" value="<?php echo $customers[0]['phone_number'] ?>" placeholder="Phone number" pattern="[0-9]{10,11}" required>
                   </div>
                 </div>
               </div>
