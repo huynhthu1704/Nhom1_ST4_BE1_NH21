@@ -47,7 +47,7 @@
             </div>
           </div>
           <div class="input-group mb-3">
-            <input type="text" name="phone" class="form-control" value="<?php echo $phone; ?>" placeholder="Phone number" pattern="[0-9]{10,11}" required>
+            <input type="number" name="phone" class="form-control" value="<?php echo $phone; ?>" placeholder="Phone number" pattern="[0-9]{10,11}" required>
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-phone"></span>
