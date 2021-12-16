@@ -1,5 +1,11 @@
 <?php include "header.php";
-include "component.php"; ?>
+include "component.php"; 
+if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
+
+} else {
+      echo "<script>window.location = 'login.php'</script>";
+}
+?>
 <div class="container">
       <div class="row px-5">
             <div class="col-md-8">

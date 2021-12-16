@@ -1,5 +1,10 @@
 <?php include "header.php";
 include "component.php";
+if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
+
+} else {
+      echo "<script>window.location = 'login.php'</script>";
+}
 ?>
 
 <!-- BREADCRUMB -->
