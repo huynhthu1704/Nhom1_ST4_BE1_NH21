@@ -66,17 +66,14 @@ if (isset($_GET['type_id'])) {
                 <!-- aside Widget -->
                 <div class="aside">
                     <h3 class="aside-title">Top selling</h3>
-                    <div class="product-widget">
-                        <div class="product-body">
+
                             <?php
                             $getTopSelling = $product->getTopSelling();
                             foreach ($getTopSelling as $value) { ?>
 
                                 <?php getOrder($value, $getNewProducts, $discount) ?> <br>
-
                             <?php } ?>
-                        </div>
-                    </div>
+
                 </div>
                 <!-- /aside Widget -->
             </div>

@@ -24,8 +24,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     $getLogin = $login->getLogin($username, $password);
 
     if ($getLogin[0]['username'] == $username &&  $getLogin[0]['pwd'] == md5($password)) {
-      $_SESSION['user_name'] = $getLogin[0]['username'];
-      $_SESSION['id'] = $getLogin[0]['id'];
+      $_SESSION['auser_name'] = $getLogin[0]['username'];
+      $_SESSION['aid'] = $getLogin[0]['id'];
       if (isset($_POST['remember'])) {
         setcookie('username',   $username, time() + (60 * 30));
         setcookie('password',   $password, time() + (60 * 30));

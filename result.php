@@ -95,8 +95,7 @@ if (isset($_GET['submit'])) {
                 <!-- aside Widget -->
                 <div class="aside">
                     <h3 class="aside-title">Top selling</h3>
-                    <div class="product-widget">
-                        <div class="product-body">
+
                             <?php
                             $getTopSelling = $product->getTopSelling();
                             foreach ($getTopSelling as $value) { ?>
@@ -104,8 +103,7 @@ if (isset($_GET['submit'])) {
                                 <?php getOrder($value, $getNewProducts, $discount) ?> <br>
 
                             <?php } ?>
-                        </div>
-                    </div>
+
                 </div>
                 <!-- /aside Widget -->
             </div>

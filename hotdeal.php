@@ -61,8 +61,7 @@ $get6ProductSale = $product->get6ProductSale($page, $perPage); ?>
                 <!-- aside Widget -->
                 <div class="aside">
                     <h3 class="aside-title">Top selling</h3>
-                    <div class="product-widget">
-                        <div class="product-body">
+
                             <?php
                             $getTopSelling = $product->getTopSelling();
                             foreach ($getTopSelling as $value) { ?>
@@ -70,9 +69,6 @@ $get6ProductSale = $product->get6ProductSale($page, $perPage); ?>
                                 <?php getOrder($value, $getNewProducts, $discount) ?> <br>
 
                             <?php } ?>
-
-                        </div>
-                    </div>
 
                 </div>
                 <!-- /aside Widget -->
