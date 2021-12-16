@@ -50,7 +50,7 @@
                 </div>
                 <div class="form-group">
                   <label for="zipcode">Zip code</label>
-                  <input type="text" class="form-control" name="zipcode" value="<?php echo $customers[0]['zip_code'] ?>" placeholder="Zip Code" pattern="([0-9]{6}){1}" required>
+                  <input type="number" class="form-control" name="zipcode" value="<?php echo $customers[0]['zip_code'] ?>" placeholder="Zip Code" pattern="([0-9]{6}){1}" required>
                 </div>
                 <div class="input-group mb-3">
                   <p>Ngày sinh:<input type="date" name="birthday" value="<?php echo strftime('%Y-%m-%d',strtotime($customers[0]['birthday'])) ?>" required></p>

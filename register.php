@@ -71,7 +71,7 @@
             </div>
           </div>
           <div class="input-group mb-3">
-            <input type="text" name="zipcode" class="form-control" value="<?php echo $ZipCode; ?>" pattern="([0-9]{6}){1}" placeholder="Zip Code">
+            <input type="number" name="zipcode" class="form-control" value="<?php echo $ZipCode; ?>" pattern="([0-9]{6}){1}" placeholder="Zip Code">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-map-marker-alt"></span>
