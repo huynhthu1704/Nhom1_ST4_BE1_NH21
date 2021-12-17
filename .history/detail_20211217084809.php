@@ -121,17 +121,13 @@ if (isset($_GET['id'])) {
 								$dis_Percent = (int) $discount->getDiscountByID(($getProduct['discount_id']))[0]['dis_percent'];
 								$discount_price = (int) ($price - $price * $dis_Percent / 100);
 							} ?>
-							<h3 class="product-price">
-								<?php if ($discount_price != 0) {
-									echo number_format($discount_price);
-								} else {
-									echo number_format($getProduct['price']);
-								} ?>
-								<del class="product-old-price">
-									<?php if ($discount_price != 0) {
-										echo number_format($getProduct['price']);
-									} ?></del>
-							</h3>
+							<h3 class="product-price"><?php if ($discount_price != 0) {
+															echo number_format($discount_price);
+														} else {
+															echo number_format($getProduct['price']);
+														} ?> <del class="product-old-price"><?php if ($discount_price != 0) {
+																								echo number_format($getProduct['price']);
+																							} ?></del></h3>
 							<span class="product-available">In Stock</span>
 						</div>
 						<p><?php echo $getProduct['description'] ?> </p>
