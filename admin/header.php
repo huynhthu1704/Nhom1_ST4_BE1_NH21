@@ -155,7 +155,7 @@ $discount = new AM_Discount();
 
             <li class="nav-item">
               <a href="discount.php" class="nav-link">
-              <i class="nav-icon fas fa-ad"></i>
+              <i class="nav-icon fab fa-adversal"></i>
                 <p> Discount</p>
                 <i class="fas fa-angle-left right"></i>
               </a>

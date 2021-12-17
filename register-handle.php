@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
         header("Location: register.php?error=Account already exists");
     } else {
         $addNewCustomer = $customer->addNewCustomer($first, $last, $phone, $address, $city, $zipcode, $email, $gender, $birtday, $username,md5($pass));
-        header("Location: index.php");
+        header("Location: login.php");
     }
 }
 ?>

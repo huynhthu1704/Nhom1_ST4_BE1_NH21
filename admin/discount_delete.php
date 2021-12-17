@@ -19,7 +19,7 @@ if (isset($_GET['id'])) {
     echo "<script>alert('Delete successfully')</script>";
     echo "<script>window.location = 'discount.php'</script>";
   }else{
-    echo "<script>alert('Delete fail')</script>";
+    echo "<script>alert('Delete fail, Product of this discount is still exists')</script>";
     echo "<script>window.location = 'discount.php'</script>";
   }
 }else{

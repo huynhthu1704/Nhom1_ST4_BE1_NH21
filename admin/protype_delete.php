@@ -19,7 +19,7 @@ if (isset($_GET['type_id'])) {
     echo "<script>alert('Delete successfully')</script>";
     echo "<script>window.location = 'protype.php'</script>";
   } else {
-    echo "<script>alert('Delete fail')</script>";
+    echo "<script>alert('Delete fail, Product of this type is still exists')</script>";
     echo "<script>window.location = 'protype.php'</script>";
   }
 }else{
