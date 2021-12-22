@@ -1,4 +1,4 @@
-let gio = new Date("Jan 5, 2022 15:37:25").getTime();
+let gio = new Date("Jan 1, 2022 00:00:00").getTime();
 function clock() {
   let now = new Date().getTime();
   let distance = gio - now;

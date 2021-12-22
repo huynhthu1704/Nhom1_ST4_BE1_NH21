@@ -19,7 +19,7 @@ if (isset($_GET['manu_id'])) {
     echo "<script>alert('Delete successfully')</script>";
     echo "<script>window.location = 'manufacture.php'</script>";
   } else {
-    echo "<script>alert('Delete failed')</script>";
+    echo "<script>alert('Delete failed, Product of this manufacture is still exists')</script>";
     echo "<script>window.location = 'manufacture.php'</script>";
   }
 }else{
